@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class Pets extends Migration
+class Reservations extends Migration
 {
     /**
      * Run the migrations.
@@ -13,17 +13,18 @@ class Pets extends Migration
      */
     public function up()
     {
-        Schema::create('pets', function (Blueprint $table) {
+        Schema::create('reservations', function (Blueprint $table) {
             $table->id();
-            $table->string('name', 255);
-            $table->string('race', 255);
-            $table->string('observations', 255)->nullable();
             $table->unsignedInteger('user_id');
+            $table->unsignedInteger('room_id');
+            $table->unsignedInteger('pet_id');
             $table->timestamps();
-
         });
-        Schema::table('pets', function (Blueprint $table){
+        
+        Schema::table('reservations', function (Blueprint $table){
             $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('room_id')->references('id')->on('rooms');
+            $table->foreign('pet_id')->references('id')->on('pets');
         });
     }
 
@@ -34,6 +35,6 @@ class Pets extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('pets');
+        Schema::dropIfExists('reservations');
     }
 }
