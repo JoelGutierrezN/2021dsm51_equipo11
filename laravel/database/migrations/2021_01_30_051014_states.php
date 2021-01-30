@@ -14,7 +14,8 @@ class States extends Migration
     public function up()
     {
         Schema::create('states', function (Blueprint $table) {
-            $table->id();
+            $table->engine = 'InnoDB';
+            $table->bigIncrements('id');
             $table->string('key', 2);
             $table->string('name', 40);
             $table->string('shortname', 10);

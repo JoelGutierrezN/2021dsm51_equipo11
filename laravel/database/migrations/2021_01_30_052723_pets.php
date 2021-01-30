@@ -13,16 +13,15 @@ class Pets extends Migration
      */
     public function up()
     {
+        Schema::enableForeignKeyConstraints();
         Schema::create('pets', function (Blueprint $table) {
-            $table->id();
+            $table->engine = 'InnoDB';
+            $table->bigIncrements('id');
             $table->string('name', 255);
             $table->string('race', 255);
             $table->string('observations', 255)->nullable();
-            $table->unsignedInteger('user_id');
+            $table->unsignedBigInteger('user_id');
             $table->timestamps();
-
-        });
-        Schema::table('pets', function (Blueprint $table){
             $table->foreign('user_id')->references('id')->on('users');
         });
     }

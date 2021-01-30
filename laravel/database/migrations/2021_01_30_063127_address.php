@@ -13,19 +13,18 @@ class Address extends Migration
      */
     public function up()
     {
+        Schema::enableForeignKeyConstraints();
         Schema::create('address', function (Blueprint $table) {
-            $table->id();
+            $table->engine = 'InnoDB';
+            $table->bigIncrements('id');
             $table->string('street');
-            $table->unsignedInteger('number');
-            $table->unsignedInteger('number_int')->nullable();
+            $table->unsignedBigInteger('number');
+            $table->unsignedBigInteger('number_int')->nullable();
             $table->string('suburb');
-            $table->unsignedInteger('state_id');
-            $table->unsignedInteger('country_id');
-            $table->unsignedInteger('user_id');
+            $table->unsignedBigInteger('state_id');
+            $table->unsignedBigInteger('country_id');
+            $table->unsignedBigInteger('user_id');
             $table->timestamps();
-        });
-
-        Schema::table('address', function (Blueprint $table){
             $table->foreign('state_id')->references('id')->on('states');
             $table->foreign('country_id')->references('id')->on('countries');
             $table->foreign('user_id')->references('id')->on('users');

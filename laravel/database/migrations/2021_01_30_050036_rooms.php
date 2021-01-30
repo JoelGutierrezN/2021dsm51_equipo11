@@ -14,7 +14,8 @@ class Rooms extends Migration
     public function up()
     {
         Schema::create('rooms', function (Blueprint $table) {
-            $table->id();
+            $table->engine = 'InnoDB';
+            $table->bigIncrements('id');
             $table->string('rank');
             $table->float('cost');
             $table->timestamps();

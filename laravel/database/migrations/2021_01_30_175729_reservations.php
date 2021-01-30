@@ -13,18 +13,20 @@ class Reservations extends Migration
      */
     public function up()
     {
+        Schema::enableForeignKeyConstraints();
         Schema::create('reservations', function (Blueprint $table) {
-            $table->id();
-            $table->unsignedInteger('user_id');
-            $table->unsignedInteger('room_id');
-            $table->unsignedInteger('pet_id');
+            $table->engine = 'InnoDB';
+            $table->bigIncrements('id');
+            $table->string('date');
+            $table->unsignedBigInteger('user_id');
+            $table->unsignedBigInteger('room_id');
+            $table->unsignedBigInteger('pet_id');
+            $table->unsignedBigInteger('address_id');
             $table->timestamps();
-        });
-        
-        Schema::table('reservations', function (Blueprint $table){
             $table->foreign('user_id')->references('id')->on('users');
             $table->foreign('room_id')->references('id')->on('rooms');
             $table->foreign('pet_id')->references('id')->on('pets');
+            $table->foreign('address_id')->references('id')->on('address');
         });
     }
 

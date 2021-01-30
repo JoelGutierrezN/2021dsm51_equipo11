@@ -14,7 +14,8 @@ class CreatePostsTable extends Migration
     public function up()
     {
         Schema::create('posts', function (Blueprint $table) {
-            $table->id();
+            $table->engine = 'InnoDB';
+            $table->bigIncrements('id');
             $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->string('title');
             $table->timestamps();

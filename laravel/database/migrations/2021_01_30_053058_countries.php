@@ -13,16 +13,15 @@ class Countries extends Migration
      */
     public function up()
     {
+        Schema::enableForeignKeyConstraints();
         Schema::create('countries', function (Blueprint $table) {
-            $table->id();
+            $table->engine = 'InnoDB';
+            $table->bigIncrements('id');
             $table->string('key', 3);
             $table->string('name', 100);
             $table->unsignedTinyInteger('status');
-            $table->unsignedInteger('state_id');
+            $table->unsignedBigInteger('state_id');
             $table->timestamps();
-        });
-
-        Schema::table('countries', function (Blueprint $table){
             $table->foreign('state_id')->references('id')->on('states');
         });
     }
