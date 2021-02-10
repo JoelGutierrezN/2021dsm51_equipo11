@@ -6,6 +6,14 @@ use App\Http\Controllers\Auth\TokenController;
 use App\Models\User;
 use App\Http\Resources\UserResource;
 use Illuminate\Auth\AuthenticationException;
+use App\Http\Controllers\Api\AddressController;
+use App\Http\Controllers\Api\CountrieController;
+use App\Http\Controllers\Api\PetController;
+use App\Http\Controllers\Api\ReservationController;
+use App\Http\Controllers\Api\RoomController;
+use App\Http\Controllers\Api\StateController;
+use App\Http\Controllers\Api\TransactionController;
+use App\Http\Controllers\Api\UserController;
 
 //Tokens Sanctum
 Route::middleware('auth:sanctum')->get('/auth/user', function (Request $request) {
@@ -38,3 +46,9 @@ Route::post('/tokens/create', function (Request $request){
         'token' => auth()->user()->createToken('test')->plainTextToken
     ];
 });
+
+//Resources 
+    // User
+        Route::middleware('auth:sanctum')->group(function(){
+            Route::apiResource('usuarios', UserController::class)->except(['create', 'edit']);
+        });

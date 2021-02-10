@@ -23,6 +23,7 @@ class ReservationsSeeder extends Seeder
                 'room_id' => rand(1, 50),
                 'pet_id' => rand(1, 50),
                 'address_id' => rand(1,50),
+                'transaction_id' => rand(1,50)
             ]);
         }
     }

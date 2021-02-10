@@ -25,7 +25,6 @@ class Address extends Migration
             $table->unsignedBigInteger('country_id');
             $table->unsignedBigInteger('user_id');
             $table->timestamps();
-            $table->foreign('state_id')->references('id')->on('states');
             $table->foreign('country_id')->references('id')->on('countries');
             $table->foreign('user_id')->references('id')->on('users');
         });
