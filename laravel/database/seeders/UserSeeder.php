@@ -6,6 +6,8 @@ use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
+use Carbon\Carbon;
+use App\Models\User;
 
 class UserSeeder extends Seeder
 {
@@ -27,5 +29,18 @@ class UserSeeder extends Seeder
                 'rank' => 'user'
             ]);
         }
+
+        $now = Carbon::now('America/Mexico_City')->format('Y-m-d H:i:s');
+        User::insert([
+            'name' => 'Usuario Inicial',
+            'first_name' => 'Apellido',
+            'email' => 'correo@correo.com',
+            'password' => bcrypt('password'),
+            'cellphone' => 0000000000,
+            'phone' => 0000000000,
+            'rank' => 'admin',
+            'created_at' => $now,
+            'updated_at' => $now
+        ]);
     }
 }
