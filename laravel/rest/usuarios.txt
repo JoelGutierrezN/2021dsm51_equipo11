@@ -11,9 +11,9 @@ Accept: application/json
 Authorization: Bearer 1|IdI7Y42BVvCcbl6H3bsUIF9VijQ8wZxtK7WiWrsr
 
 {
-    "name": "Joel",
-    "first_name": "Gutierrez",
-    "email": "al221910321@gmail.com",
+    "name": "Montserrat",
+    "first_name": "Cerro",
+    "email": "al221910582@gmail.com",
     "password": "password",
     "cellphone": "7226628263",
     "phone": "7282856329",

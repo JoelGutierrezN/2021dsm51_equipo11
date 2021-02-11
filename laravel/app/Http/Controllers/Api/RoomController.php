@@ -4,6 +4,9 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Http\Resources\RoomResource;
+use App\Http\Resources\RoomCollection;
+use App\Models\room;
 
 class RoomController extends Controller
 {
@@ -14,7 +17,7 @@ class RoomController extends Controller
      */
     public function index()
     {
-        //
+        return new RoomCollection(room::all());
     }
 
     /**
@@ -35,7 +38,12 @@ class RoomController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'rank' => 'required|string|max:50',
+            'cost' => 'required'
+        ]);
+        $room = room::create($request->all());
+        return new RoomResource($room);
     }
 
     /**
