@@ -55,4 +55,6 @@ Route::post('/tokens/create', function (Request $request){
             Route::apiResource('pets', PetController::class)->except(['create', 'edit']);
             //rooms
             Route::apiResource('rooms', RoomController::class)->except(['create', 'edit']);
+            //transactions
+            Route::apiResource('transactions', TransactionController::class)->except(['create', 'edit']);
         });

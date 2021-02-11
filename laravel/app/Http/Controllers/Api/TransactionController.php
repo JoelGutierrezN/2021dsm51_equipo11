@@ -4,6 +4,9 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Http\Resources\TransactionResource;
+use App\Http\Resources\TransactionCollection;
+use App\Models\transaction;
 
 class TransactionController extends Controller
 {
@@ -14,7 +17,7 @@ class TransactionController extends Controller
      */
     public function index()
     {
-        //
+        return new TransactionCollection(transaction::all());
     }
 
     /**
@@ -35,7 +38,19 @@ class TransactionController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'card' => 'required|string|max:25',
+            'paypal_account' => 'required|string|max:25',
+            'date' => 'required',
+            'invoice' => 'required',
+            'owner_name' => 'required'
+        ]);
+        $request->merge([
+            'card' => bcrypt($request->card),
+            'invoice' => bcrypt($request->invoice)
+        ]);
+        $transaction = transaction::create($request->all());
+        return new TransactionResource($transaction);
     }
 
     /**
