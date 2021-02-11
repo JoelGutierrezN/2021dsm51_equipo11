@@ -4,6 +4,9 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Http\Resources\CountrieResource;
+use App\Http\Resources\CountrieCollection;
+use App\Models\countrie;
 
 class CountrieController extends Controller
 {
@@ -14,7 +17,7 @@ class CountrieController extends Controller
      */
     public function index()
     {
-        //
+        return new CountrieCollection(countrie::all());
     }
 
     /**
@@ -35,7 +38,14 @@ class CountrieController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'key' => 'required',
+            'name' => 'required',
+            'status' => 'required',
+            'state_id' => 'required'
+        ]);
+        $countrie = countrie::create($request->all());
+        return new CountrieResource($countrie);
     }
 
     /**

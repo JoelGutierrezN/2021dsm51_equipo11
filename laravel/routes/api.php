@@ -59,4 +59,6 @@ Route::post('/tokens/create', function (Request $request){
             Route::apiResource('transactions', TransactionController::class)->except(['create', 'edit']);
             //states
             Route::apiResource('states', StateController::class)->except(['create', 'edit']);
+            //Countries
+            Route::apiResource('countries', CountrieController::class)->except(['create', 'edit']);
         });

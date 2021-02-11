@@ -14,6 +14,12 @@ class CountrieResource extends JsonResource
      */
     public function toArray($request)
     {
-        return parent::toArray($request);
+        return [
+            'id' => $this->id,
+            'key' => $this->key,
+            'name' => $this->name,
+            'status' => $this->status,
+            'state_id' => $this->state_id
+        ];
     }
 }

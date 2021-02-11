@@ -1,18 +1,18 @@
 ## Obtener usuarios
-GET http://127.0.0.1:8000/api/states HTTP/1.1
+GET http://127.0.0.1:8000/api/countries HTTP/1.1
 Content-Type: application/json
 Accept: application/json
 Authorization: Bearer 1|6SBwNI0FhV6lXZ46PylZDJPBVPr8iGAJLIk4jgDu
 
 ## Registrar usuarios
-POST http://127.0.0.1:8000/api/states HTTP/1.1
+POST http://127.0.0.1:8000/api/countries HTTP/1.1
 Content-Type: application/json
 Accept: application/json
 Authorization: Bearer 1|6SBwNI0FhV6lXZ46PylZDJPBVPr8iGAJLIk4jgDu
 
 {
-    "key": "01",
-    "name": "Jalisco",
-    "shortname": "Jal",
-    "status": "01"
+    "key": "LV",
+    "name": "Lerma de Villada",
+    "status": "01",
+    "state_id": "22"
 }
