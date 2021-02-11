@@ -1,0 +1,21 @@
+## Obtener usuarios
+GET http://127.0.0.1:8000/api/address HTTP/1.1
+Content-Type: application/json
+Accept: application/json
+Authorization: Bearer 2|8Yhx1nYxlvK1F2JuTkMIuururCUVzswuK8ZE1FAj
+
+## Registrar usuarios
+POST http://127.0.0.1:8000/api/address HTTP/1.1
+Content-Type: application/json
+Accept: application/json
+Authorization: Bearer 2|8Yhx1nYxlvK1F2JuTkMIuururCUVzswuK8ZE1FAj
+
+{
+    "street": "Emiliano Zapata",
+    "number": "12",
+    "number_int": "",
+    "suburb": "El Panteon",
+    "state_id": "2",
+    "country_id": "2",
+    "user_id": "2"
+}
