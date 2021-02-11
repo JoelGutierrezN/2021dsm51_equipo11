@@ -4,6 +4,9 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Http\Resources\StateResource;
+use App\Http\Resources\StateCollection;
+use App\Models\state;
 
 class StateController extends Controller
 {
@@ -14,7 +17,7 @@ class StateController extends Controller
      */
     public function index()
     {
-        //
+        return new StateCollection(state::all());
     }
 
     /**
@@ -35,7 +38,14 @@ class StateController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'key' => 'required',
+            'name' => 'required',
+            'shortname' => 'required',
+            'status' => 'required',
+        ]);
+        $state = state::create($request->all());
+        return new StateResource($state);
     }
 
     /**
