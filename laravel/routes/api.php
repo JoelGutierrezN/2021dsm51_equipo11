@@ -63,4 +63,6 @@ Route::post('/tokens/create', function (Request $request){
             Route::apiResource('countries', CountrieController::class)->except(['create', 'edit']);
             //Addresses
             Route::apiResource('address', AddressController::class)->except(['create', 'edit']);
+            //reservations
+            Route::apiResource('reservations', ReservationController::class)->except(['create', 'edit']);
         });

@@ -15,7 +15,7 @@ class reservation extends Model
         'user_id',
         'room_id',
         'pet_id',
-        'addres_id',
+        'address_id',
         'transaction_id'
     ];
 }

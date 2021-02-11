@@ -4,6 +4,9 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Http\Resources\ReservationResource;
+use App\Http\Resources\ReservationCollection;
+use App\Models\reservation;
 
 class ReservationController extends Controller
 {
@@ -14,7 +17,7 @@ class ReservationController extends Controller
      */
     public function index()
     {
-        //
+        return new ReservationCollection(reservation::all());
     }
 
     /**
@@ -35,7 +38,16 @@ class ReservationController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'date' => 'required',
+            'user_id' => 'required',
+            'room_id' => 'required',
+            'pet_id' => 'required',
+            'address_id' => 'required',
+            'transaction_id' => 'required'
+        ]);
+        $reservation = reservation::create($request->all());
+        return new ReservationResource($reservation);
     }
 
     /**
