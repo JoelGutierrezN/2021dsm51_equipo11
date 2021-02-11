@@ -4,6 +4,9 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Http\Resources\PetResource;
+use App\Http\Resources\PetCollection;
+use App\Models\pet;
 
 class PetController extends Controller
 {
@@ -14,7 +17,7 @@ class PetController extends Controller
      */
     public function index()
     {
-        //
+        return new PetCollection(pet::all());
     }
 
     /**
@@ -35,7 +38,14 @@ class PetController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'name' => 'required|string|max:50',
+            'race' => 'required|string|max:50',
+            'observations' => 'string|max:255',
+            'user_id' => 'required'
+        ]);
+        $pet = pet::create($request->all());
+        return new PetResource($pet);
     }
 
     /**

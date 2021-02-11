@@ -48,7 +48,9 @@ Route::post('/tokens/create', function (Request $request){
 });
 
 //Resources 
-    // User
         Route::middleware('auth:sanctum')->group(function(){
+            //users
             Route::apiResource('usuarios', UserController::class)->except(['create', 'edit']);
+            //pets
+            Route::apiResource('pets', PetController::class)->except(['create', 'edit']);
         });

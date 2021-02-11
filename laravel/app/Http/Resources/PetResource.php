@@ -14,6 +14,12 @@ class PetResource extends JsonResource
      */
     public function toArray($request)
     {
-        return parent::toArray($request);
+        return [
+            'id' => $this->id,
+            'name' => $this->name,
+            'race' => $this->race,
+            'observations' => $this->observations,
+            'user_id' => $this->user_id
+        ];
     }
 }
