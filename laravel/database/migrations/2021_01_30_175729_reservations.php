@@ -22,11 +22,13 @@ class Reservations extends Migration
             $table->unsignedBigInteger('room_id');
             $table->unsignedBigInteger('pet_id');
             $table->unsignedBigInteger('address_id');
+            $table->unsignedBigInteger('transaction_id');
             $table->timestamps();
             $table->foreign('user_id')->references('id')->on('users');
             $table->foreign('room_id')->references('id')->on('rooms');
             $table->foreign('pet_id')->references('id')->on('pets');
             $table->foreign('address_id')->references('id')->on('address');
+            $table->foreign('transaction_id')->references('id')->on('transactions');
         });
     }
 

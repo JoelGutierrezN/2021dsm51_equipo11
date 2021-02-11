@@ -1,0 +1,21 @@
+## Obtener usuarios
+GET http://127.0.0.1:8000/api/usuarios HTTP/1.1
+Content-Type: application/json
+Accept: application/json
+Authorization: Bearer 1|IdI7Y42BVvCcbl6H3bsUIF9VijQ8wZxtK7WiWrsr
+
+## Registrar usuarios
+POST http://127.0.0.1:8000/api/usuarios HTTP/1.1
+Content-Type: application/json
+Accept: application/json
+Authorization: Bearer 1|IdI7Y42BVvCcbl6H3bsUIF9VijQ8wZxtK7WiWrsr
+
+{
+    "name": "Montserrat",
+    "first_name": "Cerro",
+    "email": "al221910582@gmail.com",
+    "password": "password",
+    "cellphone": "7226628263",
+    "phone": "7282856329",
+    "rank": "Admin"
+}
