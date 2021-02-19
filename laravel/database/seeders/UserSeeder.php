@@ -32,15 +32,15 @@ class UserSeeder extends Seeder
 
         $now = Carbon::now('America/Mexico_City')->format('Y-m-d H:i:s');
         User::insert([
-            'name' => 'Usuario Inicial',
-            'first_name' => 'Apellido',
-            'email' => 'correo@correo.com',
-            'password' => bcrypt('password'),
-            'cellphone' => 0000000000,
-            'phone' => 0000000000,
-            'rank' => 'admin',
-            'created_at' => $now,
-            'updated_at' => $now
-        ]);
+                'name' => 'Usuario Inicial',
+                'first_name' => 'Apellido',
+                'email' => 'correo@correo.com',
+                'password' => bcrypt('password'),
+                'cellphone' => 0000000000,
+                'phone' => 0000000000,
+                'rank' => 'admin',
+                'created_at' => $now,
+                'updated_at' => $now
+            ]);
     }
 }

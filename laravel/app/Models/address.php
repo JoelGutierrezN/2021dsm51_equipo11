@@ -18,4 +18,6 @@ class address extends Model
         'country_id',
         'user_id'
     ];
+    
+    protected $table = 'address';
 }

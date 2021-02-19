@@ -16,4 +16,6 @@ class transaction extends Model
         'invoice',
         'owner_name'
     ];
+
+    protected $table = 'transactions';
 }

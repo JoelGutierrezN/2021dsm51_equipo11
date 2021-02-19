@@ -15,4 +15,6 @@ class countrie extends Model
         'status',
         'state_id'
     ];
+
+    protected $table = 'countries';
 }

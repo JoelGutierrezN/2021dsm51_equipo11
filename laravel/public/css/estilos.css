@@ -1,0 +1,61 @@
+:root{
+    --negro: rgb(0, 0, 0);
+    --blanco: rgb(255, 255, 255);
+    --vino: rgb(170, 25, 75);
+    --naranja_primario: rgb(255, 144, 0);
+    --naranja_secundario: rgb(255, 96, 0);
+    --amarillo: rgb(246, 178, 0);
+}
+
+/* Globales*/
+    /* Normalización de 1 rem = 10px*/
+    html{
+        font-size: 62.5%;
+    }
+img{
+    max-width: 100%;
+}
+
+/* Fuentes */
+.titulo{
+    font-family: 'Satisfy', cursive;
+}
+.body{
+    font-family: 'Mukta', sans-serif;
+}
+
+/* Contenedores */
+
+.contenedor{
+    max-width: 120rem;
+    margin: 0 auto;
+}
+
+/* Responsive Web Desing */
+    /* Celulares */
+        @media (min-width: 300px){
+            body{
+                background-color: yellowgreen;
+            }
+        }
+
+    /* Tablets */
+        @media (min-width: 768px){
+            body{
+                background-color: yellow;
+            }
+        }
+
+    /* PC */
+        @media (min-width: 1024px){
+            body{
+                background-color: orange;
+            }
+        }
+
+    /* Pantallas */
+        @media (min-width: 1080px){
+            body{
+                background-color: red;
+            }
+        }

@@ -15,4 +15,6 @@ class state extends Model
         'shortname',
         'status'
     ];
+
+    protected $table = 'states';
 }

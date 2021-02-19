@@ -18,4 +18,6 @@ class reservation extends Model
         'address_id',
         'transaction_id'
     ];
+
+    protected $table = 'reservations';
 }

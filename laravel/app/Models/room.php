@@ -13,4 +13,6 @@ class room extends Model
         'rank',
         'cost'
     ];
+
+    protected $table = 'rooms';
 }

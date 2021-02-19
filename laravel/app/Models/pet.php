@@ -15,4 +15,6 @@ class pet extends Model
         'observations',
         'user_id'
     ];
+
+    protected $table = 'pets';
 }
