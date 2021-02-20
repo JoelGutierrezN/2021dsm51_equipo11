@@ -29,3 +29,15 @@ Route::get('/dashboard', function () {
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 require __DIR__.'/auth.php';
+
+Route::get('/user/{id}', function ($id) {
+    return new UserResource(User::findOrFail($id));
+});
+
+Route::get('/users', function () {
+    return UserResource::collection(User::all());
+});
+
+Route::get('/', function(){ return view('inicio'); })->name('inicio');
+Route::get('/reservaciones', function(){ return view('pages.reservaciones'); })->name('reservaciones');
+Route::get('/servicios', function(){ return view('pages.servicios'); })->name('servicios');
