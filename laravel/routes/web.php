@@ -1,6 +1,8 @@
 <?php
 
+use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
+use Inertia\Inertia;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,14 +15,17 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/user/{id}', function ($id) {
-    return new UserResource(User::findOrFail($id));
+Route::get('/', function () {
+    return Inertia::render('Welcome', [
+        'canLogin' => Route::has('login'),
+        'canRegister' => Route::has('register'),
+        'laravelVersion' => Application::VERSION,
+        'phpVersion' => PHP_VERSION,
+    ]);
 });
 
-Route::get('/users', function () {
-    return UserResource::collection(User::all());
-});
+Route::get('/dashboard', function () {
+    return Inertia::render('Dashboard');
+})->middleware(['auth', 'verified'])->name('dashboard');
 
-Route::get('/', function(){ return view('inicio'); })->name('inicio');
-Route::get('servicios', function(){ return view('pages.servicios'); })->name('servicios');
-Route::get('reservaciones', function(){ return view('pages.reservaciones'); })->name('reservaciones');
+require __DIR__.'/auth.php';

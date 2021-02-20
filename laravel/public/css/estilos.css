@@ -259,7 +259,3 @@ img{
     /* PC */
         @media (min-width: 1024px){
         }
-
-    /* Pantallas */
-        @media (min-width: 1080px){
-        }
