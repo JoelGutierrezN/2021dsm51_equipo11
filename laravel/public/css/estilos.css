@@ -23,6 +23,13 @@ img{
 .body{
     font-family: 'Mukta', sans-serif;
 }
+.text-orange{
+    text-decoration: none;
+    color: var(--naranja_primario);
+}
+.negrita{
+    font-weight: 700;
+}
 
 /* Contenedores */
 
@@ -30,32 +37,77 @@ img{
     max-width: 120rem;
     margin: 0 auto;
 }
+/* Navegacion */
+.navegacion{
+    background-color: black;
+    font-size: 1.4rem;        
+    margin-bottom: none;
+}
+.banner{
+    width: 100%;
+    height: 53.3rem;
+    background-image: url(../img/perritos.png);
+    background-position: center center;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 2.5rem;
+}
+.logo{
+    width: 15rem;
+}
+.sesion div{
+    margin: 0.2rem 0.2rem;
+}
+.sesion a:hover{
+    color:white;
+}
+#inicio-link:hover{
+    color: var(--blanco);
+}
+.texto-blanco{
+    text-decoration: none;
+    color: var(--blanco);
+}
+.texto-blanco:hover{
+    color: var(--naranja_primario);
+}
+.texto-amarillo{
+    color: var(--amarillo);
+    text-decoration: none;
+}
+.texto-amarillo:hover{
+    color: var(--naranja_primario);
+}
+.boton{
+    border:none;
+    width: 30rem;
+    padding: 1rem;
+    font-size: 2rem;
+}
+.boton-naranja{
+    background-color: var(--naranja_primario);
+    color:white;
+}
+.boton-naranja:hover{
+    background-color: var(--blanco);
+    color: var(--naranja_primario);
+}
 
 /* Responsive Web Desing */
     /* Celulares */
         @media (min-width: 300px){
-            body{
-                background-color: yellowgreen;
-            }
         }
 
     /* Tablets */
         @media (min-width: 768px){
-            body{
-                background-color: yellow;
-            }
         }
 
     /* PC */
         @media (min-width: 1024px){
-            body{
-                background-color: orange;
-            }
         }
 
     /* Pantallas */
         @media (min-width: 1080px){
-            body{
-                background-color: red;
-            }
         }

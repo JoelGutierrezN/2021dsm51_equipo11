@@ -1,2 +1,28 @@
-<nav>
+<nav class="navbar navbar-expand-lg navegacion">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">
+      <img src="img/logo.png" alt="..." class="d-inline-block align-top logo">
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link text-orange negrita" id="inicio-link" href="#">Inicio</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link texto-blanco" href="#">Reservaciones</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link texto-blanco" href="#">Servicios</a>
+        </li>
+      </ul>
+    </div>
+    <span class="navbar-nav d-flex text-orange sesion">
+        <a href="" class="text-orange">Iniciar Sesion</a>
+        <div class="text-white"> | </div>
+        <a href="" class="texto-amarillo">Registrarse</a>
+    </span>
+  </div>
 </nav>

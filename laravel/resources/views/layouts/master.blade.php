@@ -6,9 +6,7 @@
 @section('body')
     <body>
 
-        @section('header')
-            @include('layouts.header')
-        @stop
+        @include('layouts.header')
 
         @yield('contenido')
 
