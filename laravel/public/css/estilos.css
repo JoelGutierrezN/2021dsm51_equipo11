@@ -30,12 +30,70 @@ img{
 .negrita{
     font-weight: 700;
 }
+.texto-blanco{
+    text-decoration: none;
+    color: var(--blanco);
+}
+.texto-blanco:hover{
+    color: var(--naranja_primario);
+}
+.texto-amarillo{
+    color: var(--amarillo);
+    text-decoration: none;
+}
+.texto-amarillo:hover{
+    color: var(--naranja_primario);
+}
 
 /* Contenedores */
 
 .contenedor{
     max-width: 120rem;
     margin: 0 auto;
+}
+.main{
+    background-color: rgb(255, 255, 255);
+    margin-top: 1rem;
+    box-shadow: gray 1rem 1rem 1rem 1rem;
+    display: flex;
+    justify-content: space-between;
+    height: 58rem;
+}
+.seccion-nosotros{
+    width: 40%;
+    margin: 1rem 1rem;
+    background-color: var(--naranja_primario);
+    padding: 1.5rem;
+    box-shadow: gray 1rem 1rem 1rem 1rem;
+}
+.seccion-nosotros img, .seccion-servicio img{
+    margin-bottom: 2rem;
+    border: solid 0.1rem white;
+}
+.seccion-servicio img{
+    margin-right: 1rem;
+}
+.seccion-nosotros h3, .seccion-servicio h3{
+    font-size: 2rem;
+    text-align: center;
+}
+.seccion-servicios{
+    margin: 1rem 1rem 2rem 1rem;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+}
+.seccion-servicio{
+    height: calc(58rem/3 - 2rem);
+    padding: 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    box-shadow: gray 1rem 1rem 1rem 1rem;
+}
+.seccion-servicio-cuerpo{
+    display: flex;
+    justify-content: space-between;
 }
 /* Navegacion */
 .navegacion{
@@ -66,20 +124,6 @@ img{
 #inicio-link:hover{
     color: var(--blanco);
 }
-.texto-blanco{
-    text-decoration: none;
-    color: var(--blanco);
-}
-.texto-blanco:hover{
-    color: var(--naranja_primario);
-}
-.texto-amarillo{
-    color: var(--amarillo);
-    text-decoration: none;
-}
-.texto-amarillo:hover{
-    color: var(--naranja_primario);
-}
 .boton{
     border:none;
     width: 30rem;
@@ -93,6 +137,51 @@ img{
 .boton-naranja:hover{
     background-color: var(--blanco);
     color: var(--naranja_primario);
+}
+.footer{
+    margin-top: 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+}
+.footer-redes, .footer-contacto{
+    display: flex;
+    justify-content: space-between;
+}
+.footer-redes ul, .footer-contacto ul{
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+}
+.footer-redes ul li, .footer-contacto ul li{
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+}
+.footer-redes ul li img, .footer-contacto ul li img{
+    width: 5rem;
+}
+.footer-redes ul li p, .footer-contacto ul li p{
+    text-align: center;
+    width: 10rem;
+}
+
+/* Fondos */
+.fondo-naranja{
+    background-color: var(--naranja_primario);
+}
+.fondo-naranja-secundario{
+    background-color: var(--naranja_secundario);
+}
+.fondo-vino{
+    background-color: var(--vino);
+}
+.fondo-negro{
+    background-color: black;
+}
+.texto-vino{
+    color: var(--vino);
 }
 
 /* Responsive Web Desing */
