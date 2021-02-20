@@ -90,6 +90,7 @@ class StateController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $state = DB::table('states')->where('id', $id)->delete();
+        return new StateCollection(state::all());
     }
 }

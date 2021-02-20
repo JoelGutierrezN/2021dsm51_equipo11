@@ -95,6 +95,7 @@ class TransactionController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $transaction = DB::table('transactions')->where('id', $id)->delete();
+        return new TransactionCollection(transaction::all());
     }
 }

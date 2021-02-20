@@ -90,6 +90,7 @@ class CountrieController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $country = DB::table('countries')->where('id', $id)->delete();
+        return new CountrieCollection(countrie::all());
     }
 }

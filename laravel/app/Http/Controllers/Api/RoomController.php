@@ -88,6 +88,7 @@ class RoomController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $room = DB::table('rooms')->where('id', $id)->delete();
+        return new RoomCollection(room::all());
     }
 }
