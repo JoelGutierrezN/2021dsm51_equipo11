@@ -18,7 +18,7 @@ class RoomsSeeder extends Seeder
     {
         for($i = 1; $i <= 50; $i++){
             DB::table('rooms')->insert([
-                'rank' => rand(1, 5),
+                'rank' => Str::random(10),
                 'cost' => rand(250, 600),
             ]);
         }
