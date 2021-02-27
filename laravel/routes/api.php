@@ -16,22 +16,14 @@ use App\Http\Controllers\Api\TransactionController;
 use App\Http\Controllers\Api\UserController;
 
 //Tokens Sanctum
-Route::middleware('auth:sanctum')->get('/auth/user', function (Request $request) {
-    return $request->user();
-});
-
-Route::middleware('auth:sanctum')->get('/user/posts', function (Request $request) {
-    return $request->user()->posts;
-});
-
+Route::middleware('auth:sanctum')->get('/auth/user', function (Request $request) { return $request->user(); });
+Route::middleware('auth:sanctum')->get('/user/posts', function (Request $request) { return $request->user()->posts; });
+Route::middleware('auth:sanctum')->get('app/usuarios', function () { return response()->json(UserResource::collection(User::all())); });
 Route::post('/auth/token', [TokenController::class, 'store']);
 Route::delete('/auth/token', [TokenController::class, 'destroy']);
 
 //Tokens Users
-Route::middleware('auth:api')->get('/user', function (Request $request){
-    return $request->user();
-});
-
+Route::middleware('auth:api')->get('/user', function (Request $request){ return $request->user(); });
 Route::post('/tokens/create', function (Request $request){
     $request->validate([
         'email' => 'required|email',
@@ -46,7 +38,6 @@ Route::post('/tokens/create', function (Request $request){
         'token' => auth()->user()->createToken('test')->plainTextToken
     ];
 });
-
 //Resources 
         Route::middleware('auth:sanctum')->group(function(){
             //users
