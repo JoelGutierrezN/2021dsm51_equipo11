@@ -20,9 +20,9 @@
       </ul>
     </div>
     <span class="navbar-nav d-flex text-orange sesion">
-        <a href="" class="text-orange">Iniciar Sesion</a>
+        <a href="{{ route('login') }}" class="text-orange">Iniciar Sesion</a>
         <div class="text-white"> | </div>
-        <a href="" class="texto-amarillo">Registrarse</a>
+        <a href="{{ route('register') }}" class="texto-amarillo">Registrarse</a>
     </span>
   </div>
 </nav>
