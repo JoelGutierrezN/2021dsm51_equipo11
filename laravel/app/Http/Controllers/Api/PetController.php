@@ -90,6 +90,7 @@ class PetController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $pet = DB::table('pets')->where('id', $id)->delete();
+        return new PetCollection(pet::all());
     }
 }

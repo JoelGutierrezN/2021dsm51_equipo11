@@ -70,7 +70,8 @@ class AddressController extends Controller
      */
     public function edit($id)
     {
-        //
+        $address = DB::table('address')->where('id', $id)->first();
+        return redirect()->action('AddressController@update')->with([$request => $address]);
     }
 
     /**
@@ -82,7 +83,17 @@ class AddressController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $address = DB::table('address')->where('id', $request->$id)->insert([
+            'id' => $request->$id,
+            'street' => $request->$street,
+            'number' => $request->$number,
+            'number_int' => $request->$number_int,
+            'suburb' => $request->$suburb,
+            'state_id' => $request->$state_id,
+            'country_id' => $request->country_id,
+            'user_id' => $request->user_id
+        ]);
+        return new AddressResource($address);
     }
 
     /**
@@ -93,6 +104,7 @@ class AddressController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $address = DB::table('address')->where('id', $id)->delete();
+        return new AddressCollection(address::all());
     }
 }
