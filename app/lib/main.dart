@@ -20,6 +20,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'SafetyDogs',
       theme: ThemeData(
         primarySwatch: Colors.blue,
@@ -55,6 +56,7 @@ class _MyHomePageState extends State<MyHomePage> {
     return Scaffold(
       backgroundColor: Color(0xFFFFF3E0),
       appBar: AppBar(
+        centerTitle: true,
         title: Text(widget.title),
         backgroundColor: Color(0xFFFF5722),
       ),
@@ -63,7 +65,7 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Consumer<Auth>(
           builder: (context, auth, child){
             if (auth.authenticated) {
-              return Text('Has Iniciado Sesion');
+              return Text('Sesion Iniciada');
             } else {
               return Text('No Has Iniciado Sesion');
             }

@@ -51,12 +51,6 @@ class NavDrawer extends StatelessWidget{
             return ListView(
               children: [
                 ListTile(
-                  title: Text('Habitaciones'),
-                  onTap: () {
-                    Navigator.push(context, MaterialPageRoute(builder: (context) => RoomsScreen()));
-                  }
-                ),
-                ListTile(
                   title: Text('Iniciar Sesion'),
                   onTap: () {
                     Navigator.push(context, MaterialPageRoute(builder: (context) => LoginScreen()));

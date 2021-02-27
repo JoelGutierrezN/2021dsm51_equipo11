@@ -19,7 +19,7 @@ class RoomsState extends State<RoomsScreen>{
     Dio.Response response = await dio().get(
       'app/rooms',
       options: Dio.Options(
-        headers: {'auth': false}
+        headers: {'auth': true}
         )
       );
 
@@ -43,25 +43,6 @@ class RoomsState extends State<RoomsScreen>{
         backgroundColor: Color(0xFFFF5722),
       ),
       body: Center(
-        /*child: FutureBuilder(
-          future: getUsershttp(),
-          builder: (context, snapshot){
-            if (snapshot.hasData) {
-              return ListView.builder(
-                itemCount: snapshot.data.length,
-                itemBuilder: (context, index){
-                  var user = snapshot.data[index];
-                  return ListTile(
-                    title: Text('Usuario: ${user.name}'),
-                  );
-                }
-              );
-            }else if (snapshot.hasError){
-              return Text('Error al cargar los usuarios');
-            }
-            return CircularProgressIndicator();
-          },
-        ),*/
         child: FutureBuilder<List<Room>>(
           future: getData(),
           builder: (context, snapshot){
@@ -71,10 +52,10 @@ class RoomsState extends State<RoomsScreen>{
                 itemBuilder: (context, index){
                   var item = snapshot.data[index];
                   return ListTile(
-                    leading: Image.network('https://img2.freepng.es/20180331/eow/kisspng-computer-icons-user-clip-art-user-5abf13db298934.2968784715224718991702.jpg'),
+                    leading: Image.network('https://tecnohotelnews.com/wp-content/uploads/2020/07/image004-2.jpg'),
                     title: Text('Habitacion: ${item.rank}'),
-                    subtitle: Text('Costo: ${item.cost}'),
-                    trailing: Icon(Icons.more_vert),
+                    subtitle: Text('Costo: \$${item.cost}'),
+                    trailing: Icon(Icons.touch_app_rounded),
                   );
                 }
               );
