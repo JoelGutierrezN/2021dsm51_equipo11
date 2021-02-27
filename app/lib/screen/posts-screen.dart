@@ -29,8 +29,10 @@ class PostsState extends State<PostsScreen>{
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Color(0xFFFFF3E0),
       appBar: AppBar(
         title: Text('Publicaciones'),
+        backgroundColor: Color(0xFFFF5722),
       ),
       body: Center(
         child: FutureBuilder<List<Post>>(

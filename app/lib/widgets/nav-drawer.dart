@@ -1,5 +1,6 @@
 
 import 'package:app/providers/auth.dart';
+import 'package:app/screen/rooms-creen.dart';
 import 'package:app/screen/users-screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -19,6 +20,12 @@ class NavDrawer extends StatelessWidget{
                     children: [
                       ListTile(
                         title: Text(auth.user.name),
+                      ),
+                      ListTile(
+                        title: Text('Habitaciones'),
+                        onTap: () {
+                          Navigator.push(context, MaterialPageRoute(builder: (context) => RoomsScreen()));
+                        }
                       ),
                       ListTile(
                         title: Text('Publicaciones'),
@@ -43,6 +50,12 @@ class NavDrawer extends StatelessWidget{
           } else {
             return ListView(
               children: [
+                ListTile(
+                  title: Text('Habitaciones'),
+                  onTap: () {
+                    Navigator.push(context, MaterialPageRoute(builder: (context) => RoomsScreen()));
+                  }
+                ),
                 ListTile(
                   title: Text('Iniciar Sesion'),
                   onTap: () {

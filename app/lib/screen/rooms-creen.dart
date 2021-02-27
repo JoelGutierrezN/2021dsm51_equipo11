@@ -1,30 +1,31 @@
 import 'dart:convert';
+import 'dart:developer';
 
-import 'package:app/models/user.dart';
+import 'package:app/models/room.dart';
 import 'package:dio/dio.dart' as Dio;
 import 'package:flutter/material.dart';
 
 import '../dio.dart';
 
-class UsersScreen extends StatefulWidget{
+class RoomsScreen extends StatefulWidget{
   @override
   State<StatefulWidget> createState(){
-    return UsersState();
+    return RoomsState();
   }
 }
 
-class UsersState extends State<UsersScreen>{
-  Future <List<User>> getUsers() async{
+class RoomsState extends State<RoomsScreen>{
+  Future <List<Room>> getData() async{
     Dio.Response response = await dio().get(
-      'app/users',
+      'app/rooms',
       options: Dio.Options(
-        headers: {'auth': true}
+        headers: {'auth': false}
         )
       );
 
-    List users = json.decode(response.toString());
-
-    return users.map((user) => User.fromJson(user)).toList();
+    List rooms = json.decode(response.toString());
+    log(rooms.toString());
+    return rooms.map((room) => Room.fromJson(room)).toList();
 
   }
   /*Future<Map<String, dynamic>> getUsershttp() async{
@@ -38,7 +39,7 @@ class UsersState extends State<UsersScreen>{
     return Scaffold(
       backgroundColor: Color(0xFFFFF3E0),
       appBar: AppBar(
-        title: Text('Usuarios'),
+        title: Text('Habitaciones'),
         backgroundColor: Color(0xFFFF5722),
       ),
       body: Center(
@@ -61,8 +62,8 @@ class UsersState extends State<UsersScreen>{
             return CircularProgressIndicator();
           },
         ),*/
-        child: FutureBuilder<List<User>>(
-          future: getUsers(),
+        child: FutureBuilder<List<Room>>(
+          future: getData(),
           builder: (context, snapshot){
             if (snapshot.hasData) {
               return ListView.builder(
@@ -71,14 +72,14 @@ class UsersState extends State<UsersScreen>{
                   var item = snapshot.data[index];
                   return ListTile(
                     leading: Image.network('https://img2.freepng.es/20180331/eow/kisspng-computer-icons-user-clip-art-user-5abf13db298934.2968784715224718991702.jpg'),
-                    title: Text('Nombre de Usuario: ${item.name}'),
-                    subtitle: Text('Rango: ${item.rank}'),
+                    title: Text('Habitacion: ${item.rank}'),
+                    subtitle: Text('Costo: ${item.cost}'),
                     trailing: Icon(Icons.more_vert),
                   );
                 }
               );
             }else if(snapshot.hasError){
-              return Text('Error al cargar los usuarios');
+              return Text('Error al cargar las habitaciones');
             }
             return CircularProgressIndicator();
           }
