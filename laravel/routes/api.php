@@ -4,7 +4,9 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\TokenController;
 use App\Models\User;
+use App\Models\Room;
 use App\Http\Resources\UserResource;
+use App\Http\Resources\RoomResource;
 use Illuminate\Auth\AuthenticationException;
 use App\Http\Controllers\Api\AddressController;
 use App\Http\Controllers\Api\CountrieController;
@@ -18,7 +20,8 @@ use App\Http\Controllers\Api\UserController;
 //Tokens Sanctum
 Route::middleware('auth:sanctum')->get('/auth/user', function (Request $request) { return $request->user(); });
 Route::middleware('auth:sanctum')->get('/user/posts', function (Request $request) { return $request->user()->posts; });
-Route::middleware('auth:sanctum')->get('app/usuarios', function () { return response()->json(UserResource::collection(User::all())); });
+Route::middleware('auth:sanctum')->get('app/users', function () { return response()->json(UserResource::collection(User::all())); });
+Route::middleware('auth:sanctum')->get('app/rooms', function () { return response()->json(RoomResource::collection(Room::all())); });
 Route::post('/auth/token', [TokenController::class, 'store']);
 Route::delete('/auth/token', [TokenController::class, 'destroy']);
 

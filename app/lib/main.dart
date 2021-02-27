@@ -53,8 +53,10 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Color(0xFFFFF3E0),
       appBar: AppBar(
         title: Text(widget.title),
+        backgroundColor: Color(0xFFFF5722),
       ),
       drawer: NavDrawer(),
       body: Center(
