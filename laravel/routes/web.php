@@ -21,6 +21,6 @@ Route::get('/users', function () {
     return UserResource::collection(User::all());
 });
 
-Route::get('/', function(){
-    return view('inicio');
-});
+Route::get('/', function(){ return view('inicio'); })->name('inicio');
+Route::get('/reservaciones', function(){ return view('pages.reservaciones'); })->name('reservaciones');
+Route::get('/servicios', function(){ return view('pages.servicios'); })->name('servicios');
