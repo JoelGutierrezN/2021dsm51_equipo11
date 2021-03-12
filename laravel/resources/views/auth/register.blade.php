@@ -1,59 +1,53 @@
-<x-guest-layout>
-    <x-auth-card>
-        <x-slot name="logo">
-            <a href="/">
-                <x-application-logo class="w-20 h-20 fill-current text-gray-500" />
-            </a>
-        </x-slot>
+@extends ('layouts.master')
 
-        <!-- Validation Errors -->
-        <x-auth-validation-errors class="mb-4" :errors="$errors" />
+@section('titulo', 'Registrarse')
 
-        <form method="POST" action="{{ route('register') }}">
+@section('contenido')
+<body class="fondo-body">
+    <div class="contenedor">
+        <div class="contenedor_formulario">
+            <!-- formulario login -->
+            <form action="{{ route('registrarUsuario') }}" method="post" class="form_registro">
             @csrf
+                <fieldset class="titulo text-center text-orange">Crear Cuenta en SafetyDogs</fieldset>
+                <div class="form_nombreUsuario">
+                    <div>
+                        <!-- Name -->
+                        <label for="" class="text-white">Nombre: </label>
+                        <input type="text" name="name" id="name" class="name">
+                    </div>
+                    <div>
+                        <!-- First Name -->
+                        <label for="" class="text-white">Apellido: </label>
+                        <input type="text" name="first_name" id="first_name" class="fist_name">
+                    </div>
+                </div>
+                <!-- Email -->
+                <label for="" class="text-white">Correo: </label>
+                <input type="text" name="email" id="email" class="email">
+                <!-- Password -->
+                <label for="" class="text-white">Contraseña: </label>
+                <input type="password" name="password" id="password" class="password">
+                <!-- Phone -->
+                <label for="" class="text-white">Tel. Celular: </label>
+                <input type="password" name="cellphone" id="cellphone" class="cellphone">
+                <!-- Cellphone -->
+                <label for="" class="text-white">Tel. Fijo: </label>
+                <input type="password" name="phone" id="phone" class="phone">
+                <!-- Boton  -->
+                <input type="submit" name="btn_submit" id="btn_submit" class="btn_submit" value="Registrar">
+            </form>
 
-            <!-- Name -->
-            <div>
-                <x-label for="name" :value="__('Name')" />
-
-                <x-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus />
-            </div>
-
-            <!-- Email Address -->
-            <div class="mt-4">
-                <x-label for="email" :value="__('Email')" />
-
-                <x-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required />
-            </div>
-
-            <!-- Password -->
-            <div class="mt-4">
-                <x-label for="password" :value="__('Password')" />
-
-                <x-input id="password" class="block mt-1 w-full"
-                                type="password"
-                                name="password"
-                                required autocomplete="new-password" />
-            </div>
-
-            <!-- Confirm Password -->
-            <div class="mt-4">
-                <x-label for="password_confirmation" :value="__('Confirm Password')" />
-
-                <x-input id="password_confirmation" class="block mt-1 w-full"
-                                type="password"
-                                name="password_confirmation" required />
-            </div>
-
-            <div class="flex items-center justify-end mt-4">
-                <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('login') }}">
-                    {{ __('Already registered?') }}
-                </a>
-
-                <x-button class="ml-4">
-                    {{ __('Register') }}
-                </x-button>
-            </div>
-        </form>
-    </x-auth-card>
-</x-guest-layout>
+            <!-- @if ($errors->any())
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif -->
+        </div>
+    </div>
+</body>
+@stop

@@ -26,7 +26,7 @@ class UserSeeder extends Seeder
                 'password' => Hash::make('password'),
                 'cellphone' => 0000000000,
                 'phone' => 0000000000,
-                'rank' => 'user'
+                'rank' => 'Usuario'
             ]);
         }
 
@@ -38,9 +38,42 @@ class UserSeeder extends Seeder
                 'password' => bcrypt('password'),
                 'cellphone' => 0000000000,
                 'phone' => 0000000000,
-                'rank' => 'admin',
+                'rank' => 'Miembro',
                 'created_at' => $now,
                 'updated_at' => $now
             ]);
+        User::insert([
+            'name' => 'Premium Inicial',
+            'first_name' => 'Apellido',
+            'email' => 'premium@correo.com',
+            'password' => bcrypt('password'),
+            'cellphone' => 0000000000,
+            'phone' => 0000000000,
+            'rank' => 'Premium',
+            'created_at' => $now,
+            'updated_at' => $now
+        ]);
+        User::insert([
+            'name' => 'Empleado Inicial',
+            'first_name' => 'Apellido',
+            'email' => 'empleado@correo.com',
+            'password' => bcrypt('password'),
+            'cellphone' => 0000000000,
+            'phone' => 0000000000,
+            'rank' => 'Empleado',
+            'created_at' => $now,
+            'updated_at' => $now
+        ]);
+        User::insert([
+            'name' => 'Admin Inicial',
+            'first_name' => 'Apellido',
+            'email' => 'admin@correo.com',
+            'password' => bcrypt('password'),
+            'cellphone' => 0000000000,
+            'phone' => 0000000000,
+            'rank' => 'Admin',
+            'created_at' => $now,
+            'updated_at' => $now
+        ]);
     }
 }

@@ -27,6 +27,11 @@ class User extends Authenticatable
         'rank'
     ];
 
+    protected $attributes = [
+        'rank' => 'Miembro',
+        'phone' => null
+    ];
+
     /**
      * The attributes that should be hidden for arrays.
      *

@@ -25,13 +25,43 @@ img{
 /* Fuentes */
 .titulo{
     font-family: 'Satisfy', cursive;
+    font-size: 2rem;
+}
+.titulo-usuario{
+    font-family: 'Satisfy', cursive;
+    font-size: 1.6rem;
 }
 .body{
     font-family: 'Mukta', sans-serif;
 }
+.FW-900{
+    font-size: 1.4rem;
+    font-weight: 900;
+}
 .text-orange{
     text-decoration: none;
     color: var(--naranja_primario);
+}
+.link-orange{
+    text-decoration: none;
+    color: var(--naranja_primario);
+}
+.link-orange:hover{
+    color: var(--blanco);
+}
+.link-blanco{
+    color: var(--blanco);
+    text-decoration: none;
+}
+.link-blanco:hover{
+    color: var(--naranja_secundario);
+}
+.link-amarillo{
+    color: var(--amarillo);
+    text-decoration: none;
+}
+.link-amarillo:hover{
+    color: var(--blanco);
 }
 .texto-naranja-secundario{
     color: var(--naranja_secundario);
@@ -63,6 +93,14 @@ img{
 .contenedor{
     max-width: 120rem;
     margin: 0 auto;
+}
+.contenedor_formulario{
+    margin: 1rem 1rem;
+    width: 120rem;
+    height: 76rem;
+    border-radius: 2rem;
+    background-color: rgba(0, 0, 0, 0.500);
+    padding: 3rem;
 }
 .main{
     background-color: rgb(255, 255, 255);
@@ -175,6 +213,16 @@ img{
     justify-content: flex-end;
     padding: 2.5rem;
 }
+.rango-usuario{
+    text-align: center;
+}
+.nav-derecha{
+    align-items: center;
+    text-align: center;
+}
+.nav-derecha div p{
+    margin: 0;
+}
 .logo{
     width: 15rem;
 }
@@ -245,6 +293,23 @@ img{
 }
 .texto-vino{
     color: var(--vino);
+}
+
+/* Register */
+.form_registro{
+    background-color: rgba(255, 255, 255, 0.293);
+    border-radius: 1rem;
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;  
+    font-size: 1.6rem;
+}
+.form_nombreUsuario{
+    display: flex;
+    justify-content: space-evenly;
+}
+.form_nombreUsuario div label{
+    margin-right: 1rem;
 }
 
 /* Responsive Web Desing */

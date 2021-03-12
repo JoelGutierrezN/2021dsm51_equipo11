@@ -1,26 +1,26 @@
 <footer class="fondo-negro footer">
     <div class="logo">
-        <img src="img/logo.png" alt="...">
+        <img src="../img/logo.png" alt="...">
     </div>
     <div class="footer-redes">
         <ul>
             <div>
                 <li>
-                    <img src="img/logo.png" alt="...">
+                    <img src="../img/logo.png" alt="...">
                     <p class="text-white">Facebook</p>
                 </li>
                 <li>
-                    <img src="img/logo.png" alt="...">
+                    <img src="../img/logo.png" alt="...">
                     <p class="text-white">WhatsApp</p>
                 </li>
             </div>
             <div>
                 <li>
-                    <img src="img/logo.png" alt="...">
+                    <img src="../img/logo.png" alt="...">
                     <p class="text-white">Twitter</p>
                 </li>
                 <li>
-                    <img src="img/logo.png" alt="...">
+                    <img src="../img/logo.png" alt="...">
                     <p class="text-white">Instragram</p>
                 </li>
             </div>
@@ -30,21 +30,21 @@
         <ul>
             <div>
                 <li>
-                    <img src="img/logo.png" alt="...">
+                    <img src="../img/logo.png" alt="...">
                     <p class="text-white">correo@correo.com</p>
                 </li>
                 <li>
-                    <img src="img/logo.png" alt="...">
+                    <img src="../img/logo.png" alt="...">
                     <p class="text-white">000-000-0000</p>
                 </li>
             </div>
             <div>
                 <li>
-                    <img src="img/logo.png" alt="...">
+                    <img src="../img/logo.png" alt="...">
                     <p class="text-white">000-00-0-0000</p>
                 </li>
                 <li>
-                    <img src="img/logo.png" alt="...">
+                    <img src="../img/logo.png" alt="...">
                     <p class="text-white">Direccion</p>
                 </li>
             </div>
