@@ -11,7 +11,15 @@ class room extends Model
 
     protected $fillable = [
         'rank',
-        'cost'
+        'cost',
+        'resume',
+        'large_description',
+        'img',
+        'name'
+    ];
+
+    protected $attributes = [
+        'img' => 'img/rooms/room.png'
     ];
 
     protected $table = 'rooms';

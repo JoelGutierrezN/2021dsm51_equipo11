@@ -44,7 +44,7 @@
     </div>
     <span class="navbar-nav nav-derecha">
         <div class="rango-usuario">
-          <img src="../user_img/user.png" alt="imagen de usuario" width="35px" heigh="35px">&nbsp
+          <img src="../img/user_img/user.png" alt="imagen de usuario" width="35px" heigh="35px">&nbsp
           @if ($usuario['session_rank'] == "Premium")
             <p class="text-orange titulo-usuario">{{ $usuario['session_rank'] }} &nbsp</p>
           @else

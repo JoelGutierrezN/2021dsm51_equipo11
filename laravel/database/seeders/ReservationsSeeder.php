@@ -18,9 +18,10 @@ class ReservationsSeeder extends Seeder
     {
         for($i = 1; $i <= 50; $i++){
             DB::table('reservations')->insert([
-                'date' => Str::random(2, '/', 2, '/', 4),
+                'date' => '00/00/0000',
                 'user_id' => rand(1, 50),
-                'room_id' => rand(1, 50),
+                'room_id' => rand(1, 5),
+                'service_id' => rand(1, 9),
                 'pet_id' => rand(1, 50),
                 'address_id' => rand(1,50),
                 'transaction_id' => rand(1,50)

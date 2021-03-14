@@ -26,7 +26,9 @@ class UserSeeder extends Seeder
                 'password' => Hash::make('password'),
                 'cellphone' => 0000000000,
                 'phone' => 0000000000,
-                'rank' => 'Usuario'
+                'rank' => 'Usuario',
+                'img' => 'user_img/user.png',
+                'active' => rand(1,2)
             ]);
         }
 
@@ -39,6 +41,8 @@ class UserSeeder extends Seeder
                 'cellphone' => 0000000000,
                 'phone' => 0000000000,
                 'rank' => 'Miembro',
+                'img' => 'user_img/user.png',
+                'active' => 1,
                 'created_at' => $now,
                 'updated_at' => $now
             ]);
@@ -50,6 +54,8 @@ class UserSeeder extends Seeder
             'cellphone' => 0000000000,
             'phone' => 0000000000,
             'rank' => 'Premium',
+            'img' => 'user_img/user.png',
+            'active' => 1,
             'created_at' => $now,
             'updated_at' => $now
         ]);
@@ -61,6 +67,8 @@ class UserSeeder extends Seeder
             'cellphone' => 0000000000,
             'phone' => 0000000000,
             'rank' => 'Empleado',
+            'img' => 'user_img/user.png',
+            'active' => 1,
             'created_at' => $now,
             'updated_at' => $now
         ]);
@@ -72,6 +80,8 @@ class UserSeeder extends Seeder
             'cellphone' => 0000000000,
             'phone' => 0000000000,
             'rank' => 'Admin',
+            'img' => 'user_img/user.png',
+            'active' => 1,
             'created_at' => $now,
             'updated_at' => $now
         ]);

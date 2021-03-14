@@ -7,46 +7,45 @@
     <div class="contenedor">
         <div class="contenedor_formulario">
             <!-- formulario login -->
-            <form action="{{ route('registrarUsuario') }}" method="post" class="form_registro">
+            <form action="{{ route('registrarUsuario') }}" method="post" class="form-registro">
             @csrf
-                <fieldset class="titulo text-center text-orange">Crear Cuenta en SafetyDogs</fieldset>
-                <div class="form_nombreUsuario">
+                <img src="img/logo.png" alt="logo">
+                <hr>
+                <fieldset class="titulo-3 text-center text-yellow">Crear Cuenta en SafetyDogs</fieldset>
+                <div class="form-nombreUsuario">
                     <div>
                         <!-- Name -->
-                        <label for="" class="text-white">Nombre: </label>
-                        <input type="text" name="name" id="name" class="name">
+                        <label for="" class="text-orange titulo">Nombre </label>
+                        <input type="text" name="name" id="name" class="name" placeholder="Jose Juan">
                     </div>
                     <div>
                         <!-- First Name -->
-                        <label for="" class="text-white">Apellido: </label>
-                        <input type="text" name="first_name" id="first_name" class="fist_name">
+                        <label for="" class="text-orange titulo">Apellido </label>
+                        <input type="text" name="first_name" id="first_name" class="fist_name" placeholder="Garcia">
                     </div>
                 </div>
-                <!-- Email -->
-                <label for="" class="text-white">Correo: </label>
-                <input type="text" name="email" id="email" class="email">
-                <!-- Password -->
-                <label for="" class="text-white">Contraseña: </label>
-                <input type="password" name="password" id="password" class="password">
-                <!-- Phone -->
-                <label for="" class="text-white">Tel. Celular: </label>
-                <input type="password" name="cellphone" id="cellphone" class="cellphone">
-                <!-- Cellphone -->
-                <label for="" class="text-white">Tel. Fijo: </label>
-                <input type="password" name="phone" id="phone" class="phone">
-                <!-- Boton  -->
-                <input type="submit" name="btn_submit" id="btn_submit" class="btn_submit" value="Registrar">
-            </form>
-
-            <!-- @if ($errors->any())
-                <div class="alert alert-danger">
-                    <ul>
-                        @foreach ($errors->all() as $error)
-                            <li>{{ $error }}</li>
-                        @endforeach
-                    </ul>
+                <div id="cuerpo-form-registro">
+                    <div>
+                        <!-- Email -->
+                        <label for="" class="text-orange titulo">Correo </label>
+                        <input type="text" name="email" id="email" class="email" placeholder="ejemplo@correo.com">
+                        <!-- Password -->
+                        <label for="" class="text-orange titulo">Contraseña </label>
+                        <input type="password" name="password" id="password" class="password" placeholder="Contraseña">
+                    </div>
+                    <div>
+                        <!-- Phone -->
+                        <label for="" class="text-orange titulo">Tel. Celular </label>
+                        <input type="password" name="cellphone" id="cellphone" class="cellphone" placeholder="+52 000 000 0000">
+                        <!-- Cellphone -->
+                        <label for="" class="text-orange titulo">Confirmar Contraseña </label>
+                        <input type="password" name="cpassword" id="cpassword" class="cpassword" placeholder="Confirmar Contraseña">
+                    </div>
                 </div>
-            @endif -->
+                <br>
+                <!-- Boton  -->
+                <input type="submit" name="btn_submit" id="btn_submit-register" class="btn_submit boton boton-naranja" value="Registrar">
+            </form>
         </div>
     </div>
 </body>

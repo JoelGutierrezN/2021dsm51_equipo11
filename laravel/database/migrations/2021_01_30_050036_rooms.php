@@ -18,6 +18,10 @@ class Rooms extends Migration
             $table->bigIncrements('id');
             $table->string('rank');
             $table->float('cost');
+            $table->string('resume', 255);
+            $table->string('large_description', 600);
+            $table->string('img');
+            $table->string('name');
             $table->timestamps();
         });
     }

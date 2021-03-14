@@ -5,55 +5,24 @@
 @section('contenido')
 <body class="fondo-body">
 <h3 class="anuncio titulo">Tambien Podemos Recolectar tu Mascota a Domicilio</h3>
-    <main class="container reservaciones">
-        <div class="habitaciones">
-            <div class="seccion-habitaciones">
-                <div class="habitacion">
-                    <h3 class="texto-naranja-secundario titulo">Suite para hacer el delicioso - Excelente Servicio</h3>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod tenetur iusto maiores voluptatem inventore quasi veniam quis atque excepturi, odio culpa expedita minus cupiditate? Facere ipsam optio dolorem non quod.</p>
-                    <p class="precio">$5,000</p>
-                    <div>
-                        <button class="btn btn-warning">Ver más</button>
-                    </div>
-                </div>
-                <div class="habitacion">
-                    <h3 class="texto-naranja-secundario titulo">Titulo</h3>
-                    <p>Descricion</p>
-                    <p class="precio">Precio</p>
-                    <div>
-                        <button class="btn btn-warning">Ver más</button>
-                    </div>
-                </div>
-            </div>
-            <div class="seccion-habitaciones">
+<main class="container reservaciones">
+    <div class="habitaciones">
+
+        @foreach($habitaciones as $habitacion)
+        <!-- Habitaciones -->
+        <div class="seccion-habitaciones">
+            <!-- Habitacion -->
+            <img src="{{ $habitacion->img }}" alt="imagen_habitacion">
             <div class="habitacion">
-                    <h3 class="texto-naranja-secundario titulo">Titulo</h3>
-                    <p>Descricion</p>
-                    <p class="precio">Precio</p>
-                    <div>
-                        <button class="btn btn-warning">Ver más</button>
-                    </div>
-                </div>
-                <div class="habitacion">
-                    <h3 class="texto-naranja-secundario titulo">Titulo</h3>
-                    <p>Descricion</p>
-                    <p class="precio">Precio</p>
-                    <div>
-                        <button class="btn btn-warning">Ver más</button>
-                    </div>
-                </div>
-            </div>
-            <div class="seccion-habitaciones">
-            <div class="habitacion">
-                    <h3 class="texto-naranja-secundario titulo">Titulo</h3>
-                    <p>Descricion</p>
-                    <p class="precio">Precio</p>
-                    <div>
-                        <button class="btn btn-warning">Ver más</button>
-                    </div>
+                <h3 class="texto-naranja-secundario titulo">{{ $habitacion->name}}</h3>
+                <textarea name="resume" id="resume" class="resume" cols="30" rows="10">{{ $habitacion->resume}}</textarea>
+                <p class="precio">${{ $habitacion->cost }}</p>
+                <div>
+                    <button class="boton-small boton-naranja">Ver más</button>
                 </div>
             </div>
         </div>
-
-    </main>
+        @endforeach
+    </div>
+</main>
 @stop

@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth;
 use App\Http\Controllers;
 use App\Http\Controllers\UserPagesController;
+use App\Http\Controllers\InvitadoPagesController;
 use App\Http\Controllers\SystemController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
@@ -11,7 +12,7 @@ use App\Http\Controllers\Auth\RegisterController;
 
 //rutas generales
 Route::get('/', function(){ return view('inicio'); })->name( 'inicio' ); //home Page
-Route::get('/reservaciones', function(){ return view('pages.reservaciones'); })->name( 'reservaciones' ); //Reservaciones Page
+Route::get('/reservaciones', [InvitadoPagesController::class, 'reservaciones'])->name( 'reservaciones' ); //Reservaciones Page
 Route::get('/servicios', function(){ return view('pages.servicios'); })->name( 'servicios' ); // Servicios Page
 
 //rutas login / register

@@ -16,10 +16,14 @@ class RoomsSeeder extends Seeder
      */
     public function run()
     {
-        for($i = 1; $i <= 50; $i++){
+        for($i = 1; $i <= 5; $i++){
             DB::table('rooms')->insert([
                 'rank' => Str::random(10),
                 'cost' => rand(250, 600),
+                'resume' => Str::random(255),
+                'large_description' => Str::random(600),
+                'img' => 'img/rooms/room.png',
+                'name' => Str::random(10)
             ]);
         }
     }

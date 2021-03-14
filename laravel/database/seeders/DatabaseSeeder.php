@@ -20,6 +20,7 @@ class DatabaseSeeder extends Seeder
         $this->call(StatesSeeder::class);
         $this->call(CountriesSeeder::class);
         $this->call(AddressSeeder::class);
+        $this->call(ServicesSeeder::class);
         $this->call(ReservationsSeeder::class);
     }
 }

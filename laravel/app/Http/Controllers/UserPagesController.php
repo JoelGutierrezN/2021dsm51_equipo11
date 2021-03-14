@@ -2,7 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Auth;
+use Illuminate\Support\Facades\DB;
+use App\Models\User;
+use Illuminate\Support\Facades\Hash;
 
 class UserPagesController extends Controller
 {
@@ -13,15 +18,23 @@ class UserPagesController extends Controller
         ]);
     }
     public function reservaciones (Request $request) {
+        
+        $habitaciones = DB::table('rooms')->get();
+
         $usuario = $request->session()->all();
         return view('user.pages.reservaciones', [
-            'usuario' => $usuario
+            'usuario' => $usuario,
+            'habitaciones' => $habitaciones
         ]);
     }
     public function servicios (Request $request) {
+
+        $servicios = DB::table('services')->get();
+
         $usuario = $request->session()->all();
         return view('user.pages.servicios', [
-            'usuario' => $usuario
+            'usuario' => $usuario,
+            'servicios' => $servicios
         ]);
     }
 }

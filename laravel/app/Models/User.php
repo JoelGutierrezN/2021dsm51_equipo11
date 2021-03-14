@@ -24,11 +24,15 @@ class User extends Authenticatable
         'password',
         'cellphone',
         'phone',
-        'rank'
+        'rank',
+        'img',
+        'active'
     ];
 
     protected $attributes = [
         'rank' => 'Miembro',
+        'img' => 'user_img/user.png',
+        'active' => 1,
         'phone' => null
     ];
 

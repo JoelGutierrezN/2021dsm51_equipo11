@@ -31,6 +31,14 @@ img{
     font-family: 'Satisfy', cursive;
     font-size: 1.6rem;
 }
+.titulo-4{
+    font-family: 'Satisfy', cursive;
+    font-size: 4rem;
+}
+.titulo-3{
+    font-family: 'Satisfy', cursive;
+    font-size: 3rem;
+}
 .body{
     font-family: 'Mukta', sans-serif;
 }
@@ -67,8 +75,34 @@ img{
     color: var(--naranja_secundario);
 }
 .precio{
+    color: var(--vino);
+    font-size: 3rem;
+    font-weight: 600;
+}
+.precio-naranja-secundario{
+    color: var(--naranja_secundario);
+    font-size: 3rem;
+    font-weight: 600;
+}
+.precio-naranja-primario{
+    color: var(--naranja_primario);
+    font-size: 3rem;
+    font-weight: 600;
+}
+.precio-blanco{
+    color: var(--blanco);
+    font-size: 3rem;
+    font-weight: 600;
+}
+.precio-negro{
+    color: var(--negro);
+    font-size: 3rem;
+    font-weight: 600;
+}
+.precio-amarillo{
     color: var(--amarillo);
-    font-size: 2rem;
+    font-size: 3rem;
+    font-weight: 600;
 }
 .negrita{
     font-weight: 700;
@@ -87,6 +121,10 @@ img{
 .texto-amarillo:hover{
     color: var(--naranja_primario);
 }
+.text-yellow{
+    color: var(--amarillo);
+    text-decoration: none;
+}   
 
 /* Contenedores */
 
@@ -95,12 +133,15 @@ img{
     margin: 0 auto;
 }
 .contenedor_formulario{
-    margin: 1rem 1rem;
+    margin: 1rem auto;
     width: 120rem;
     height: 76rem;
     border-radius: 2rem;
-    background-color: rgba(0, 0, 0, 0.500);
+    background-color: rgba(0, 0, 0, 0.300);
     padding: 3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 .main{
     background-color: rgb(255, 255, 255);
@@ -149,12 +190,12 @@ img{
 .reservaciones{
     background-color: var(--blanco);
     box-shadow: black 1rem 1rem 3rem 0.5rem;
-    height: 90rem;
     display: flex;
     flex-direction: column;
     justify-content: stretch;
     padding: 3rem;
     border-radius: 2rem;
+    height: auto;
 }
 .reservaciones h3{
     background-color: rgba(255, 98, 0, 0.762);
@@ -178,10 +219,15 @@ img{
 .seccion-habitaciones{
     display: flex;
     justify-content: space-evenly;
+    background-color: var(--vino);
+    box-shadow: var(--vino) 1rem 1rem 5rem 0.1rem;
+    padding: 1rem;
+    border-radius: 1rem;
+    margin-bottom: 1.4rem;
 }
 .habitacion{
     padding: 2rem 2rem;
-    color: var(--blanco);
+    color: var(--negro);
     font-weight: 900;
     display: flex;
     flex-direction: column;
@@ -191,10 +237,24 @@ img{
     margin: 1rem 1rem;
     box-shadow: var(--negro) 0.5rem 1rem 2rem 0.1rem;
     text-align: center;
-    background-image: url(../img/habitacion.jpg);
+    background-color: rgba(255, 255, 255, 0.693);
+}
+.resume{
+    font-size: 1.6rem;
+    background: none;
+    border: none;
+    text-align: center;
+    margin-top: 0.5rem;
+    pointer-events: none;
+}
+.seccion-habitaciones img{
+    width: 50rem;
+    height: 25rem;
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;
+    border-radius: 5rem;
+    box-shadow: var(--negro) 0.5rem 1rem 2rem 0.1rem;
 }
 /* Navegacion */
 .navegacion{
@@ -240,6 +300,14 @@ img{
     width: 30rem;
     padding: 1rem;
     font-size: 2rem;
+    margin: 0 auto;
+}
+.boton-small{
+    border:none;
+    width: 15rem;
+    padding: 0.5rem;
+    font-size: 1.2rem;
+    margin: 0 auto;
 }
 .boton-naranja{
     background-color: var(--naranja_primario);
@@ -294,24 +362,106 @@ img{
 .texto-vino{
     color: var(--vino);
 }
+.fondo-blanco{
+    background-color: var(--blanco);
+}
 
 /* Register */
-.form_registro{
-    background-color: rgba(255, 255, 255, 0.293);
+.form-registro{
+    background-color: rgba(19, 18, 18, 0.493);
     border-radius: 1rem;
     display: flex;
     flex-direction: column;
     padding: 2rem;  
     font-size: 1.6rem;
+    width: 113rem;
+    height: 70rem;
 }
-.form_nombreUsuario{
+.form-registro img{
+    margin: 0 auto;
+}
+.form-registro hr{
+    color: white;
+}
+.form-registro input,label{
+    width: 30rem;
+    height: 4rem;
+}
+#cuerpo-form-registro, #cuerpo-form-registro input{
+    text-align: center;
     display: flex;
-    justify-content: space-evenly;
+    margin: 0 auto;
 }
-.form_nombreUsuario div label{
-    margin-right: 1rem;
+#btn_submit-register{
+    margin-left: 45rem;
+}
+.form-nombreUsuario{
+    display: flex;
+    text-align: center;
+    margin-bottom: 1rem;
+}
+.form-nombreUsuario input,label{
+    width: 30rem;
+    height: 4rem;
+    text-align: center;
+}
+/* Login */
+.form-login{
+    background-color: rgba(19, 18, 18, 0.493);
+    border-radius: 1rem;
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;  
+    font-size: 1.8rem;
+    color: white;
+    text-align: center;
+}
+.form-login img{
+    width: 25rem;
+    margin: 0 auto;
+}
+.form-login input,label{
+    margin: 1rem auto;
+    width: 60rem;
+    height: 5rem;
+    text-align: center;
 }
 
+/* Servicios */
+.contenedor-servicios{
+    background-color: var(--vino);
+    margin: 1rem auto;
+    padding: 2rem;
+    border-radius: 2rem;
+    box-shadow: var(--negro) 1rem 1rem 2rem 0.5rem;
+}
+.contenedor-servicios hr{
+    color: var(--negro);
+    height: 0.5rem;
+}
+.servicios{
+    text-align: center;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 2rem;
+}
+.servicio{
+    border-radius: 1rem;
+    padding: 1rem;
+    background-color: rgba(255, 255, 255, 0.605);
+    box-shadow: var(--negro) 1rem 0.3rem 2rem 0.3rem;
+}
+.servicio img{
+    border-radius: 1rem;
+}
+.resume-servicio{
+    font-size: 1.6rem;
+    background: none;
+    border: none;
+    text-align: center;
+    margin-top: 0.5rem;
+    pointer-events: none;
+}
 /* Responsive Web Desing */
     /* Celulares */
         @media (min-width: 300px){

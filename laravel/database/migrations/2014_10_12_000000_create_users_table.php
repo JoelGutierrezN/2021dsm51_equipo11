@@ -24,6 +24,8 @@ class CreateUsersTable extends Migration
             $table->string('cellphone');
             $table->string('phone')->nullable($value = true);
             $table->string('rank', 255);
+            $table->string('img', 255);
+            $table->unsignedInteger('active');
             $table->rememberToken();
             $table->timestamps();
         });

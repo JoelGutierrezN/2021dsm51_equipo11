@@ -16,7 +16,8 @@ class reservation extends Model
         'room_id',
         'pet_id',
         'address_id',
-        'transaction_id'
+        'transaction_id',
+        'service_id'
     ];
 
     protected $table = 'reservations';
