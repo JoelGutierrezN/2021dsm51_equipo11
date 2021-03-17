@@ -12,7 +12,7 @@
           <a class="nav-link text-orange negrita" id="inicio-link" href="{{ route('inicio') }}">Inicio</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link texto-blanco" href="{{ route('reservaciones') }}">Reservaciones</a>
+          <a class="nav-link texto-blanco" href="{{ route('habitaciones') }}">Habitaciones</a>
         </li>
         <li class="nav-item">
           <a class="nav-link texto-blanco" href="{{ route('servicios') }}">Servicios</a>
