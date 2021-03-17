@@ -22,5 +22,8 @@ class DatabaseSeeder extends Seeder
         $this->call(AddressSeeder::class);
         $this->call(ServicesSeeder::class);
         $this->call(ReservationsSeeder::class);
+        $this->call(ImagesSeeder::class);
+        $this->call(CommentsSeeder::class);
+        $this->call(LikesSeeder::class);
     }
 }

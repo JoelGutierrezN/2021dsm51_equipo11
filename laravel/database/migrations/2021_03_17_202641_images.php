@@ -13,7 +13,15 @@ class Images extends Migration
      */
     public function up()
     {
-        //
+        Schema::create('images', function (Blueprint $table) {
+            $table->engine = 'InnoDB';
+            $table->bigIncrements('id');
+            $table->string('image_path');
+            $table->string('description');
+            $table->unsignedBigInteger('user_id');
+            $table->timestamps();
+            $table->foreign('user_id')->references('id')->on('users');
+        });
     }
 
     /**
@@ -23,6 +31,6 @@ class Images extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('images');
     }
 }
