@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\Hash;
 class LoginController extends Controller
 {
     public function login(){
-        return view('Auth.login');
+        return view('auth.login');
     }
 
     public function validar(Request $request){

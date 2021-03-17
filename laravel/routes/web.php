@@ -11,9 +11,9 @@ use App\Http\Controllers\Auth\RegisterController;
 
 
 //rutas generales
-Route::get('/', function(){ return view('inicio'); })->name( 'inicio' ); //home Page
-Route::get('/reservaciones', [InvitadoPagesController::class, 'reservaciones'])->name( 'reservaciones' ); //Reservaciones Page
-Route::get('/servicios', function(){ return view('pages.servicios'); })->name( 'servicios' ); // Servicios Page
+Route::get('/', [InvitadoPagesController::class, 'index'])->name( 'inicio' ); //home Page
+Route::get('/habitaciones', [InvitadoPagesController::class, 'habitaciones'])->name( 'habitaciones' ); //Reservaciones Page
+Route::get('/servicios',[InvitadoPagesController::class, 'servicios'])->name( 'servicios' ); // Servicios Page
 
 //rutas login / register
 Route::get('/login', [LoginController::class, 'login'])->name( 'login' ); // Login Page
@@ -33,3 +33,6 @@ Route::get('/usuario', [SystemController::class, 'usuario'])->name( 'sesionUsuar
 Route::get('/usuario/indexUsuario', [UserPagesController::class, 'index'])->name( 'indexUsuario' ); // Inicio Usuario
 Route::get('/usuario/reservaciones',[UserPagesController::class, 'reservaciones'])->name( 'reservacionesVU' ); //Reservaciones Page
 Route::get('/usuario/servicios',[UserPagesController::class, 'servicios'])->name( 'serviciosVU' ); // Servicios Page
+Route::get('/usuario/premium',[UserPagesController::class, 'premium'])->name( 'premiumVU' ); // Premium Page
+
+

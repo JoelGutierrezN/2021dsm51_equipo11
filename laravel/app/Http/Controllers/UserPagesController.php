@@ -37,4 +37,21 @@ class UserPagesController extends Controller
             'servicios' => $servicios
         ]);
     }
+    public function premium (Request $request) {
+
+        $servicios = DB::table('services')->where('premium', 1)->get();
+
+        $usuario = $request->session()->all();
+        return view('user.pages.premium', [
+            'usuario' => $usuario,
+            'servicios' => $servicios
+        ]);
+    }
+    public function contacto (Request $request) {
+
+        $usuario = $request->session()->all();
+        return view('user.pages.premium', [
+            'usuario' => $usuario
+        ]);
+    }
 }

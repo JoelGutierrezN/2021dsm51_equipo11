@@ -11,7 +11,10 @@ use Illuminate\Support\Facades\Hash;
 
 class InvitadoPagesController extends Controller
 {
-    public function reservaciones(){
+    public function index(){
+        return view('inicio');
+    }
+    public function habitaciones(){
         
         $habitaciones = DB::table('rooms')->get();
         return view('pages.reservaciones', [
