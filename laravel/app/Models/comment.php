@@ -16,4 +16,12 @@ class comment extends Model
     ];
 
     protected $table = 'comments';
+
+    public function user(){
+        return $this->belongsTo(User::class, 'id');
+    }
+
+    public function image(){
+        return $this->belongsTo(image::class, 'id');
+    }
 }
