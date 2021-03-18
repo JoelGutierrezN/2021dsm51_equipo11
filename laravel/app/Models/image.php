@@ -16,4 +16,16 @@ class image extends Model
     ];
 
     protected $table = 'images';
+
+    public function comments(){
+        return $this->hasMany(comment::class);
+    }
+
+    public function likes(){
+        return $this->hasMany(like::class);
+    }
+
+    public function user(){
+        return $this->belongsTo(User::class, 'id');
+    }
 }

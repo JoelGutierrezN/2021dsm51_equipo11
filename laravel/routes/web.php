@@ -34,5 +34,7 @@ Route::get('/usuario/indexUsuario', [UserPagesController::class, 'index'])->name
 Route::get('/usuario/reservaciones',[UserPagesController::class, 'reservaciones'])->name( 'reservacionesVU' ); //Reservaciones Page
 Route::get('/usuario/servicios',[UserPagesController::class, 'servicios'])->name( 'serviciosVU' ); // Servicios Page
 Route::get('/usuario/premium',[UserPagesController::class, 'premium'])->name( 'premiumVU' ); // Premium Page
+Route::get('/usuario/config',[UserPagesController::class, 'config'])->name( 'configVU' ); // Premium Page
+Route::post('/usuario/edit',[UserPagesController::class, 'update'])->name( 'userEdit' ); // Premium Page
 
 
