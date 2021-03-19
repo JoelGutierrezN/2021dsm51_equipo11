@@ -18,7 +18,7 @@
           <a class="nav-link texto-blanco" href="{{ route('serviciosVU') }}">Servicios</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link texto-blanco" href="{{ route('servicios') }}">Comunidad</a>
+          <a class="nav-link texto-blanco" href="{{ route('comunidadVU') }}">Comunidad</a>
         </li>
         <li class="nav-item">
           <a class="nav-link texto-blanco" href="{{ route('premiumVU') }}">SafetyDogs Premium</a>
@@ -38,7 +38,7 @@
     </div>
     <span class="navbar-nav nav-derecha">
         <div class="rango-usuario">
-          <img src="../img/{{$usuario['session_img']}}" alt="imagen de usuario" width="40px" heigh="40px">&nbsp
+          <img src="{{ route('userImg', ['filename' => $usuario['session_img'] ] )}}" alt="imagen de usuario" width="40px" heigh="40px">&nbsp
           @if ($usuario['session_rank'] == "Premium")
             <p class="text-orange titulo-usuario">{{ $usuario['session_rank'] }} &nbsp</p>
           @else

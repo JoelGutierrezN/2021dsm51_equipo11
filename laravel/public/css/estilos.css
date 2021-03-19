@@ -553,6 +553,64 @@ img{
     border-radius: 1rem;
     text-align: center;
 }
+.inputfile{
+    width: 1rem;
+	height: 1rem;
+	opacity: 0;
+	overflow: hidden;
+	position: absolute;
+	z-index: -1;
+}
+.inputfile + label {
+    font-size: 1.25em;
+    font-weight: 700;
+    color: white;
+    background-color: var(--naranja_secundario);
+    display: inline-block;
+    padding: 1rem;
+}
+.inputfile:focus + label,
+.inputfile + label:hover {
+    background-color: white;
+    color: var(--naranja_secundario);
+}
+.inputfile + label {
+	cursor: pointer; /* "hand" cursor */
+}
+.inputfile:focus + label {
+	outline: 1px dotted #000;
+	outline: -webkit-focus-ring-color auto 5px;
+}
+
+/* Comunidad */
+.publicar{
+    border-radius: 1rem;
+    padding: 1rem;
+    text-align: center;
+    border: black solid 0.1rem;
+    background-color: rgb(46, 42, 42);
+}
+.publicar textarea{
+    border-radius: 1rem;
+    width: 60%;
+    border: solid 0.1rem gray;
+    resize: none;
+    font-size: 1.6rem;
+    padding: 2rem;
+    background-color: rgba(77, 70, 70, 0.5);
+    color:white;
+}
+.contenedor-comunidad{
+    border-radius: 1rem;
+    background-color: rgba(0, 0, 0, 0.734);
+    margin: 1rem auto;
+    padding: 5rem;
+}
+
+.publicacion{
+    color: white;
+    background-color: rgba(77, 70, 70, 0.5);
+}
 /* Responsive Web Desing */
     /* Celulares */
         @media (min-width: 300px){

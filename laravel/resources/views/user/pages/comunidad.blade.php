@@ -1,40 +1,86 @@
 @extends('user.layouts.master')
 
-@section('titulo', 'Premium')
+@section('titulo', 'Comunidad')
 
 @section('contenido')
 <body class="fondo-body">
-    <main class="contenedor-premium">
-        <div class="layout-premium">
-            <div class="beneficios-premium">
-                <div class="texto-naranja-secundario titulo-3">¡Servicios Unicos!</div>
-                @foreach($servicios as $servicio)
-                    <div class="servicio-premium">
-                        <img src="..{{$servicio->img}}" alt="service-img">
-                        <hr>
-                        <div class="text-white titulo-3 fondo-negro">{{ $servicio->name }}</div>
-                        <textarea name="resume" id="resume" class="resume-servicio" cols="40" rows="8">{{ $servicio->resume }}</textarea>
-                        <hr>
-                        <div class="text-white fondo-negro FS-1-4rem">Gratis con <span class="texto-naranja-secundario titulo">Premium</span></div>
+    <main class="contenedor">
+        <div class="contenedor-comunidad">
+            <div>
+                <!-- Contenedor Crear Post -->
+                <div>
+                @if ($errors->any())
+                    <div class="alert alert-danger">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
                     </div>
-                @endforeach
-            </div>
-            <div class="cuerpo-premium text-center">
-                <div class="FS-2rem text-white">Conocer la Membresia <span class="texto-naranja-secundario titulo-3">Premium</span> de <img src="/img/logo.png" alt="logo" width="150px"></div>
-                <div class="collage-premium text-white FS-1-4rem">
-                    <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae, nulla ab? Commodi, maiores impedit nobis, nemo corporis ut earum, dolores natus aliquam nisi ab. Ipsum animi alias recusandae numquam adipisci.</div>
-                    <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae, nulla ab? Commodi, maiores impedit nobis, nemo corporis ut earum, dolores natus aliquam nisi ab. Ipsum animi alias recusandae numquam adipisci.</div>
-                    <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae, nulla ab? Commodi, maiores impedit nobis, nemo corporis ut earum, dolores natus aliquam nisi ab. Ipsum animi alias recusandae numquam adipisci.</div>
-                    <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae, nulla ab? Commodi, maiores impedit nobis, nemo corporis ut earum, dolores natus aliquam nisi ab. Ipsum animi alias recusandae numquam adipisci.</div>
-                    <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae, nulla ab? Commodi, maiores impedit nobis, nemo corporis ut earum, dolores natus aliquam nisi ab. Ipsum animi alias recusandae numquam adipisci.</div>
-                    <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae, nulla ab? Commodi, maiores impedit nobis, nemo corporis ut earum, dolores natus aliquam nisi ab. Ipsum animi alias recusandae numquam adipisci.</div>
-                    <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae, nulla ab? Commodi, maiores impedit nobis, nemo corporis ut earum, dolores natus aliquam nisi ab. Ipsum animi alias recusandae numquam adipisci.</div>
+                @endif
+                @if( session('message') )
+                    <div class="alert alert-success FS-2rem">
+                        {{ session('message') }}
+                    </div>
+                @endif
+                    <form action="{{ route('saveImage') }}" class="publicar" method="post" enctype="multipart/form-data">
+                    @csrf
+                        <!-- Contenedor Descripcion -->
+                        <div>
+                            <input type="file" name="image_path" id="image_path" class="inputfile" data-multiple-caption="{count} files selected" multiple>
+                            <label for="image_path"> <strong>Seleccionar una Imagen para Publicar</strong> </label>
+                        </div>
+                        <hr>
+                        <!-- Contenedor Imagen -->
+                        <div>
+                            <textarea name="description" id="description" cols="30" rows="10" placeholder="Comenta algo para tu imagen..."></textarea>
+                        </div>
+                        <hr>
+                        <!-- Contenedor Boton -->
+                        <div>
+                            <input type="submit" value="Publicar" class="boton boton-naranja">
+                        </div>
+                    </form>
+                </div>
+
+                <hr>
+
+            <!-- Publicaciones -->
+            @foreach($images as $image)
+            <div class="publicacion">
+                <!-- Datos del Publicador -->
+                <div>
+                    {{ $image->user->name }}
+                </div>
+                <!-- Texto de la Publicacion -->
+                <div>
+                    {{ $image->description }}
+                </div>
+                <!-- Imagen de la Publicacion -->
+                <div>
+                    <img src="#" alt="imagen">
+                </div>
+                <!-- Likes de la Publicacion -->
+                <div>
+                </div>
+                <!-- Comentarios de la Publicacion -->
+                <div>
+                    <!-- Datos del Comentador -->
+                    <div>
+                        
+                    </div>
+                    <!-- Comentario del Comentador -->
+                    <div>
+                        {{ $image->comment }}
+                    </div>
                 </div>
             </div>
-        </div>
-            <div class="plan-premium">
-                div
+            @endforeach
+
+
             </div>
+        </div>
     </main>
+    <script type="text/javascript" src="../js/js.js"></script>
 </body>
 @stop

@@ -6,6 +6,7 @@ use App\Http\Controllers;
 use App\Http\Controllers\UserPagesController;
 use App\Http\Controllers\InvitadoPagesController;
 use App\Http\Controllers\SystemController;
+use App\Http\Controllers\ComunidadController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
 
@@ -36,5 +37,8 @@ Route::get('/usuario/servicios',[UserPagesController::class, 'servicios'])->name
 Route::get('/usuario/premium',[UserPagesController::class, 'premium'])->name( 'premiumVU' ); // Premium Page
 Route::get('/usuario/config',[UserPagesController::class, 'config'])->name( 'configVU' ); // Premium Page
 Route::post('/usuario/edit',[UserPagesController::class, 'update'])->name( 'userEdit' ); // Premium Page
+Route::get('/usuario/userImg/{filename}',[UserPagesController::class, 'getImage'])->name( 'userImg' ); // Premium Page
+Route::get('/usuario/comunidad',[ComunidadController::class, 'comunidad'])->name( 'comunidadVU' ); // Premium Page
+Route::post('/usuario/saveImage',[ComunidadController::class, 'saveimage'])->name( 'saveImage' ); // Premium Page
 
 
