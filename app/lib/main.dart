@@ -6,6 +6,7 @@ import 'package:provider/provider.dart';
 
 import 'package:app/widgets/nav-drawer.dart';
 import 'package:app/providers/auth.dart';
+import 'package:app/screen/home-screen.dart';
 
 void main() {
   runApp(
@@ -61,17 +62,7 @@ class _MyHomePageState extends State<MyHomePage> {
         backgroundColor: Color(0xFFFF5722),
       ),
       drawer: NavDrawer(),
-      body: Center(
-        child: Consumer<Auth>(
-          builder: (context, auth, child){
-            if (auth.authenticated) {
-              return Text('Sesion Iniciada');
-            } else {
-              return Text('No Has Iniciado Sesion');
-            }
-          },
-        ),
-      ),
+      body: HomeScreen()
     );
   }
 }
