@@ -15,6 +15,7 @@ class like extends Model
     ];
 
     protected $table = 'likes';
+<<<<<<< HEAD
 
     public function user(){
         return $this->belongsTo(User::class, 'user_id');
@@ -23,4 +24,6 @@ class like extends Model
     public function image(){
         return $this->belongsTo(image::class, 'image_id');
     }
+=======
+>>>>>>> parent of 172b006 (avances foro)
 }

@@ -38,14 +38,18 @@
     </div>
     <span class="navbar-nav nav-derecha">
         <div class="rango-usuario">
+<<<<<<< HEAD
           <img src="{{ route('userImg', ['filename' => $usuario['session_img'] ] )}}" alt="imagen de usuario" width="40px" heigh="40px">&nbsp
+=======
+          <img src="../img/user_img/user.png" alt="imagen de usuario" width="40px" heigh="40px">&nbsp
+>>>>>>> parent of 172b006 (avances foro)
           @if ($usuario['session_rank'] == "Premium")
             <p class="text-orange titulo-usuario">{{ $usuario['session_rank'] }} &nbsp</p>
           @else
             <p class="text-white titulo-usuario">{{ $usuario['session_rank'] }} &nbsp</p>
           @endif
         </div>
-        <a href="{{ route('configVU') }}" class="link-blanco FW-900"> {{ $usuario['session_name']}} </a>
+        <a href="#" class="link-blanco FW-900"> {{ $usuario['session_name']}} </a>
         &nbsp <p class="text-orange">_</p> &nbsp 
         <a href="{{ route('logout') }}" class="link-amarillo">Cerrar Sesion</a>
     </span>

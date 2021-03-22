@@ -35,10 +35,13 @@ Route::get('/usuario/indexUsuario', [UserPagesController::class, 'index'])->name
 Route::get('/usuario/reservaciones',[UserPagesController::class, 'reservaciones'])->name( 'reservacionesVU' ); //Reservaciones Page
 Route::get('/usuario/servicios',[UserPagesController::class, 'servicios'])->name( 'serviciosVU' ); // Servicios Page
 Route::get('/usuario/premium',[UserPagesController::class, 'premium'])->name( 'premiumVU' ); // Premium Page
+<<<<<<< HEAD
 Route::get('/usuario/config',[UserPagesController::class, 'config'])->name( 'configVU' ); // Premium Page
 Route::post('/usuario/edit',[UserPagesController::class, 'update'])->name( 'userEdit' ); // Premium Page
 Route::get('/usuario/userImg/{filename}',[UserPagesController::class, 'getImage'])->name( 'userImg' ); // Premium Page
 Route::get('/usuario/comunidad',[ComunidadController::class, 'comunidad'])->name( 'comunidadVU' ); // Premium Page
 Route::post('/usuario/saveImage',[ComunidadController::class, 'saveimage'])->name( 'saveImage' ); // Premium Page
+=======
+>>>>>>> parent of 172b006 (avances foro)
 
 

@@ -522,6 +522,7 @@ img{
     margin: 0 auto;
     padding: 10rem;
 }
+<<<<<<< HEAD
 
 /* Editar Perfil Usuario*/
 #foto-perfil{
@@ -611,6 +612,8 @@ img{
     color: white;
     background-color: rgba(77, 70, 70, 0.5);
 }
+=======
+>>>>>>> parent of 172b006 (avances foro)
 /* Responsive Web Desing */
     /* Celulares */
         @media (min-width: 300px){

@@ -5,7 +5,6 @@ namespace App\Models;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-use App\Models;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 
@@ -58,10 +57,6 @@ class User extends Authenticatable
 
     public function posts(){
         return $this->hasMany(Post::class);
-    }
-
-    public function images(){
-        return $this->hasMany(image::class);
     }
 
     protected $table = 'users';

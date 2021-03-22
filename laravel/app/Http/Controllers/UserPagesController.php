@@ -59,6 +59,7 @@ class UserPagesController extends Controller
             'usuario' => $usuario
         ]);
     }
+<<<<<<< HEAD
 
     public function config(Request $request){
 
@@ -145,4 +146,6 @@ class UserPagesController extends Controller
 
         return new Response($file, 200);
     }
+=======
+>>>>>>> parent of 172b006 (avances foro)
 }

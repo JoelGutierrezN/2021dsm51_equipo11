@@ -16,6 +16,7 @@ class image extends Model
     ];
 
     protected $table = 'images';
+<<<<<<< HEAD
 
     public function comments(){
         return $this->hasMany(comment::class);
@@ -28,4 +29,6 @@ class image extends Model
     public function user(){
         return $this->belongsTo(User::class, 'user_id');
     }
+=======
+>>>>>>> parent of 172b006 (avances foro)
 }

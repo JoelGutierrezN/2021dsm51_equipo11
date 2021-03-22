@@ -16,6 +16,7 @@ class comment extends Model
     ];
 
     protected $table = 'comments';
+<<<<<<< HEAD
 
     public function user(){
         return $this->belongsTo(User::class, 'user_id');
@@ -24,4 +25,6 @@ class comment extends Model
     public function image(){
         return $this->belongsTo(image::class, 'image_id');
     }
+=======
+>>>>>>> parent of 172b006 (avances foro)
 }
