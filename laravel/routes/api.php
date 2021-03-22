@@ -5,11 +5,14 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\TokenController;
 use App\Models\User;
 use App\Models\Room;
-use App\Http\Resources\UserResource;
-use App\Http\Resources\RoomResource;
+use App\Models\service;
+use App\Http\Resources;
 use Illuminate\Auth\AuthenticationException;
 use App\Http\Controllers\Api\AddressController;
 use App\Http\Controllers\Api\CountrieController;
+use App\Http\Resources\RoomResource;
+use App\Http\Resources\ServiceResource;
+use App\Http\Resources\UserResource;
 use App\Http\Controllers\Api\PetController;
 use App\Http\Controllers\Api\ReservationController;
 use App\Http\Controllers\Api\RoomController;
@@ -22,6 +25,7 @@ Route::middleware('auth:sanctum')->get('/auth/user', function (Request $request)
 Route::middleware('auth:sanctum')->get('/user/posts', function (Request $request) { return $request->user()->posts; });
 Route::middleware('auth:sanctum')->get('app/users', function () { return response()->json(UserResource::collection(User::all())); });
 Route::middleware('auth:sanctum')->get('app/rooms', function () { return response()->json(RoomResource::collection(Room::all())); });
+Route::middleware('auth:sanctum')->get('app/services', function () { return response()->json(ServiceResource::collection(Service::all())); });
 Route::post('/auth/token', [TokenController::class, 'store']);
 Route::delete('/auth/token', [TokenController::class, 'destroy']);
 

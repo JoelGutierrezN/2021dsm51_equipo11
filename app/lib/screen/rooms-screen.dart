@@ -1,5 +1,4 @@
 import 'dart:convert';
-import 'dart:developer';
 
 import 'package:app/models/room.dart';
 import 'package:dio/dio.dart' as Dio;
@@ -24,7 +23,6 @@ class RoomsState extends State<RoomsScreen>{
       );
 
     List rooms = json.decode(response.toString());
-    log(rooms.toString());
     return rooms.map((room) => Room.fromJson(room)).toList();
 
   }
