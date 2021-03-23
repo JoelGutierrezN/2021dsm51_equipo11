@@ -15,11 +15,13 @@ class room extends Model
         'resume',
         'large_description',
         'img',
-        'name'
+        'name',
+        'active'
     ];
 
     protected $attributes = [
-        'img' => 'img/rooms/room.png'
+        'img' => null,
+        'active' => 1
     ];
 
     protected $table = 'rooms';

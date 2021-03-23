@@ -44,6 +44,8 @@ return array(
     'App\\Http\\Resources\\ReservationResource' => $baseDir . '/app/Http/Resources/ReservationResource.php',
     'App\\Http\\Resources\\RoomCollection' => $baseDir . '/app/Http/Resources/RoomCollection.php',
     'App\\Http\\Resources\\RoomResource' => $baseDir . '/app/Http/Resources/RoomResource.php',
+    'App\\Http\\Resources\\ServiceCollection' => $baseDir . '/app/Http/Resources/ServiceCollection.php',
+    'App\\Http\\Resources\\ServiceResource' => $baseDir . '/app/Http/Resources/ServiceResource.php',
     'App\\Http\\Resources\\StateCollection' => $baseDir . '/app/Http/Resources/StateCollection.php',
     'App\\Http\\Resources\\StateResource' => $baseDir . '/app/Http/Resources/StateResource.php',
     'App\\Http\\Resources\\TransactionCollection' => $baseDir . '/app/Http/Resources/TransactionCollection.php',

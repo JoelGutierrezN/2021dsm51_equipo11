@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class Services extends Migration
+class ReservationsHasRooms extends Migration
 {
     /**
      * Run the migrations.
@@ -13,16 +13,13 @@ class Services extends Migration
      */
     public function up()
     {
-        Schema::create('services', function (Blueprint $table) {
+        Schema::create('reservations_has_rooms', function (Blueprint $table) {
             $table->engine = 'InnoDB';
-            $table->bigIncrements('id');
-            $table->string('name');
-            $table->float('cost');
-            $table->unsignedInteger('premium');
-            $table->string('resume', 255);
-            $table->string('large_description', 600);
-            $table->string('img')->nullable();
+            $table->unsignedBigInteger('reservation_id');
+            $table->unsignedBigInteger('room_id');
             $table->timestamps();
+            $table->foreign('reservation_id')->references('id')->on('reservations');
+            $table->foreign('room_id')->references('id')->on('rooms');
         });
     }
 
@@ -33,6 +30,6 @@ class Services extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('services');
+        Schema::dropIfexist('reservations_has_rooms');
     }
 }

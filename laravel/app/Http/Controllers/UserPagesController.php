@@ -142,8 +142,13 @@ class UserPagesController extends Controller
     }
 
     public function getImage($filename){
-        $file = Storage::disk('users')->get($filename);
+        
+        if(is_null($filename)){
+            $filename = '1616535573User.png';
+        }
 
+        $file = Storage::disk('users')->get($filename);
+        
         return new Response($file, 200);
     }
 =======

@@ -21,6 +21,8 @@ class PetsSeeder extends Seeder
                 'name' => Str::random(10),
                 'race' => Str::random(15),
                 'observations' => Str::random(255),
+                'img' => null,
+                'active' => rand(0,1),
                 'user_id' => rand(1,50)
             ]);
         }

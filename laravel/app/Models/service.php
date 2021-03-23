@@ -22,6 +22,6 @@ class service extends Model
 
     protected $attributes = [
         'premium' => 0,
-        'img' => '/img/services/service.png'
+        'img' => null
     ];
 }

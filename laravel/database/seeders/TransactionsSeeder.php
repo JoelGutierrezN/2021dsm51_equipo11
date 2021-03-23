@@ -20,11 +20,14 @@ class TransactionsSeeder extends Seeder
     {
         for($i = 1; $i <= 50; $i++){
             DB::table('transactions')->insert([
-                'card' => 0000-0000-0000-0000,
+                'card' => '0000-0000-0000-0000',
+                'card_date' => '01/21',
+                'cvv' => Str::random(3), 
                 'paypal_account' => Str::random(10).'@.correo.com',
                 'date' => date('Y-M-D'),
                 'invoice' => Str::random(20),
-                'owner_name' => Str::random(8)
+                'owner_name' => Str::random(8),
+                'reservation_id' => rand(1,50),
             ]);
         }
     }

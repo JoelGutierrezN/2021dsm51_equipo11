@@ -19,6 +19,8 @@ class PetResource extends JsonResource
             'name' => $this->name,
             'race' => $this->race,
             'observations' => $this->observations,
+            'img' => $this->img,
+            'active' => $this->active,
             'user_id' => $this->user_id
         ];
     }

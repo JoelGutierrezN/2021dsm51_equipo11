@@ -30,8 +30,8 @@ class User extends Authenticatable
     ];
 
     protected $attributes = [
-        'rank' => 'Miembro',
-        'img' => 'img/user_img/user.png',
+        'rank' => 'Usuario',
+        'img' => null,
         'active' => 1,
         'phone' => null
     ];

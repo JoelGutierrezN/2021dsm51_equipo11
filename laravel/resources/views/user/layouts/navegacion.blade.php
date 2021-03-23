@@ -12,7 +12,7 @@
           <a class="nav-link text-orange negrita" id="inicio-link" href="{{ route('indexUsuario') }}">Inicio</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link texto-blanco" href="{{ route('reservacionesVU') }}">Reservaciones</a>
+          <a class="nav-link texto-blanco" href="{{ route('reservacionesVU') }}">Habitaciones</a>
         </li>
         <li class="nav-item">
           <a class="nav-link texto-blanco" href="{{ route('serviciosVU') }}">Servicios</a>

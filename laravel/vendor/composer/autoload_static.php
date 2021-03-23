@@ -558,6 +558,8 @@ class ComposerStaticInit701f8f509b718e644da296424adaaa8e
         'App\\Http\\Resources\\ReservationResource' => __DIR__ . '/../..' . '/app/Http/Resources/ReservationResource.php',
         'App\\Http\\Resources\\RoomCollection' => __DIR__ . '/../..' . '/app/Http/Resources/RoomCollection.php',
         'App\\Http\\Resources\\RoomResource' => __DIR__ . '/../..' . '/app/Http/Resources/RoomResource.php',
+        'App\\Http\\Resources\\ServiceCollection' => __DIR__ . '/../..' . '/app/Http/Resources/ServiceCollection.php',
+        'App\\Http\\Resources\\ServiceResource' => __DIR__ . '/../..' . '/app/Http/Resources/ServiceResource.php',
         'App\\Http\\Resources\\StateCollection' => __DIR__ . '/../..' . '/app/Http/Resources/StateCollection.php',
         'App\\Http\\Resources\\StateResource' => __DIR__ . '/../..' . '/app/Http/Resources/StateResource.php',
         'App\\Http\\Resources\\TransactionCollection' => __DIR__ . '/../..' . '/app/Http/Resources/TransactionCollection.php',
