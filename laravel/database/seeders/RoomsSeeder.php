@@ -22,8 +22,9 @@ class RoomsSeeder extends Seeder
                 'cost' => rand(250, 600),
                 'resume' => Str::random(255),
                 'large_description' => Str::random(600),
-                'img' => 'img/rooms/room.png',
-                'name' => Str::random(10)
+                'img' => null,
+                'name' => Str::random(10),
+                'active' => 1
             ]);
         }
     }

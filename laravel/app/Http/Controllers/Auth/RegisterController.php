@@ -13,7 +13,7 @@ use App\Models\User;
 class RegisterController extends Controller
 {
     public function register(){
-        return view('Auth.register');
+        return view('auth.register');
     }
 
     public function guardar(Request $request){

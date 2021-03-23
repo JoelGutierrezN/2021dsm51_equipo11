@@ -16,11 +16,14 @@ class ReservationResource extends JsonResource
     {
         return [
             'date' => $this->date,
-            'user_id' => $this->user_id,
-            'room_id' => $this->room_id,
-            'pet_id' => $this->pet_id,
+            'date_start' => $this->date_start,
+            'date_left' => $this->date_left,
+            'subtotal' => $this->subtotal,
+            'total' => $this->total,
+            'homeservice' => $this->homeservice,
+            'active' => $this->active,
             'address_id' => $this->address_id,
-            'transaction_id' => $this->transaction_id
+            'user_id' => $this->user_id
         ];
     }
 }
