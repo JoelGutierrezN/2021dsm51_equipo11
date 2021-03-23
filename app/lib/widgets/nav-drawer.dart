@@ -7,7 +7,6 @@ import 'package:app/forms/register-form.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-import 'package:app/screen/posts-screen.dart';
 import 'package:app/screen/login-screen.dart';
 import 'package:provider/provider.dart';
 
