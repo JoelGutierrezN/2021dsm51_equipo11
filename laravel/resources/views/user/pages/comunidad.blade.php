@@ -56,7 +56,19 @@
                                 <p class="FS-2rem">{{ $image->user->name.' '.$image->user->first_name }}</p>
                                 <!-- Likes de la Publicacion -->
                                 <div class="likes">
-                                    <img src="{{ asset('img/like.png') }}" alt="">
+                                    <?php $user_like = false; ?>
+                                    @foreach($image->likes as $like)
+                                        @if($like->user->id == $user->id)
+                                            <?php $user_like = true; ?>
+                                        @endif
+                                    @endforeach
+
+                                    @if($user_like)
+                                        <img src="{{ asset('img/like.png') }}" data-id="{{$image->id}}" alt="" class="btn-like">
+                                    @else
+                                        <img src="{{ asset('img/like_pulsado.png') }}"  data-id="{{$image->id}}" alt="" class="btn-dislike">
+                                    @endif
+                                    <div class="num-likes">{{ count($image->likes) }}</div>
                                 </div>
                             </div>
                             <div>
@@ -88,5 +100,7 @@
             {{$images->links()}}
         </div>
     </main>
+    <script src="{{ asset('js/js.js') }}"></script>
+    <script src="{{ asset('js/jquery-3.6.0.min.js') }}"></script>
 </body>
 @stop
