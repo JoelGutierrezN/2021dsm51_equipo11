@@ -589,6 +589,7 @@ img{
     text-align: center;
     border: black solid 0.1rem;
     background-color: rgb(46, 42, 42);
+
 }
 .publicar textarea{
     border-radius: 1rem;
@@ -606,10 +607,110 @@ img{
     margin: 1rem auto;
     padding: 5rem;
 }
-
+.contenedor-publicaciones{
+    border-radius: 1rem;
+    padding: 1rem;
+    text-align: center;
+    border: black solid 0.1rem;
+    background-color: rgb(46, 42, 42);    
+}
 .publicacion{
-    color: white;
+    border-radius: 1rem;
+    width: 60%;
+    border: solid 0.1rem gray;
+    font-size: 1.6rem;
+    padding: 2rem;
     background-color: rgba(77, 70, 70, 0.5);
+    color:white;
+    margin: 0rem auto 2rem auto;
+}
+.descripcion-image{
+    border-radius: 1rem;
+    width: 100%;
+    height: auto;
+    border: none;
+    pointer-events: none;
+    resize: none;
+    font-size: 1.6rem;
+    padding: 2rem;
+    background-color: rgba(77, 70, 70, 0.5);
+    color:white;
+}
+
+.nuevo-comentario{
+    border-radius: 1rem;
+    width: 100%;
+    height: 15rem;
+    border: none;
+    resize: none;
+    font-size: 1.6rem;
+    padding: 2rem;
+    background-color: rgba(77, 70, 70, 0.5);
+    color:white;
+}
+
+.data-user{
+    display: flex;
+    align-content: center;
+    align-items: center;
+}
+.data-user img{
+    border-radius: 3rem;
+    margin-right: 2rem;
+}
+.data-user p{
+    font-weight: 600;
+    width: 50rem;
+    text-align: left;
+}
+.fecha-publicacion{
+    font-weight: 400;
+    font-size: 1.6rem;
+    color: gray;
+    float: left;
+    margin-left: 8rem;
+}
+.likes, .likes img{
+    width: 4rem;
+    position: abosolute;
+}
+.btn-comentarios{
+    margin-top: 2rem;
+}
+.text-comentarios{
+    margin-top: 2rem;
+    margin-bottom: 0;
+}
+.exit-icon{
+    float: right;
+}
+.comentarios-seccion{
+    display: flex;
+    flex-direction: column;
+}
+.contenedor-comentario{
+    background-color: rgb(33, 31, 31);
+    padding: 2rem;
+    margin-bottom: 2rem;
+    border-radius: 2rem;
+    color: gray
+}
+.comment-margin{
+    margin: 0;
+    text-align: center;
+    width: 20rem;
+}
+.comentario{
+    border-radius: 1rem;
+    width: 100%;
+    height: auto;
+    padding: 1rem;
+    border: none;
+    pointer-events: none;
+    resize: none;
+    font-size: 1.6rem;
+    background-color: rgba(77, 70, 70, 0.5);
+    color: rgb(151, 145, 145);
 }
 /* Responsive Web Desing */
     /* Celulares */

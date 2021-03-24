@@ -45,42 +45,48 @@
 
                 <hr>
 
-            <!-- Publicaciones -->
-            @foreach($images as $image)
-            <div class="publicacion">
-                <!-- Datos del Publicador -->
-                <div>
-                    {{ $image->user->name }}
-                </div>
-                <!-- Texto de la Publicacion -->
-                <div>
-                    {{ $image->description }}
-                </div>
-                <!-- Imagen de la Publicacion -->
-                <div>
-                    <img src="#" alt="imagen">
-                </div>
-                <!-- Likes de la Publicacion -->
-                <div>
-                </div>
-                <!-- Comentarios de la Publicacion -->
-                <div>
-                    <!-- Datos del Comentador -->
-                    <div>
-                        
+                <!-- Publicaciones -->
+                <div class="contenedor-publicaciones">
+                    @foreach($images as $image)
+                    <div class="publicacion">
+                    <!-- Datos del Publicador -->
+                        <div>
+                            <div class="data-user">
+                                <img src="{{ route('userImg', [ 'filename' => $image->user->img ] )}}" width="60px" heigh="60px" alt="imagen_publicador">
+                                <p class="FS-2rem">{{ $image->user->name.' '.$image->user->first_name }}</p>
+                                <!-- Likes de la Publicacion -->
+                                <div class="likes">
+                                    <img src="{{ asset('img/like.png') }}" alt="">
+                                </div>
+                            </div>
+                            <div>
+                                <p class="fecha-publicacion">{{ \FormatearFecha::LongTimeFilter($image->created_at)}}</p>
+                            </div>
+                        </div>
+                        <div class="clearfix"></div>
+                        <hr>
+                        <!-- Texto de la Publicacion -->
+                        <div>
+                            <textarea class="descripcion-image">{{ $image->description }}</textarea>
+                        </div>
+                        <hr>
+                        <!-- Imagen de la Publicacion -->
+                        <div>
+                            <img src="{{ route('imageFile', [ 'filename' => $image->image_path ] )}}" alt="imagen" width="750px" heigh="150px">
+                        </div>
+                        <hr>
+                        <!-- Comentarios de la Publicacion -->
+                        <div>
+                        <a href="{{ route('detalle.publicacion', [ 'id' => $image->id]) }}" class="boton boton-naranja btn btn-comentarios">Comentarios({{ count($image->comments) }})</a>
+                        </div>
                     </div>
-                    <!-- Comentario del Comentador -->
-                    <div>
-                        {{ $image->comment }}
-                    </div>
+                    @endforeach
                 </div>
             </div>
-            @endforeach
 
-
-            </div>
+            <div class="clearfix"></div>
+            {{$images->links()}}
         </div>
     </main>
-    <script type="text/javascript" src="../js/js.js"></script>
 </body>
 @stop

@@ -18,7 +18,7 @@ class ImagesSeeder extends Seeder
     {
         for($i = 1; $i <= 5; $i++){
             DB::table('images')->insert([
-                'image_path' => 'img/images/image.png',
+                'image_path' => 'image.png',
                 'description' => Str::random(100),
                 'user_id' => rand(1,50)
             ]);

@@ -27,7 +27,7 @@
             <div>
                 <div>
                     <h1 class="text-yellow">Foto de Perfil</h1>
-                    <img src="{{ route('userImg', [ 'filename' => $usuario['session_img'] ] )}}" alt="foto perfil" id="foto-perfil">
+                    <img src="{{ route('userImg', [ 'filename' => $user->img ] )}}" alt="foto perfil" id="foto-perfil">
                     <p class="text-orange titulo-4">{{ $usuario['session_rank'] }}</p>
                     <input type="file" name="img" id="img" class="inputfile" data-multiple-caption="{count} files selected" multiple>
                     <label for="img"> <strong>Subir Foto</strong> </label>

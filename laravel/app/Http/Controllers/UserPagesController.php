@@ -17,50 +17,67 @@ use Illuminate\Support\Facades\File;
 class UserPagesController extends Controller
 {
     public function index (Request $request) {
+        $id = $request->session()->get("session_id");
+        $user = User::find($id);
         $usuario = $request->session()->all();
         return view('user.index', [
-            'usuario' => $usuario
+            'usuario' => $usuario,
+            'user' => $user
         ]);
     }
     public function reservaciones (Request $request) {
+        $id = $request->session()->get("session_id");
+        $user = User::find($id);
         
         $habitaciones = DB::table('rooms')->get();
 
         $usuario = $request->session()->all();
         return view('user.pages.reservaciones', [
             'usuario' => $usuario,
-            'habitaciones' => $habitaciones
+            'habitaciones' => $habitaciones,
+            'user' => $user
         ]);
     }
     public function servicios (Request $request) {
+        $id = $request->session()->get("session_id");
+        $user = User::find($id);
 
         $servicios = DB::table('services')->get();
 
         $usuario = $request->session()->all();
         return view('user.pages.servicios', [
             'usuario' => $usuario,
-            'servicios' => $servicios
+            'servicios' => $servicios,
+            'user' => $user
         ]);
     }
     public function premium (Request $request) {
+        $id = $request->session()->get("session_id");
+        $user = User::find($id);
 
         $servicios = DB::table('services')->where('premium', 1)->get();
 
         $usuario = $request->session()->all();
         return view('user.pages.premium', [
             'usuario' => $usuario,
-            'servicios' => $servicios
+            'servicios' => $servicios,
+            'user' => $user
         ]);
     }
     public function contacto (Request $request) {
+        $id = $request->session()->get("session_id");
+        $user = User::find($id);
 
         $usuario = $request->session()->all();
         return view('user.pages.premium', [
-            'usuario' => $usuario
+            'usuario' => $usuario,
+            'user' => $user
         ]);
     }
 
     public function config(Request $request){
+        $id = $request->session()->get("session_id");
+        $user = User::find($id);
 
         $usuario = $request->session()->all();
 
@@ -68,7 +85,8 @@ class UserPagesController extends Controller
 
         return view('user.pages.config', [
             'usuario' => $usuario,
-            'DatosUsuario' => $DatosUsuario
+            'DatosUsuario' => $DatosUsuario,
+            'user' => $user
         ]);
     }
 
@@ -98,8 +116,6 @@ class UserPagesController extends Controller
         ]);
 
         if( is_null( $request->img )){
-            $img = 'img/user_img/user.png';
-            $user->img = $img;
         }else{
             $img = $request->file('img');
             $img_full = time().$img->getClientOriginalName();
@@ -142,10 +158,6 @@ class UserPagesController extends Controller
 
     public function getImage($filename){
         
-        if(is_null($filename)){
-            $filename = '1616535573User.png';
-        }
-
         $file = Storage::disk('users')->get($filename);
         
         return new Response($file, 200);

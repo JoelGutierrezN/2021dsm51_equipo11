@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-lg navegacion">
   <div class="container-fluid">
     <a class="navbar-brand" href="{{ route('indexUsuario') }}">
-      <img src="../img/logo.png" alt="..." class="d-inline-block align-top logo">
+      <img src="{{ asset( 'img/logo.png' ) }}" alt="..." class="d-inline-block align-top logo">
     </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -38,7 +38,7 @@
     </div>
     <span class="navbar-nav nav-derecha">
         <div class="rango-usuario">
-          <img src="{{ route('userImg', ['filename' => $usuario['session_img'] ] )}}" alt="imagen de usuario" width="40px" heigh="40px">&nbsp
+          <img src="{{ route('userImg', ['filename' => $user->img ] )}}" alt="imagen de usuario" width="40px" heigh="40px">&nbsp
           @if ($usuario['session_rank'] == "Premium")
             <p class="text-orange titulo-usuario">{{ $usuario['session_rank'] }} &nbsp</p>
           @else
