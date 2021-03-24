@@ -27,7 +27,19 @@
                                 <p class="FS-2rem">{{ $image->user->name.' '.$image->user->first_name }}</p>
                                 <!-- Likes de la Publicacion -->
                                 <div class="likes">
-                                    <img src="{{ asset('img/like.png') }}" alt="">
+                                    <?php $user_like = false; ?>
+                                    @foreach($image->likes as $like)
+                                        @if($like->user->id == $user->id)
+                                            <?php $user_like = true; ?>
+                                        @endif
+                                    @endforeach
+
+                                    @if($user_like)
+                                        <img src="{{ asset('img/like.png') }}" data-id="{{$image->id}}" alt="" class="btn-like">
+                                    @else
+                                        <img src="{{ asset('img/like_pulsado.png') }}"  data-id="{{$image->id}}" alt="" class="btn-dislike">
+                                    @endif
+                                    <div class="num-likes">{{ count($image->likes) }}</div>
                                 </div>
                             </div>
                             <div>
@@ -62,6 +74,9 @@
                                             <!-- Comentario del Comentador -->
                                             <div class="">
                                                 <textarea class="comentario">{{ $comment->content }}</textarea>
+                                                @if($user->id == $comment->user_id || $comment->image->user_id == $user->id)
+                                                    <a href="{{ route('delete.comment', [ 'id' => $comment->id ]) }}" class="eliminar-comment">Eliminar</a>
+                                                @endif
                                             </div>
                                         </div>
                                 @endforeach
@@ -93,6 +108,8 @@
             </div>
         </div>
     </main>
+    <script src="{{ asset('js/js.js') }}"></script>
+    <script src="{{ asset('js/jquery-3.6.0.min.js') }}"></script>
 </body>
 @stop
 

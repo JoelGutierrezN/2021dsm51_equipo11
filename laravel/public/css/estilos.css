@@ -522,7 +522,6 @@ img{
     margin: 0 auto;
     padding: 10rem;
 }
-<<<<<<< HEAD
 
 /* Editar Perfil Usuario*/
 #foto-perfil{
@@ -672,8 +671,13 @@ img{
     margin-left: 8rem;
 }
 .likes, .likes img{
-    width: 4rem;
+    width: 3rem;
     position: abosolute;
+}
+.num-likes{
+    padding: 0;
+    margin: 0;
+    color:gray;
 }
 .btn-comentarios{
     margin-top: 2rem;
@@ -713,8 +717,16 @@ img{
     background-color: rgba(77, 70, 70, 0.5);
     color: rgb(151, 145, 145);
 }
-=======
->>>>>>> parent of 172b006 (avances foro)
+.eliminar-comment{
+    color: gray;
+    text-decoration: none;
+    float: right;
+}
+.eliminar-comment:hover{
+    color: white;
+    text-decoration: none;
+    float: right;
+}
 /* Responsive Web Desing */
     /* Celulares */
         @media (min-width: 300px){

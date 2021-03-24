@@ -45,4 +45,32 @@ class CommentsController extends Controller
             ]);
         }
     }
+
+    public function delete(Request $request, $id){
+        $user_id = $request->session()->get("session_id");
+        $user = user::find($user_id);
+        $comment = comment::find($id);
+
+        if( $user && $comment->user_id == $user->id || $comment->image->user_id == $user->id){
+            if( $comment->delete() ){
+                return redirect()->route('detalle.publicacion', ['id' => $comment->image->id])
+                                 ->with([
+                                     'message' => 'Comentario Eliminado Correctamente',
+                                     'user' => $user
+                                 ]);
+            }else{
+                return redirect()->route('detalle.publicacion', ['id' => $comment->image->id])
+                                 ->with([
+                                     'user' => $user,
+                                     'message' => 'Error Inesperado al momento de eliminar el comentario'
+                                 ]);
+            }
+        }else{
+            return redirect()->route('detalle.publicacion', ['id' => $comment->image->id])
+                            ->with([
+                                'user' => $user,
+                                'message' => 'No Puedes Eliminar Comentarios Ajenos'
+                            ]);
+        }
+    }
 }
