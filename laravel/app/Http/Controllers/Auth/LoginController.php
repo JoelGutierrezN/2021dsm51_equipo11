@@ -26,12 +26,10 @@ class LoginController extends Controller
             $request->session()->put('session_id', $usuario->id);
             $request->session()->put('session_name', ' '.$usuario->name.' '.$usuario->first_name);
             $request->session()->put('session_rank', $usuario->rank);
-            $request->session()->put('session_img', $usuario->img);
         
             $session_id = $request->session()->get('session_id');
             $session_name = $request->session()->get('session_name');
             $session_rank = $request->session()->get('session_rank');
-            $session_img = $request->session()->get('session_img');
 
             if( $session_rank == "Admin" ){
                 return redirect()->route('inicioAdmin');
@@ -51,7 +49,6 @@ class LoginController extends Controller
         $request->session()->forget('session_id');
         $request->session()->forget('session_name');
         $request->session()->forget('session_rank');
-        $request->session()->forget('session_img');
 
         return redirect()->route('inicio');
     }

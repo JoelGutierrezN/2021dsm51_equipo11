@@ -17,19 +17,17 @@ class Reservations extends Migration
             $table->engine = 'InnoDB';
             $table->bigIncrements('id');
             $table->string('date');
+            $table->string('date_start');
+            $table->string('date_left');
+            $table->string('subtotal');
+            $table->string('total');
+            $table->integer('homeservice');
+            $table->integer('active');
+            $table->unsignedBigInteger('address_id')->nullable();
             $table->unsignedBigInteger('user_id');
-            $table->unsignedBigInteger('room_id');
-            $table->unsignedBigInteger('pet_id');
-            $table->unsignedBigInteger('address_id');
-            $table->unsignedBigInteger('transaction_id');
-            $table->unsignedBigInteger('service_id');
             $table->timestamps();
-            $table->foreign('user_id')->references('id')->on('users');
-            $table->foreign('room_id')->references('id')->on('rooms');
-            $table->foreign('pet_id')->references('id')->on('pets');
             $table->foreign('address_id')->references('id')->on('address');
-            $table->foreign('transaction_id')->references('id')->on('transactions');
-            $table->foreign('service_id')->references('id')->on('services');
+            $table->foreign('user_id')->references('id')->on('users');
         });
     }
 

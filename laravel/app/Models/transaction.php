@@ -11,10 +11,13 @@ class transaction extends Model
 
     protected $fillable = [
         'card',
+        'card_date',
+        'cvv',
         'paypal_account',
         'date',
         'invoice',
-        'owner_name'
+        'owner_name',
+        'reservation_id'
     ];
 
     protected $table = 'transactions';

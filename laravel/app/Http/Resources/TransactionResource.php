@@ -17,10 +17,13 @@ class TransactionResource extends JsonResource
         return [
             'id' => $this->id,
             'card' => $this->card,
+            'card_date' => $this->card_date,
+            'cvv' => $this->cvv,
             'paypal_account' => $this->paypal_account,
             'date' => $this->date,
             'invoice' => $this->invoice,
-            'owner_name' => $this->owner_name
+            'owner_name' => $this->owner_name,
+            'reservation_id' => $this->reservation_id
         ];
     }
 }

@@ -16,14 +16,17 @@ class DatabaseSeeder extends Seeder
         $this->call(UserSeeder::class);
         $this->call(PetsSeeder::class);
         $this->call(RoomsSeeder::class);
-        $this->call(TransactionsSeeder::class);
         $this->call(StatesSeeder::class);
         $this->call(CountriesSeeder::class);
         $this->call(AddressSeeder::class);
         $this->call(ServicesSeeder::class);
         $this->call(ReservationsSeeder::class);
+        $this->call(TransactionsSeeder::class);
         $this->call(ImagesSeeder::class);
         $this->call(CommentsSeeder::class);
         $this->call(LikesSeeder::class);
+        $this->call(reservations_has_pets::class);
+        $this->call(reservations_has_rooms::class);
+        $this->call(reservations_has_services::class);
     }
 }

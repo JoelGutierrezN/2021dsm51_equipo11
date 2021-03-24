@@ -20,8 +20,9 @@ class Rooms extends Migration
             $table->float('cost');
             $table->string('resume', 255);
             $table->string('large_description', 600);
-            $table->string('img');
+            $table->string('img')->nullable();
             $table->string('name');
+            $table->integer('active');
             $table->timestamps();
         });
     }

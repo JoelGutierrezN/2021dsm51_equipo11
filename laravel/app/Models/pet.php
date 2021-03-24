@@ -13,7 +13,13 @@ class pet extends Model
         'name',
         'race',
         'observations',
+        'img',
+        'active',
         'user_id'
+    ];
+
+    protected $attributes = [
+        'img' => null
     ];
 
     protected $table = 'pets';

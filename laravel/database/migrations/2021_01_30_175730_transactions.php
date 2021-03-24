@@ -17,12 +17,16 @@ class Transactions extends Migration
         Schema::create('transactions', function (Blueprint $table) {
             $table->engine = 'InnoDB';
             $table->bigIncrements('id');
-            $table->string('card');
-            $table->String('paypal_account')->unique();
+            $table->String('card')->nullable();
+            $table->String('card_date')->nullable();
+            $table->String('cvv')->nullable();
+            $table->String('paypal_account')->unique()->nullable();
             $table->String('date');
             $table->String('invoice')->unique();
             $table->String('owner_name');
+            $table->unsignedBigInteger('reservation_id');
             $table->timestamps();
+            $table->foreign('reservation_id')->references('id')->on('reservations');
         });
     }
 

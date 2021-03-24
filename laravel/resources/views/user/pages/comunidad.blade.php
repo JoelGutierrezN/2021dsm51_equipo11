@@ -1,40 +1,106 @@
 @extends('user.layouts.master')
 
-@section('titulo', 'Premium')
+@section('titulo', 'Comunidad')
 
 @section('contenido')
 <body class="fondo-body">
-    <main class="contenedor-premium">
-        <div class="layout-premium">
-            <div class="beneficios-premium">
-                <div class="texto-naranja-secundario titulo-3">¡Servicios Unicos!</div>
-                @foreach($servicios as $servicio)
-                    <div class="servicio-premium">
-                        <img src="..{{$servicio->img}}" alt="service-img">
-                        <hr>
-                        <div class="text-white titulo-3 fondo-negro">{{ $servicio->name }}</div>
-                        <textarea name="resume" id="resume" class="resume-servicio" cols="40" rows="8">{{ $servicio->resume }}</textarea>
-                        <hr>
-                        <div class="text-white fondo-negro FS-1-4rem">Gratis con <span class="texto-naranja-secundario titulo">Premium</span></div>
+    <main class="contenedor">
+        <div class="contenedor-comunidad">
+            <div>
+                <!-- Contenedor Crear Post -->
+                <div>
+                @if ($errors->any())
+                    <div class="alert alert-danger">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
                     </div>
-                @endforeach
-            </div>
-            <div class="cuerpo-premium text-center">
-                <div class="FS-2rem text-white">Conocer la Membresia <span class="texto-naranja-secundario titulo-3">Premium</span> de <img src="/img/logo.png" alt="logo" width="150px"></div>
-                <div class="collage-premium text-white FS-1-4rem">
-                    <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae, nulla ab? Commodi, maiores impedit nobis, nemo corporis ut earum, dolores natus aliquam nisi ab. Ipsum animi alias recusandae numquam adipisci.</div>
-                    <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae, nulla ab? Commodi, maiores impedit nobis, nemo corporis ut earum, dolores natus aliquam nisi ab. Ipsum animi alias recusandae numquam adipisci.</div>
-                    <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae, nulla ab? Commodi, maiores impedit nobis, nemo corporis ut earum, dolores natus aliquam nisi ab. Ipsum animi alias recusandae numquam adipisci.</div>
-                    <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae, nulla ab? Commodi, maiores impedit nobis, nemo corporis ut earum, dolores natus aliquam nisi ab. Ipsum animi alias recusandae numquam adipisci.</div>
-                    <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae, nulla ab? Commodi, maiores impedit nobis, nemo corporis ut earum, dolores natus aliquam nisi ab. Ipsum animi alias recusandae numquam adipisci.</div>
-                    <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae, nulla ab? Commodi, maiores impedit nobis, nemo corporis ut earum, dolores natus aliquam nisi ab. Ipsum animi alias recusandae numquam adipisci.</div>
-                    <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae, nulla ab? Commodi, maiores impedit nobis, nemo corporis ut earum, dolores natus aliquam nisi ab. Ipsum animi alias recusandae numquam adipisci.</div>
+                @endif
+                @if( session('message') )
+                    <div class="alert alert-success FS-2rem">
+                        {{ session('message') }}
+                    </div>
+                @endif
+                    <form action="{{ route('saveImage') }}" class="publicar" method="post" enctype="multipart/form-data">
+                    @csrf
+                        <!-- Contenedor Descripcion -->
+                        <div>
+                            <input type="file" name="image_path" id="image_path" class="inputfile" data-multiple-caption="{count} files selected" multiple>
+                            <label for="image_path"> <strong>Seleccionar una Imagen para Publicar</strong> </label>
+                        </div>
+                        <hr>
+                        <!-- Contenedor Imagen -->
+                        <div>
+                            <textarea name="description" id="description" cols="30" rows="10" placeholder="Comenta algo para tu imagen..."></textarea>
+                        </div>
+                        <hr>
+                        <!-- Contenedor Boton -->
+                        <div>
+                            <input type="submit" value="Publicar" class="boton boton-naranja">
+                        </div>
+                    </form>
+                </div>
+
+                <hr>
+
+                <!-- Publicaciones -->
+                <div class="contenedor-publicaciones">
+                    @foreach($images as $image)
+                    <div class="publicacion">
+                    <!-- Datos del Publicador -->
+                        <div>
+                            <div class="data-user">
+                                <img src="{{ route('userImg', [ 'filename' => $image->user->img ] )}}" width="60px" heigh="60px" alt="imagen_publicador">
+                                <p class="FS-2rem">{{ $image->user->name.' '.$image->user->first_name }}</p>
+                                <!-- Likes de la Publicacion -->
+                                <div class="likes">
+                                    <?php $user_like = false; ?>
+                                    @foreach($image->likes as $like)
+                                        @if($like->user->id == $user->id)
+                                            <?php $user_like = true; ?>
+                                        @endif
+                                    @endforeach
+
+                                    @if($user_like)
+                                        <img src="{{ asset('img/like.png') }}" data-id="{{$image->id}}" alt="" class="btn-like">
+                                    @else
+                                        <img src="{{ asset('img/like_pulsado.png') }}"  data-id="{{$image->id}}" alt="" class="btn-dislike">
+                                    @endif
+                                    <div class="num-likes">{{ count($image->likes) }}</div>
+                                </div>
+                            </div>
+                            <div>
+                                <p class="fecha-publicacion">{{ \FormatearFecha::LongTimeFilter($image->created_at)}}</p>
+                            </div>
+                        </div>
+                        <div class="clearfix"></div>
+                        <hr>
+                        <!-- Texto de la Publicacion -->
+                        <div>
+                            <textarea class="descripcion-image">{{ $image->description }}</textarea>
+                        </div>
+                        <hr>
+                        <!-- Imagen de la Publicacion -->
+                        <div>
+                            <img src="{{ route('imageFile', [ 'filename' => $image->image_path ] )}}" alt="imagen" width="750px" heigh="150px">
+                        </div>
+                        <hr>
+                        <!-- Comentarios de la Publicacion -->
+                        <div>
+                        <a href="{{ route('detalle.publicacion', [ 'id' => $image->id]) }}" class="boton boton-naranja btn btn-comentarios">Comentarios({{ count($image->comments) }})</a>
+                        </div>
+                    </div>
+                    @endforeach
                 </div>
             </div>
+
+            <div class="clearfix"></div>
+            {{$images->links()}}
         </div>
-            <div class="plan-premium">
-                div
-            </div>
     </main>
+    <script src="{{ asset('js/js.js') }}"></script>
+    <script src="{{ asset('js/jquery-3.6.0.min.js') }}"></script>
 </body>
 @stop

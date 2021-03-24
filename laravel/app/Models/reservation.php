@@ -12,12 +12,15 @@ class reservation extends Model
     protected $fillable = [
         'id',
         'date',
-        'user_id',
-        'room_id',
-        'pet_id',
+        'date_start',
+        'date_left',
+        'subtotal',
+        'total',
+        'homeservice',
+        'active',
         'address_id',
-        'transaction_id',
-        'service_id'
+        'user_id',
+        'reservation_id',
     ];
 
     protected $table = 'reservations';

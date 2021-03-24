@@ -6,6 +6,9 @@ use App\Http\Controllers;
 use App\Http\Controllers\UserPagesController;
 use App\Http\Controllers\InvitadoPagesController;
 use App\Http\Controllers\SystemController;
+use App\Http\Controllers\ComunidadController;
+use App\Http\Controllers\CommentsController;
+use App\Http\Controllers\LikesController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
 
@@ -34,7 +37,16 @@ Route::get('/usuario/indexUsuario', [UserPagesController::class, 'index'])->name
 Route::get('/usuario/reservaciones',[UserPagesController::class, 'reservaciones'])->name( 'reservacionesVU' ); //Reservaciones Page
 Route::get('/usuario/servicios',[UserPagesController::class, 'servicios'])->name( 'serviciosVU' ); // Servicios Page
 Route::get('/usuario/premium',[UserPagesController::class, 'premium'])->name( 'premiumVU' ); // Premium Page
-Route::get('/usuario/config',[UserPagesController::class, 'config'])->name( 'configVU' ); // Premium Page
-Route::post('/usuario/edit',[UserPagesController::class, 'update'])->name( 'userEdit' ); // Premium Page
+Route::get('/usuario/config',[UserPagesController::class, 'config'])->name( 'configVU' ); // Configurar Cuenta Page
+Route::post('/usuario/edit',[UserPagesController::class, 'update'])->name( 'userEdit' ); // Editar Usuario
+Route::get('/usuario/userImg/{filename}',[UserPagesController::class, 'getImage'])->name( 'userImg' ); // Obtener Imagen de perfil
+Route::get('/usuario/imageFile/{filename}',[ComunidadController::class, 'getImage'])->name( 'imageFile' ); // Obtener imagen de publicacion
+Route::post('/usuario/saveImage',[ComunidadController::class, 'saveimage'])->name( 'saveImage' ); // Guarduar Imagen de publicacion
+Route::post('/usuario/saveComment',[CommentsController::class, 'saveComment'])->name( 'save.comment' ); // Guarduar Comentario de publicacion
+Route::get('/usuario/deleteComment/{id}',[CommentsController::class, 'delete'])->name( 'delete.comment' ); // Eliminar Comentario de publicacion
+Route::get('/usuario/like/{image_id}',[LikesController::class, 'like'])->name( 'like.save' ); // Generar like de publicacion
+Route::get('/usuario/dislike/{image_id}',[LikesController::class, 'dislike'])->name( 'like.delete' ); // Generar dislike de publicacion
+Route::get('/usuario/detalle-publicacion/{id}',[ComunidadController::class, 'detail'])->name( 'detalle.publicacion' ); // Detalle publicacion page
+Route::get('/usuario/comunidad',[ComunidadController::class, 'comunidad'])->name( 'comunidadVU' ); // Comunidad Page
 
 

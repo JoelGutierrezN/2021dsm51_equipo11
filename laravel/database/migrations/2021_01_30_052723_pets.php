@@ -17,9 +17,11 @@ class Pets extends Migration
         Schema::create('pets', function (Blueprint $table) {
             $table->engine = 'InnoDB';
             $table->bigIncrements('id');
-            $table->string('name', 255);
-            $table->string('race', 255);
-            $table->string('observations', 255)->nullable();
+            $table->String('name', 255);
+            $table->String('race', 255);
+            $table->String('observations', 255)->nullable();
+            $table->String('img')->nullable();
+            $table->integer('active');
             $table->unsignedBigInteger('user_id');
             $table->timestamps();
             $table->foreign('user_id')->references('id')->on('users');

@@ -5,17 +5,33 @@
 @section('contenido')
 <body class="fondo-body">
     <main class="contenedor text-center fondo-negro contenedor-perfil">
+        @if ($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
+        @if( session('message') )
+            <div class="alert alert-success FS-2rem">
+                {{ session('message') }}
+            </div>
+        @endif
         <img src="../img/logo.png" alt="logo">
         <h1 class="titulo-3 texto-naranja-secundario">Configuracion de Mi Cuenta</h1>
-        <hr class="texto-naranja-secundario">
-        <form action="{{ route('userEdit') }}" method="post">
+        <hr class="texto-naranja-secundario">        
+        <form action="{{ route('userEdit') }}" method="post" enctype="multipart/form-data">
         @csrf
             <div>
                 <div>
                     <h1 class="text-yellow">Foto de Perfil</h1>
-                    <img src="../img/{{$usuario['session_img']}}" alt="foto perfil" id="foto-perfil">
+                    <img src="{{ route('userImg', [ 'filename' => $user->img ] )}}" alt="foto perfil" id="foto-perfil">
                     <p class="text-orange titulo-4">{{ $usuario['session_rank'] }}</p>
-                </div>
+                    <input type="file" name="img" id="img" class="inputfile" data-multiple-caption="{count} files selected" multiple>
+                    <label for="img"> <strong>Subir Foto</strong> </label>
+                </div>  
             </div>
             <hr class="texto-naranja-secundario">
             <div>
@@ -65,5 +81,7 @@
             </div>
         </form>
     </main>
+
+    <script type="text/javascript" src="../js/js.js"></script>
 </body>
 @stop

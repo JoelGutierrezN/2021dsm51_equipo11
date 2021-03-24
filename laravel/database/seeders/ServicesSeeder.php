@@ -6,6 +6,8 @@ use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
+use Carbon\Carbon;
+use App\Models\service;
 
 class ServicesSeeder extends Seeder
 {
@@ -16,15 +18,40 @@ class ServicesSeeder extends Seeder
      */
     public function run()
     {
-        for($i = 1; $i <= 10; $i++){
-            DB::table('services')->insert([
-                'name' => Str::random(10),
-                'cost' => rand(250, 600),
-                'premium' => rand(0,1),
-                'resume' => Str::random(255),
-                'large_description' => Str::random(600),
-                'img' => '/img/services/service.png'
-            ]);
-        }
+        //inicio servicio
+        service::insert([
+            'name' => 'Paseo por el parque', //titulo
+            'cost' => 287.00, //costo en float, se puede insertar sin los .00
+            'premium' => 0, //1 = premium, 0 = no premium 
+            'resume' => 'Vista con seguridad, cuenta con los servicios de veterianria por si se requiere', //texto corto para tarjeta pequeña
+            'large_description' => 'texto largo', //descripcion larga para popup(aun no hecho)
+            'img' => null //no cambiar imagen
+        ]);
+        //fin servicio
+        service::insert([
+            'name' => 'Routina Fit', //titulo
+            'cost' => 389.00, //costo en float, se puede insertar sin los .00
+            'premium' => 1, //1 = premium, 0 = no premium 
+            'resume' => 'Consiste en un mejor cuidado en alimentacion y estimulacion por medio de aparatos especializados', //texto corto para tarjeta pequeña
+            'large_description' => 'texto largo', //descripcion larga para popup(aun no hecho)
+            'img' => null //no cambiar imagen
+        ]);
+        service::insert([
+            'name' => 'SPA', //titulo
+            'cost' => 460.00, //costo en float, se puede insertar sin los .00
+            'premium' => 1, //1 = premium, 0 = no premium 
+            'resume' => 'Enfocado a  tratamientos, terapias o sistemas de relajación, utilizando como base principal el agua', //texto corto para tarjeta pequeña
+            'large_description' => 'texto largo', //descripcion larga para popup(aun no hecho)
+            'img' => null //no cambiar imagen
+        ]);
+        service::insert([
+            'name' => 'Area de Juegos', //titulo
+            'cost' => 5000.00, //costo en float, se puede insertar sin los .00
+            'premium' => 1, //1 = premium, 0 = no premium 
+            'resume' => 'Seis juegos para estimular su buena conducta en casa
+            El escondite y buscar comida debajo de objetos son juegos que desarrollan las habilidades olfativas del perro y su concentración', //texto corto para tarjeta pequeña
+            'large_description' => 'texto largo', //descripcion larga para popup(aun no hecho)
+            'img' => null //no cambiar imagen
+        ]);
     }
 }

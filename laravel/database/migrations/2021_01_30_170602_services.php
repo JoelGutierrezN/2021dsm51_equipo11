@@ -21,7 +21,7 @@ class Services extends Migration
             $table->unsignedInteger('premium');
             $table->string('resume', 255);
             $table->string('large_description', 600);
-            $table->string('img');
+            $table->string('img')->nullable();
             $table->timestamps();
         });
     }
