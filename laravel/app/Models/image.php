@@ -15,11 +15,14 @@ class image extends Model
         'user_id'
     ];
 
+    protected $attributes = [
+        'image_path' => 'image.png'
+    ];
     protected $table = 'images';
 <<<<<<< HEAD
 
     public function comments(){
-        return $this->hasMany(comment::class);
+        return $this->hasMany(comment::class)->orderBy('id', 'desc');
     }
 
     public function likes(){

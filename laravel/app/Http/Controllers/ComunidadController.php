@@ -18,13 +18,16 @@ use Illuminate\Support\Facades\File;
 class ComunidadController extends Controller
 {
     public function comunidad (Request $request){
+        $id = $request->session()->get("session_id");
+        $user = User::find($id);
         $usuario = $request->session()->all();
 
-        $images = image::orderBy('id', 'desc')->get();
+        $images = image::orderBy('id', 'desc')->paginate(5);
 
         return view('user.pages.comunidad',[
             'usuario' => $usuario,
-            'images' => $images
+            'images' => $images,
+            'user' => $user
         ]);
     }
 
@@ -74,5 +77,25 @@ class ComunidadController extends Controller
                 'message' => 'Error al Generar la Publicacion'
             ]);
         }
+    }
+
+    public function getImage($filename){
+        $file = Storage::disk('images')->get($filename);
+
+        return new Response($file, 200);
+    }
+
+    public function detail(Request $request, $id){
+        $id_user = $request->session()->get("session_id");
+        $user = User::find($id_user);
+        $usuario = $request->session()->all();
+
+        $image = image::find($id);
+
+        return view('user.pages.detalle_publicacion',[
+            'usuario' => $usuario,
+            'image' => $image,
+            'user' => $user
+        ]);
     }
 }
