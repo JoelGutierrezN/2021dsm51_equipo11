@@ -1,4 +1,4 @@
-var url = 'dsm.safetydogs.online/home/u693812574/domains/safetydogs.online/public_html/laravel/public'
+var url = 'http://dsm.safetydogs.online/home/u693812574/domains/safetydogs.online/public_html/laravel/public'
 var inputs = document.querySelectorAll( '.inputfile' );
 Array.prototype.forEach.call( inputs, function( input )
 {
