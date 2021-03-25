@@ -16,7 +16,7 @@ class CountriesSeeder extends Seeder
      */
     public function run()
     {
-        for($i = 1; $i <= 2720; $i++){
+        for($i = 1; $i <= 100; $i++){
             DB::table('countries')->insert([
                 'key' => Str::random(3),
                 'name' => Str::random(100),

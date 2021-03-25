@@ -83,6 +83,7 @@ class ComunidadController extends Controller
         $file = Storage::disk('images')->get($filename);
 
         return new Response($file, 200);
+        dd($file)
     }
 
     public function detail(Request $request, $id){

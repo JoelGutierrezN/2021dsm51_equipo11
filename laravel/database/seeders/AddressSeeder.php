@@ -23,7 +23,7 @@ class AddressSeeder extends Seeder
                 'number_int' => rand(1, 200),
                 'suburb' => Str::random(20),
                 'state_id' => rand(1, 32),
-                'country_id' => rand(1, 2700),
+                'country_id' => rand(1, 100),
                 'user_id' => rand(1, 50),
             ]);
         }
