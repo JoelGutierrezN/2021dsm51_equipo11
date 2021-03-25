@@ -1,4 +1,4 @@
-var url = 'http://safetydogs.11.com/'
+var url = 'http://dsm.safetydogs.online'
 var inputs = document.querySelectorAll( '.inputfile' );
 Array.prototype.forEach.call( inputs, function( input )
 {
