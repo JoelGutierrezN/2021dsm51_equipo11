@@ -1,4 +1,4 @@
-var url = 'http://dsm.safetydogs.online/'
+var url = 'dsm.safetydogs.online/home/u693812574/domains/safetydogs.online/public_html/laravel/public'
 var inputs = document.querySelectorAll( '.inputfile' );
 Array.prototype.forEach.call( inputs, function( input )
 {
@@ -29,10 +29,10 @@ window.addEventListener("load", function(){
     function dislike(){
         $('.btn-dislike').unbind('click').click( function(){
             $(this).addClass('btn-like').removeClass('btn-dislike');
-            $(this).attr("src",url+"img/like.png");
+            $(this).attr("src",url+"/img/like.png");
 
             $.ajax({
-                url: url+'usuario/like/'+$(this).data('id'),
+                url: url+'/usuario/like/'+$(this).data('id'),
                 type: 'GET',
                 success: function(response){
                     if(response.like){
