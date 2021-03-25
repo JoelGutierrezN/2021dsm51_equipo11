@@ -74,7 +74,6 @@ class UserPagesController extends Controller
             'user' => $user
         ]);
     }
-<<<<<<< HEAD
 
     public function config(Request $request){
         $id = $request->session()->get("session_id");
@@ -163,6 +162,4 @@ class UserPagesController extends Controller
         
         return new Response($file, 200);
     }
-=======
->>>>>>> parent of 172b006 (avances foro)
 }
