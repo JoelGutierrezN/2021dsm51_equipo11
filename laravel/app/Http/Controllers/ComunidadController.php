@@ -18,17 +18,21 @@ use Illuminate\Support\Facades\File;
 class ComunidadController extends Controller
 {
     public function comunidad (Request $request){
-        $id = $request->session()->get("session_id");
-        $user = User::find($id);
-        $usuario = $request->session()->all();
+        if($request->session()->get('session_id')){
+            $id = $request->session()->get("session_id");
+            $user = User::find($id);
+            $usuario = $request->session()->all();
 
-        $images = image::orderBy('id', 'desc')->paginate(5);
+            $images = image::orderBy('id', 'desc')->paginate(5);
 
-        return view('user.pages.comunidad',[
-            'usuario' => $usuario,
-            'images' => $images,
-            'user' => $user
-        ]);
+            return view('user.pages.comunidad',[
+                'usuario' => $usuario,
+                'images' => $images,
+                'user' => $user
+            ]);
+        }else{
+            return redirect()->route('login');
+        }
     }
 
     public function saveimage(Request $request){

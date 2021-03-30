@@ -26,7 +26,6 @@ class DatabaseSeeder extends Seeder
         $this->call(CommentsSeeder::class);
         $this->call(LikesSeeder::class);
         $this->call(reservations_has_pets::class);
-        $this->call(reservations_has_rooms::class);
         $this->call(reservations_has_services::class);
     }
 }

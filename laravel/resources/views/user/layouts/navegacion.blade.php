@@ -12,7 +12,7 @@
           <a class="nav-link text-orange negrita" id="inicio-link" href="{{ route('indexUsuario') }}">Inicio</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link texto-blanco" href="{{ route('reservacionesVU') }}">Habitaciones</a>
+          <a class="nav-link texto-blanco" href="{{ route('habitacionesVU') }}">Habitaciones</a>
         </li>
         <li class="nav-item">
           <a class="nav-link texto-blanco" href="{{ route('serviciosVU') }}">Servicios</a>
@@ -22,6 +22,9 @@
         </li>
         <li class="nav-item">
           <a class="nav-link texto-blanco" href="{{ route('premiumVU') }}">SafetyDogs Premium</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link link-amarillo FW-900 titulo FS-1-4rem" href="{{ route('reservarVU') }}">¡Reservar Ahora!</a>
         </li>
         @if ($usuario['session_rank'] == "Premium")
         <li class="nav-item">
@@ -37,6 +40,7 @@
       </ul>
     </div>
     <span class="navbar-nav nav-derecha">
+        <a class="nav-link link-amarillo FW-900 titulo FS-1-4rem" href="{{ route('MiCuentaVU') }}">Mi Cuenta</a>
         <div class="rango-usuario">
           <img src="{{ route('userImg', ['filename' => $user->img ] )}}" alt="imagen de usuario" width="40px" heigh="40px">&nbsp
           @if ($usuario['session_rank'] == "Premium")
@@ -45,7 +49,7 @@
             <p class="text-white titulo-usuario">{{ $usuario['session_rank'] }} &nbsp</p>
           @endif
         </div>
-        <a href="{{ route('configVU') }}" class="link-blanco FW-900"> {{ $usuario['session_name']}} </a>
+        <a href="{{ route('MiCuentaVU') }}" class="link-blanco FW-900"> {{ $usuario['session_name']}} </a>
         &nbsp <p class="text-orange">_</p> &nbsp 
         <a href="{{ route('logout') }}" class="link-amarillo">Cerrar Sesion</a>
     </span>

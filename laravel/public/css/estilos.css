@@ -43,8 +43,10 @@ img{
     font-family: 'Mukta', sans-serif;
 }
 .FW-900{
-    font-size: 1.4rem;
     font-weight: 900;
+}
+.FW-600{
+    font-weight: 600;
 }
 .FS-2rem{
     font-size: 2rem;
@@ -453,7 +455,13 @@ img{
     text-align: center;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    grid-gap: 2rem;
+    grid-gap: 1rem;
+}
+.servicios-rentar{
+    text-align: center;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 1rem;
 }
 .servicio{
     border-radius: 1rem;
@@ -524,15 +532,17 @@ img{
 }
 
 /* Editar Perfil Usuario*/
-#foto-perfil{
+.foto-perfil{
     width: 10rem;
     height: 10rem;
     border-radius: 5rem;
 }
 .contenedor-perfil{
-    margin-top: 1rem;
+    display: flex;
+    width: 165rem;
+    margin: 1rem auto;
     border-radius: 2rem;
-    padding: 5rem;
+    padding: 1rem;
     border: var(--amarillo) solid 0.5rem;
     box-shadow: var(--negro) 1rem 1rem 1rem 1rem;
 }
@@ -727,8 +737,415 @@ img{
     text-decoration: none;
     float: right;
 }
+
+/* Reservar */
+
+.contenedor-reservar{
+    width: 95%;
+    height: 80rem;
+    background-color: white;
+    margin: 2rem auto;
+    display: flex;
+    border-radius: 2rem;
+    box-shadow: rgb(0, 0, 0) 1rem 1rem 1rem 1rem;
+    padding: 1rem;
+}
+.map{
+    width: 65%;
+    height: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    padding: 2rem;
+    background-color: rgba(255, 145, 0, 0.350);
+    border-radius: 1rem;
+    border: #000 solid 0.2rem;
+    box-shadow: #000 0.5rem 0.5rem 0.5rem 0.5rem;
+    margin-right: 1rem;
+}
+.tipos{
+    width: 35%;
+    padding: 0.5rem;
+    height: 100%;
+    background-color: rgb(33, 31, 31);
+    border-radius: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.parte-frontal{
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    margin: 0.5rem;
+}
+.parte-trasera{
+    width: 50%;
+    justify-content: space-around;
+    height: 100%;
+    flex-direction: column;
+    display: flex;
+    margin: 0.5rem;
+}
+.edificio1{
+    background-color: rgba(0, 0, 0, 0.7);
+    width: 100%;
+    height: 25%;
+}
+.edificio1 span, .edificio3 span{
+    color: var(--naranja_secundario)
+}
+.edificio2{
+    background-color: #35682da4;
+    width: 100%;
+    height: 50%;
+    margin-left: 5%;
+    border-radius: 6rem;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    color: black;
+}
+.habitaciones-edificio{
+    padding: 0.2rem;
+    text-align: center;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-gap: 0.2rem;
+}
+.habitaciones-edificio-small{
+    padding: 0.2rem;
+    text-align: center;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 0.2rem;
+}
+.habitacion-disponible{
+    width: 9.5rem;
+    height: 7.5rem;
+    background-color: rgb(18, 170, 43);
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+}
+.habitacion-disponible:hover{
+    width: 9.5rem;
+    height: 7.5rem;
+    background-color: rgb(8, 99, 47);
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    color: #FFF;
+}
+.habitacion-no-disponible{
+    width: 9.5rem;
+    height: 7.5rem;
+    background-color: rgb(247, 0, 0);
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+}
+#area-actividades{
+    color: white;
+    margin: auto;
+}
+.titulo-edificio{
+    text-align: center;
+}
+.edificio3{
+    background-color: rgba(0, 0, 0, 0.7);
+    width: 60%;
+    height: 35%;
+    margin-left: 25%;
+}
+.contenedor-botones-fechas{
+    padding: 0.1rem 0 2rem 0; 
+    text-align: center;
+    border-radius: 2rem;
+    background-color: rgba(77, 70, 70, 0.5);
+}
+.btn-fecha{
+    text-decoration: none;
+    width: 25%;
+    border-radius: 1rem;
+    margin: 1rem;
+    padding: 1rem;
+    color: var(--naranja_secundario);
+    background-color: white;
+    height: 2rem;
+    border: black solid 0.1rem;
+    font-size: 1.2rem;
+    font-weight: 700;
+    cursor: pointer;
+}
+.btn-fecha span{
+    font-weight: 600;
+    font-size: 1.4rem;
+    color: black;
+}
+.btn-fecha:hover{
+    color: white;
+    background-color: var(--naranja_secundario);
+}
+.contenedor-mascota{
+    display: flex;
+}
+.agregar-mascotas-rentar{
+    padding: 0.2rem;
+    text-align: center;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-gap: 0.2rem;
+}
+.contenedor-mascota{
+    background-color: rgba(0, 0, 0, 0.248);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+/* Mi Cuenta */
+.contenedor-micuenta{
+    display: flex;
+    width: 140rem;
+    height: auto;
+    margin: 1rem auto;
+    background-color: white;
+    box-shadow: #000 1rem 1rem 1rem 1rem;
+}
+.navegacion-izquierda{
+    position: fixed;
+    padding: 2rem;
+    width: 15%;
+    height: 67rem;
+    background-color:   transparent;
+    color: orangered;
+}
+.link-nav-izq{
+    color:orangered;
+    font-weight: 900;
+    text-decoration: none;
+}
+.link-nav-izq:hover{
+    color:var(--amarillo);
+}
+.contenido-derecho{
+    padding: 2rem;
+    width: 85%;
+    height: auto;
+    margin-left: 15%;
+}
+.btn-navegacion{
+    font-size: 1.6rem;
+    margin: 2rem auto;
+}
+.navegacion-izquierda-links{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.btn-cerrar-sesion{
+    width: 100%;
+    height: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--naranja_secundario);
+    color: white;
+    border: 0;
+}
+.btn-cerrar-sesion:hover{
+    width: 100%;
+    height: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--blanco);
+    color: var(--naranja_secundario);
+    border: 0;
+}
+/* Pets */
+.no-pets{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 58.5rem;
+}
+.no-contenido p{
+    font-size: 2rem;
+}
+.seccion-mascotas{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.contenedor-mascotas{
+    padding: 5rem;
+    margin-bottom: 2rem;
+    text-align: center;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 0.5rem;
+}
+.form-mascota{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+#form_agregar_mascota{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    width: 70rem;
+    padding: 2rem;
+    border-radius: 1rem;
+    background-color: rgba(19, 18, 18, 0.8);
+}
+#form_agregar_mascota form,button{
+    margin-bottom: 2rem;
+}
+.form-mascota input[type=text]{
+    color: white;
+    font-size: 1.6rem;
+    pad: 2rem;
+    width: 60rem;
+    height: 5rem;
+    text-align: center;
+    margin: 0.5rem auto;
+    background-color: rgb(46, 42, 42);
+    border: none;
+}
+.form-mascota input[type=text]::placeholder,
+.form-mascota textarea::placeholder{
+    color: gray;
+    font-size: 1.6rem;
+}
+.form-mascota textarea{
+    color:white;
+    font-size: 1.4rem;
+    text-align: center;
+    padding: 1rem;
+    resize: none;
+    background-color: rgb(46, 42, 42);
+    width: 60rem;
+    height: 15rem;
+    margin-bottom: 1rem;
+    border: none;
+}
+.mascota img{
+    width: 20rem;
+    height: 20rem;
+    border-radius: 10rem;
+    border: var(--naranja_secundario) solid 0.5rem;
+}
+
+/* Direcciones */
+.seccion-direcciones{
+    height: 63.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+#cancelar{
+    margin: 2rem auto;
+}
+#form_agregar_direccion{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    width: 70rem;
+    padding: 2rem;
+    border-radius: 1rem;
+    background-color: rgba(19, 18, 18, 0.8);
+}
+#form_agregar_direccion form,button{
+    margin-bottom: 2rem;
+}
+.form-direccion{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.form-direccion input[type=text]{
+    color: white;
+    font-size: 1.4rem;
+    width: 60rem;
+    height: 5rem;
+    text-align: center;
+    margin: 0.5rem auto;
+    background-color: rgb(46, 42, 42);
+    border: none;
+}
+.form-direccion input[type=text]::placeholder,
+.form-direccion textarea::placeholder{
+    color: gray;
+    font-size: 1.6rem;
+}
+#selc_estados{
+    color: white;
+    font-size: 1.4rem;
+    width: 60rem;
+    padding: 0 0 0 25rem;
+    height: 5rem;
+    text-align: center;
+    margin: 0.5rem auto;
+    background-color: rgb(46, 42, 42);
+    border: none;
+}
+#selc_municipios{
+    color: white;
+    padding: 0 0 0 25rem;
+    font-size: 1.4rem;
+    width: 60rem;
+    height: 5rem;
+    text-align: center;
+    margin: 0.5rem auto;
+    background-color: rgb(46, 42, 42);
+    border: none;
+}
+.form-direccion textarea{
+    color:white;
+    font-size: 1.4rem;
+    text-align: center;
+    padding: 1rem;
+    resize: none;
+    background-color: rgb(46, 42, 42);
+    width: 60rem;
+    height: 15rem;
+    margin-bottom: 1rem;
+    border: none;
+}
+.tabla-direcciones{
+    width: 100rem;
+    font-size: 1.6rem;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+.tabla-direcciones thead{
+    background-color: var(--naranja_primario);
+}
+.tabla-direcciones tr{
+    border-bottom: 0.1rem solid var(--negro);
+}
+.tabla-direcciones td{
+    padding: 1rem;
+}
 /* Responsive Web Desing */
     /* Celulares */
+    
         @media (min-width: 300px){
         }
 

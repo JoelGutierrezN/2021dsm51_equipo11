@@ -25,7 +25,6 @@ window.addEventListener("load", function(){
     $('.btn-like').css('cursor', 'pointer');
     $('.btn-dislike').css('cursor', 'pointer');
 
-
     function dislike(){
         $('.btn-dislike').unbind('click').click( function(){
             $(this).addClass('btn-like').removeClass('btn-dislike');
@@ -51,10 +50,10 @@ window.addEventListener("load", function(){
     function like(){
         $('.btn-like').unbind('click').click( function(){
             $(this).addClass('btn-dislike').removeClass('btn-like');
-            $(this).attr("src", url+"img/like_pulsado.png");
+            $(this).attr("src", url+"/img/like_pulsado.png");
 
             $.ajax({
-                url: url+'usuario/dislike/'+$(this).data('id'),
+                url: url+'/usuario/dislike/'+$(this).data('id'),
                 type: 'GET',
                 success: function(response){
                     if(response.like){
@@ -69,6 +68,6 @@ window.addEventListener("load", function(){
         });
     }
     dislike();
-    
 
+    //============================================================================
 });

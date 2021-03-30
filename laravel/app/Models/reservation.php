@@ -18,6 +18,7 @@ class reservation extends Model
         'total',
         'homeservice',
         'active',
+        'room_id',
         'address_id',
         'user_id',
         'reservation_id',

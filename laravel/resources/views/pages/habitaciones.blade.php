@@ -1,4 +1,4 @@
-@extends('user.layouts.master')
+@extends('layouts.master')
 
 @section('titulo', 'Reservaciones')
 
@@ -8,11 +8,11 @@
 <main class="container reservaciones">
     <div class="habitaciones">
 
-        @foreach($habitaciones as $habitacion)
+    @foreach($habitaciones as $habitacion)
         <!-- Habitaciones -->
         <div class="seccion-habitaciones">
             <!-- Habitacion -->
-            <img src="../{{ $habitacion->img }}" alt="imagen_habitacion">
+            <img src="{{ route('roomImg', ['filename' => $habitacion->img]) }}" alt="imagen_habitacion">
             <div class="habitacion">
                 <h3 class="texto-naranja-secundario titulo">{{ $habitacion->name }}</h3>
                 <textarea name="resume" id="resume" class="resume" cols="30" rows="10">{{ $habitacion->resume}}</textarea>
@@ -23,7 +23,7 @@
             </div>
         </div>
         @endforeach
-
+        
     </div>
 </main>
 @stop

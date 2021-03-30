@@ -19,7 +19,8 @@ class pet extends Model
     ];
 
     protected $attributes = [
-        'img' => null
+        'img' => 'pet.png',
+        'active' => 1
     ];
 
     protected $table = 'pets';
