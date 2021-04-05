@@ -6,6 +6,26 @@
 <body class="fondo-body">
     <div class="contenedor">
         <div class="contenedor_formulario">
+            @if ($errors->any())
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
+            @if( session('message') )
+                <div class="alert alert-success FS-2rem">
+                    {{ session('message') }}
+                </div>
+            @endif
+
+            @if( session('error') )
+                <div class="alert alert-danger" role="alert">
+                    {{ session('error') }}
+                </div>
+            @endif
             <form action="{{ route('validar') }}" method="post" class="form-login">
                 @csrf
                 <img src="img/logo.png" alt="logo">

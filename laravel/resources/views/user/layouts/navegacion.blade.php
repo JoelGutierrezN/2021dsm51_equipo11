@@ -37,6 +37,11 @@
           <a class="nav-link link-orange titulo-usuario" href="{{ route('servicios') }}">Premium</a>
         </li>
         @endif
+        @if($usuario['session_rank'] == "Empleado")
+        <li class="nav-item">
+          <a class="nav-link link-orange titulo-usuario" href="{{ route('servicios') }}">Reservaciones</a>
+        </li>
+        @endif
       </ul>
     </div>
     <span class="navbar-nav nav-derecha">

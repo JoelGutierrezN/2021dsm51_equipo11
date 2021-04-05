@@ -182,7 +182,7 @@ class UserPagesController extends Controller
         $validate = $this->validate($request,[
             'name' => 'required|string',
             'first_name' => 'required|string',
-            'phone' => 'string',
+            'phone' => 'string|nullable',
             'cellphone' => 'required|string'
         ]);
 

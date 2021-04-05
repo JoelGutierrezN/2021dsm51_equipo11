@@ -4,7 +4,10 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth;
 use App\Http\Controllers;
 use App\Http\Controllers\UserPagesController;
+use App\Http\Controllers\EmpleadoPagesController;
 use App\Http\Controllers\InvitadoPagesController;
+use App\Http\Controllers\AdministracionController;
+use App\Http\Controllers\AdminPagesController;
 use App\Http\Controllers\SystemController;
 use App\Http\Controllers\ComunidadController;
 use App\Http\Controllers\CommentsController;
@@ -26,10 +29,19 @@ Route::get('/register', [RegisterController::class, 'register'])->name( 'registe
 Route::post('/registrarUsuario', [RegisterController::class, 'guardar'])->name( 'registrarUsuario' ); //registrar usuario
 
 //rutas admin
-Route::get('/admin', [SystemController::class, 'admin'])->name( 'inicioAdmin' ); // Inicio Admin
+Route::get('/admin', [SystemController::class, 'admin'])->name( 'inicioAdmin' );
+Route::get('/admin/index', [AdminPagesController::class, 'index'])->name( 'indexAdmin' ); // Inicio Admin
+Route::get('/admin/administradores', [AdminPagesController::class, 'administradores'])->name( 'administradores' ); // Administradores Page
+Route::post('/admin/administradores/crear', [AdministracionController::class, 'crear'])->name( 'crear.administrador' ); // Crear un Administrador
+Route::post('/admin/administradores/agregar', [AdministracionController::class, 'agregar'])->name( 'agregar.administrador' ); // Asignar Administrador
+Route::post('/admin/administradores/update', [AdministracionController::class, 'update'])->name( 'actualizar.perfil' ); // Asignar Administrador
+Route::get('/admin/administradores/editar/{id}', [AdminPagesController::class, 'editar'])->name( 'editor.perfiles' );// Editar Administrador
+Route::get('/admin/administradores/eliminar/{id}', [AdministracionController::class, 'eliminar'])->name( 'eliminar.administrador' );// Editar Administrador
+ // Inicio Admin
 
 //rutas empleado
-Route::get('/empleado', [SystemController::class, 'empleado'])->name( 'inicioEmpleado' ); // Inicio Empleado
+Route::get('/empleado', [SystemController::class, 'empleado'])->name( 'indexEmpleado' ); // Inicio Empleado
+
 
 //rutas user
 Route::get('/usuario', [SystemController::class, 'usuario'])->name( 'sesionUsuario' ); // Inicio Usuario

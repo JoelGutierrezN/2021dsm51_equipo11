@@ -71,7 +71,7 @@
                         <div class="clearfix"></div>
                         {{$direcciones->links()}}
                         <div id="#div">
-                            <button class="link-blanco boton boton-naranja btn-agregar-direccion">Agregar Direccion</button>
+                            <button id="agregar" class="link-blanco boton boton-naranja btn-agregar-direccion">Agregar Direccion</button>
                         </div>
                     @endif
                 
@@ -108,11 +108,13 @@
             $('.btn-agregar-direccion').click(function (){ 
                 $('#form_agregar_direccion').show(0)
                 $('.seccion-direcciones').css('height', 'auto');
+                $('#agregar').hide(0);
             });
 
             $('#cancelar').click(function (){
                 $('#form_agregar_direccion').hide(0);
                 $('.seccion-direcciones').css('height', '63.5rem');
+                $('#agregar').show(0);
             });
 
             $('#selc_estados').on('change', function() {

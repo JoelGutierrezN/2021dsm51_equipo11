@@ -36,10 +36,10 @@
                     <div>
                         <!-- Phone -->
                         <label for="" class="text-orange titulo">Tel. Celular </label>
-                        <input type="password" name="cellphone" id="cellphone" class="cellphone" placeholder="+52 000 000 0000">
+                        <input type="text" name="cellphone" id="cellphone" class="cellphone" placeholder="000 000 0000">
                         <!-- Cellphone -->
                         <label for="" class="text-orange titulo">Confirmar Contraseña </label>
-                        <input type="password" name="cpassword" id="cpassword" class="cpassword" placeholder="Confirmar Contraseña">
+                        <input type="text" name="cpassword" id="cpassword" class="cpassword" placeholder="Confirmar Contraseña">
                     </div>
                 </div>
                 <br>

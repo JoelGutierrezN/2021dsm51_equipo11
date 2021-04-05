@@ -58,7 +58,7 @@
                             @endforeach
                         </div>
                         <div id="#div">
-                            <button class="link-blanco boton boton-naranja btn-agregar-mascota">Agregar Nuevo Mejor Amigo</button>
+                            <button id="agregar" class="link-blanco boton boton-naranja btn-agregar-mascota">Agregar Nuevo Mejor Amigo</button>
                         </div>
                     @endif
                 
@@ -85,10 +85,12 @@
 
             $('.btn-agregar-mascota').click(function (){ 
                 $('#form_agregar_mascota').show(0)
+                $('#agregar').hide(0);
             });
 
             $('#cancelar').click(function (){
                 $('#form_agregar_mascota').hide(0);
+                $('#agregar').show(0);
             });
         });
     </script>

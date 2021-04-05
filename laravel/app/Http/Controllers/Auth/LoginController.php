@@ -33,11 +33,17 @@ class LoginController extends Controller
             $session_rank = $request->session()->get('session_rank');
             $session_img = $request->session()->get('session_img');
 
+            if( $usuario->active == 0){
+                return redirect()->route('login')->with([
+                    'error' => 'Tu Cuenta Esta Bloqueada. No puedes Ingresar Contacta a un Administrador'
+                ]);
+            }
+
             if( $session_rank == "Admin" ){
                 return redirect()->route('inicioAdmin');
             }else{
                 if( $session_rank == "Empleado" ){
-                    return redirect()->route('inicioEmpleado');
+                    return redirect()->route('indexEmpleado');
                 }else{
                     return redirect()->route('sesionUsuario');
                 }

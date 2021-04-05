@@ -1,0 +1,116 @@
+:root{
+    --negro: rgb(0, 0, 0);
+    --blanco: rgb(255, 255, 255);
+    --vino: rgb(170, 25, 75);
+    --naranja_primario: rgb(255, 144, 0);
+    --naranja_secundario: rgb(255, 96, 0);
+    --amarillo: rgb(246, 178, 0);
+}
+
+/* Globales*/
+    /* Normalización de 1 rem = 10px*/
+    html{
+        font-size: 62.5%;
+    }
+    img{
+        max-width: 100%;
+    }
+    .link-white{
+        color: white;
+        text-decoration: none;
+        margin-right: 2rem;
+    }
+    .link-white:hover{
+        color: greenyellow;
+    }
+    .text-white{
+        color: white;
+        text-decoration: none;
+    }
+    .FS-1\.4{
+        font-size: 1.4rem;
+    }
+    .FS-1\.6{
+        font-size: 1.6rem;
+    }
+    .FS-1\.8{
+        font-size: 1.8rem;
+    }
+    .FS-2{
+        font-size: 2rem;
+    }
+    .FS-2\.5{
+        font-size: 2.5rem;
+    }
+    /* Navegacion */
+    .navegacion{
+        padding: 1rem;
+        background-color: seagreen;
+    }
+    .navegacion span{
+        margin-left: 60rem;
+    }
+    /* Index */
+    .img-makecode-index{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 180rem;
+        height: 70rem;
+    }
+    .img-makecode-index img{
+        width: 35rem;
+        height: 15rem;
+    }
+
+    /* Administradores */
+    .contenedor-administradores{
+        margin: 5rem auto;
+        width: 100rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-content: center;
+    }
+    .contenedor-administradores table thead{
+        background-color: seagreen;
+    }
+    .contenedor-administradores table{
+        margin: 0 auto;
+        width: 100rem;
+        height: auto;
+        text-align: center;
+    }
+    .contenedor-administradores th,td{
+        padding: 1rem;
+    }
+    .contenedor-botones-administrador{
+        display: flex;
+        justify-content: center;
+        align-content: center;
+    }
+    .contenedor-botones-administrador button{
+        margin: 2rem;
+    }
+    #form-crear, #form-agregar{
+        text-align: center;
+        padding: 1.5rem;
+        border-radius: 2rem;
+        width: 50%;
+        margin: 1rem auto;
+        background-color: rgb(10, 93, 145);
+    }
+    #form-crear input,#form-agregar input{
+        margin: 0.5rem auto;
+    }
+
+    #form-crear select{
+        margin: 0.5rem auto;
+    }
+    body main{
+        margin: 1rem auto;
+        width: 90%;
+        border-radius: 2rem;
+        padding: 1rem;
+        box-shadow: black 0.2rem 0.5rem 1rem 0.5rem;
+    }
