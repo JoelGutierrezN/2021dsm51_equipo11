@@ -20,6 +20,7 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rule;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\File;
+use Intervention\Image\Facades\Image;
 
 class UserPagesController extends Controller
 {
@@ -97,6 +98,11 @@ class UserPagesController extends Controller
     public function getServiceImage($filename) {
         $file = Storage::disk('services')->get($filename);
         return new Response($file, 200);
+    }
+
+    public function getServiceImageApp($filename) {
+        $file = Storage::disk('services')->get($filename);
+        return Image::make($file)->response();
     }
 
     public function premium (Request $request) {

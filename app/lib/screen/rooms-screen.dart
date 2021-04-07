@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:developer';
 
 import 'package:app/models/room.dart';
 import 'package:dio/dio.dart' as Dio;
@@ -51,8 +52,8 @@ class RoomsState extends State<RoomsScreen>{
                   var item = snapshot.data[index];
                   return ListTile(
                     leading: Image.network('https://tecnohotelnews.com/wp-content/uploads/2020/07/image004-2.jpg'),
-                    title: Text('Habitacion: ${item.rank}'),
-                    subtitle: Text('Costo: \$${item.cost}'),
+                    title: Text('${item.name}'),
+                    subtitle: Text('Costo: \$${item.cost}/dia'),
                     trailing: Icon(Icons.touch_app_rounded),
                   );
                 }
