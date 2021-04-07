@@ -8,7 +8,7 @@
         <div class="servicios">
             @foreach($servicios as $servicio)
                 
-            @if( ($servicio->premium) == 0 )
+                @if( ($servicio->premium) == 0  && ($servicio->active) == 1)
                     <div class="servicio">
                         <img src="{{ route('serviceImg', ['filename' => $servicio->img]) }}" alt="service-img">
                         <hr>
@@ -17,7 +17,7 @@
                         <hr>
                         <div class="precio-negro fondo-naranja">${{ $servicio->cost }}</div>
                     </div>
-                @else
+                @elseif(($servicio->premium) == 1  && ($servicio->active) == 1)
                     <div class="servicio-premium">
                         <img src="{{ route('serviceImg', ['filename' => $servicio->img]) }}" alt="service-img">
                         <hr>

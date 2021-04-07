@@ -27,6 +27,7 @@ class ServicesSeeder extends Seeder
             'resume' => 'Vista con seguridad, cuenta con los servicios de veterianria por si se requiere', //texto corto para tarjeta pequeña
             'large_description' => 'texto largo', //descripcion larga para popup(aun no hecho)
             'img' => 'service.png', //no cambiar imagen
+            'active' => 1,
             'created_at' => $now,
             'updated_at' => $now
         ]);
@@ -38,6 +39,7 @@ class ServicesSeeder extends Seeder
             'resume' => 'Consiste en un mejor cuidado en alimentacion y estimulacion por medio de aparatos especializados', //texto corto para tarjeta pequeña
             'large_description' => 'texto largo', //descripcion larga para popup(aun no hecho)
             'img' => 'service.png', //no cambiar imagen
+            'active' => 1,
             'created_at' => $now,
             'updated_at' => $now //no cambiar imagen
         ]);
@@ -48,6 +50,7 @@ class ServicesSeeder extends Seeder
             'resume' => 'Enfocado a  tratamientos, terapias o sistemas de relajación, utilizando como base principal el agua', //texto corto para tarjeta pequeña
             'large_description' => 'texto largo', //descripcion larga para popup(aun no hecho)
             'img' => 'service.png', //no cambiar imagen
+            'active' => 1,
             'created_at' => $now,
             'updated_at' => $now //no cambiar imagen
         ]);
@@ -59,6 +62,7 @@ class ServicesSeeder extends Seeder
             El escondite y buscar comida debajo de objetos son juegos que desarrollan las habilidades olfativas del perro y su concentración', //texto corto para tarjeta pequeña
             'large_description' => 'texto largo', //descripcion larga para popup(aun no hecho)
             'img' => 'service.png', //no cambiar imagen
+            'active' => 1,
             'created_at' => $now,
             'updated_at' => $now //no cambiar imagen
         ]);

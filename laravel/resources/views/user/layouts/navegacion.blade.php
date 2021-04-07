@@ -42,6 +42,11 @@
           <a class="nav-link link-orange titulo-usuario" href="{{ route('servicios') }}">Reservaciones</a>
         </li>
         @endif
+        @if($usuario['session_rank'] == "Admin")
+        <li class="nav-item">
+          <a class="nav-link link-orange titulo-usuario" href="{{ route('indexAdmin') }}">Administracion</a>
+        </li>
+        @endif
       </ul>
     </div>
     <span class="navbar-nav nav-derecha">

@@ -35,7 +35,7 @@
                 <input class="form-control form-control-lg FS-1.6" type="text" name="cellphone" placeholder="Numero Telefonico" value="{{ $user->cellphone }}">
                 <input class="form-control form-control-lg FS-1.6" type="text" name="phone" placeholder="Numero Telefonico" value="{{ $user->phone }}">
 
-                <select name="rank" id="selc_rank" class="form-control FS-1.6">
+                <select name="rank" id="selc_rank" class="form-control FS-1.6" disabled>
                     <option value="{{ $user->rank }}" selected class="FS-1.6">{{ $user->rank }}</option>
                     @if($user->rank == "Admin")
                         <option value="Usuario" class="FS-1.6">Usuario</option>
@@ -52,20 +52,17 @@
                 </select>
 
                 @if($user->active == 1)
-                <select name="active" id="selc_active" class="form-control FS-1.6">
+                <select name="active" id="selc_active" class="form-control FS-1.6" disabled>
                     <option value="1" selected class="FS-1.6">Cuenta Activa</option>
                     <option value="0" class="FS-1.6">Cuenta Inactiva</option>
                 </select>
                 @else
-                <select name="active" id="selc_active" class="form-control FS-1.6">
+                <select name="active" id="selc_active" class="form-control FS-1.6" disabled>
                     <option value="0" selected class="FS-1.6">Cuenta Inactiva</option>
                     <option value="1" class="FS-1.6">Cuenta Activa</option>
                 </select>
                 @endif
-
-                <input class="form-control form-control-lg FS-1.6" type="password" name="password" placeholder="Contraseña">
-                <input class="form-control form-control-lg FS-1.6" type="password" name="confirm_password" placeholder="Confirmar Contraseña">
-    
+                <a href="{{ route('reset.password', ['id' => $user->id]) }}" class="btn btn-warning btn-lg">Restablecer Contraseña de Usuario</a>
                 <input type="submit" class="btn-success btn btn-lg" value="Actualizar">
                 <a href="{{ route('indexAdmin') }}" class="cancelar btn btn-danger btn-lg">Cancelar</a>
             </form>

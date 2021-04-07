@@ -28,6 +28,7 @@
             @endif
             <table>
                 <thead>
+                    <th></th>
                     <th class="text-white FS-1.4">Nombre</th>
                     <th class="text-white FS-1.4">Correo</th>
                     <th class="text-white FS-1.4">Estatus</th>
@@ -37,6 +38,7 @@
                 <tbody>
                 @foreach($administradores as $administrador)
                     <tr>
+                        <td><img src="{{ route('userImg', ['filename' => $administrador->img]) }}" alt="" class="imagen-servicio"></td>
                         <td class="FS-1.4">{{ $administrador->name.' '.$administrador->first_name }}</td>
                         <td class="FS-1.4">{{ $administrador->email}}</td>
                         @if($administrador->active == 1)
@@ -72,8 +74,6 @@
             <input class="form-control form-control-lg" type="text" name="first_name" placeholder="Apellido">
             <input class="form-control form-control-lg" type="email" name="email" placeholder="Correo">
             <input class="form-control form-control-lg" type="text" name="cellphone" placeholder="Numero Telefonico">
-            <input class="form-control form-control-lg" type="password" name="password" placeholder="Contraseña">
-            <input class="form-control form-control-lg" type="password" name="confirm_password" placeholder="Confirmar Contraseña">
             <input type="submit" class="btn-success btn btn-lg" value="Crear">
             <div class="cancelar btn btn-danger btn-lg">Cancelar</div>
         </form>

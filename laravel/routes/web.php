@@ -14,12 +14,13 @@ use App\Http\Controllers\CommentsController;
 use App\Http\Controllers\LikesController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
-
-
+Route::get('/prueba', function(){
+    return view('emails.admin-creado');
+});
 //rutas generales
 Route::get('/', [InvitadoPagesController::class, 'index'])->name( 'inicio' ); //home Page
 Route::get('/habitaciones', [InvitadoPagesController::class, 'habitaciones'])->name( 'habitaciones' ); //Reservaciones Page
-Route::get('/servicios',[InvitadoPagesController::class, 'servicios'])->name( 'servicios' ); // Servicios Page
+Route::get('/servicios',[InvitadoPagesController::class, 'servicios'])->name( 'serviciosinv' ); // Servicios Page
 
 //rutas login / register
 Route::get('/login', [LoginController::class, 'login'])->name( 'login' ); // Login Page
@@ -34,10 +35,24 @@ Route::get('/admin/index', [AdminPagesController::class, 'index'])->name( 'index
 Route::get('/admin/administradores', [AdminPagesController::class, 'administradores'])->name( 'administradores' ); // Administradores Page
 Route::post('/admin/administradores/crear', [AdministracionController::class, 'crear'])->name( 'crear.administrador' ); // Crear un Administrador
 Route::post('/admin/administradores/agregar', [AdministracionController::class, 'agregar'])->name( 'agregar.administrador' ); // Asignar Administrador
-Route::post('/admin/administradores/update', [AdministracionController::class, 'update'])->name( 'actualizar.perfil' ); // Asignar Administrador
+Route::post('/admin/administradores/update', [AdministracionController::class, 'update'])->name( 'eliminar.perfil' ); // Asignar Administrador
 Route::get('/admin/administradores/editar/{id}', [AdminPagesController::class, 'editar'])->name( 'editor.perfiles' );// Editar Administrador
 Route::get('/admin/administradores/eliminar/{id}', [AdministracionController::class, 'eliminar'])->name( 'eliminar.administrador' );// Editar Administrador
- // Inicio Admin
+Route::get('/admin/reset-password/{id}', [AdministracionController::class, 'resetPassword'])->name( 'reset.password' );// Editar Administrador
+Route::get('/admin/empleados', [AdminPagesController::class, 'empleados'])->name( 'empleados' ); // Empleados Page
+Route::get('/admin/empleados/eliminar/{id}', [AdministracionController::class, 'eliminarEmpleado'])->name( 'eliminar.empleado' );// Eliminar Empleado
+Route::post('/admin/empleados/crear', [AdministracionController::class, 'crearEmpleado'])->name( 'crear.empleado' ); // Crear un Empleado
+Route::post('/admin/empleado/agregar', [AdministracionController::class, 'agregarEmpleado'])->name( 'agregar.empleado' ); // Asignar Empleado
+Route::get('/admin/usuarios', [AdminPagesController::class, 'usuarios'])->name( 'usuarios' ); // Empleados Page
+Route::get('/admin/usuarios/bloquear/{id}', [AdministracionController::class, 'bloquear'])->name( 'bloquear.usuario' ); // Banear Empleado
+Route::get('/admin/usuarios/desbloquear/{id}', [AdministracionController::class, 'desbloquear'])->name( 'desbloquear.usuario' ); // desbanear Empleado
+Route::get('/admin/servicios', [AdminPagesController::class, 'servicios'])->name( 'servicios' ); // Servicios Page
+Route::post('/admin/servicios/crear', [AdministracionController::class, 'crearServicio'])->name('crear.servicio'); //crear servicio 
+Route::get('/admin/servicios/editar/{id}', [AdminPagesController::class, 'editarServicio'])->name('editar.servicio'); //Editar servicio 
+Route::post('/admin/servicios/actualizar', [AdministracionController::class, 'actualizarServicio'])->name('actualizar.servicio'); //Actualizar servicio 
+Route::get('/admin/servicios/eliminar/{id}', [AdministracionController::class, 'eliminarServicio'])->name('eliminar.servicio'); //Desactivar servicio 
+Route::get('/admin/servicios/activar/{id}', [AdministracionController::class, 'activarServicio'])->name('activar.servicio'); //Activar servicio 
+// Inicio Admin
 
 //rutas empleado
 Route::get('/empleado', [SystemController::class, 'empleado'])->name( 'indexEmpleado' ); // Inicio Empleado

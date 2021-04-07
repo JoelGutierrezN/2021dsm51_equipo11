@@ -48,7 +48,18 @@
         background-color: seagreen;
     }
     .navegacion span{
-        margin-left: 60rem;
+        margin-left: 40rem;
+        display: flex;
+        align-items: center;
+        text-align: center;
+    }
+    .navegacion span img{
+        margin-right: 1rem;
+    }
+    .imagen-usuario{
+        width: 3.5rem;
+        height: 3.5rem;
+        border-radius: 2rem;
     }
     /* Index */
     .img-makecode-index{
@@ -113,4 +124,43 @@
         border-radius: 2rem;
         padding: 1rem;
         box-shadow: black 0.2rem 0.5rem 1rem 0.5rem;
+    }
+
+    /* Servicios */
+    #form-crear textarea{
+        margin: 0.5rem auto;
+    }
+    .inputfile{
+        width: 1rem;
+        height: 1rem;
+        opacity: 0;
+        overflow: hidden;
+        position: absolute;
+        z-index: -1;
+    }
+    .inputfile + label {
+        font-size: 1.25em;
+        font-weight: 700;
+        color: white;
+        background-color: var(--naranja_secundario);
+        display: inline-block;
+        padding: 1rem;
+    }
+    .inputfile:focus + label,
+    .inputfile + label:hover {
+        background-color: white;
+        color: var(--naranja_secundario);
+    }
+    .inputfile + label {
+        cursor: pointer; /* "hand" cursor */
+    }
+    .inputfile:focus + label {
+        outline: 1px dotted #000;
+        outline: -webkit-focus-ring-color auto 5px;
+    }
+
+    .imagen-servicio{
+        width: 7rem;
+        height: 7rem;
+        border-radius: 4rem;
     }

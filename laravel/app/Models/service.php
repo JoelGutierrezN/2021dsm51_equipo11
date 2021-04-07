@@ -17,11 +17,13 @@ class service extends Model
         'premium',
         'resume',
         'large_description',
-        'img'
+        'img',
+        'active'
     ];
 
     protected $attributes = [
         'premium' => 0,
-        'img' => null
+        'img' => null,
+        'active' => 1
     ];
 }
