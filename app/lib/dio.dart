@@ -5,7 +5,8 @@ import 'providers/auth.dart';
 Dio dio() {
   var dio = Dio(
     BaseOptions(
-      baseUrl: 'http://10.0.2.2:8000/api/',
+      //baseUrl: 'http://10.0.2.2:8000/api/',
+      baseUrl: 'http://dsm.safetydogs.online/api/',
       responseType: ResponseType.plain,
       headers: {
         'accept': 'application/json',

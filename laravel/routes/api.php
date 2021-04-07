@@ -4,7 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\TokenController;
 use App\Models\User;
-use App\Models\Room;
+use App\Models\room;
 use App\Models\service;
 use App\Http\Resources;
 use Illuminate\Auth\AuthenticationException;

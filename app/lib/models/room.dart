@@ -4,11 +4,11 @@ class Room{
   int cost;
   String resume;
   String largeDescription;
-  String image;
+  String img;
   String name;
   int active;
 
-  Room({ this.id, this.rank, this.cost, this.resume, this.largeDescription, this.image, this.name, this.active });
+  Room({ this.id, this.rank, this.cost, this.resume, this.largeDescription, this.img, this.name, this.active });
 
   factory Room.fromJson(Map<String, dynamic> json){
     return Room(
@@ -17,7 +17,7 @@ class Room{
       cost: json['cost'],
       resume: json['resume'],
       largeDescription: json['largeDescription'],
-      image: json['image'],
+      img: json['img'],
       name: json['name'],
       active: json['active']
     );
