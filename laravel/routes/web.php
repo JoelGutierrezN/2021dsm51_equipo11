@@ -35,7 +35,7 @@ Route::get('/admin/index', [AdminPagesController::class, 'index'])->name( 'index
 Route::get('/admin/administradores', [AdminPagesController::class, 'administradores'])->name( 'administradores' ); // Administradores Page
 Route::post('/admin/administradores/crear', [AdministracionController::class, 'crear'])->name( 'crear.administrador' ); // Crear un Administrador
 Route::post('/admin/administradores/agregar', [AdministracionController::class, 'agregar'])->name( 'agregar.administrador' ); // Asignar Administrador
-Route::post('/admin/administradores/update', [AdministracionController::class, 'update'])->name( 'eliminar.perfil' ); // Asignar Administrador
+Route::post('/admin/administradores/update', [AdministracionController::class, 'update'])->name( 'actualizar.perfil' ); // Asignar Administrador
 Route::get('/admin/administradores/editar/{id}', [AdminPagesController::class, 'editar'])->name( 'editor.perfiles' );// Editar Administrador
 Route::get('/admin/administradores/eliminar/{id}', [AdministracionController::class, 'eliminar'])->name( 'eliminar.administrador' );// Editar Administrador
 Route::get('/admin/reset-password/{id}', [AdministracionController::class, 'resetPassword'])->name( 'reset.password' );// Editar Administrador

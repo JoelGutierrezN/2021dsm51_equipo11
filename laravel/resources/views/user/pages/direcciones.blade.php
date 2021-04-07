@@ -101,7 +101,7 @@
         </div>
     </main>
     <script type="text/javascript">
-    url = 'http://safetydogs.11.com';
+    url = 'http://dsm.safetydogs.online';
         $(document).ready(function () {
             $('#form_agregar_direccion').hide(0);
 

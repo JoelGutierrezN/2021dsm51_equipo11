@@ -80,15 +80,15 @@
                 <h1 class="text-yellow">Cambiar Contraseña</h1>
                 <div>
                     <label for="password"> Contraseña Actual: </label>
-                    <input type="text" name="password" id="password" class="password">
+                    <input type="password" name="password" id="password" class="password">
                 </div>
                 <div>
                     <label for="new_password"> Nueva Contraseña: </label>
-                    <input type="text" name="new_password" id="new_password" class="new_password">
+                    <input type="password" name="new_password" id="new_password" class="new_password">
                 </div>
                 <div>
                     <label for="confirm_password"> Confirmar Nueva Contraseña: </label>
-                    <input type="text" name="confirm_password" id="confirm_password" class="confirm_password">
+                    <input type="password" name="confirm_password" id="confirm_password" class="confirm_password">
                 </div>
             </div>
 
