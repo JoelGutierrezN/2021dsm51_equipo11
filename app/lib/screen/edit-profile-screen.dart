@@ -8,14 +8,14 @@ import 'package:email_validator/email_validator.dart';
 import '../dio.dart';
 import '../main.dart';
 
-class RegisterScreen extends StatefulWidget{
+class EditProfileScreen extends StatefulWidget{
   @override
   State<StatefulWidget> createState(){
-    return RegisterState();
+    return EditProfileState();
   }
 }
 
-class RegisterState extends State<RegisterScreen>{
+class EditProfileState extends State<EditProfileScreen>{
   final _formkey = GlobalKey<FormState>();
   String _name;
   String _firstName;

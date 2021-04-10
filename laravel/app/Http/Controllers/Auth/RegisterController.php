@@ -32,6 +32,8 @@ class RegisterController extends Controller
         ]);
         
         $user = User::create($request->all());
-        return redirect()->route('login');
+        return redirect()->route('login')->with([
+            'message' => 'Registrado Correctamente'
+            ]);
     }
 }

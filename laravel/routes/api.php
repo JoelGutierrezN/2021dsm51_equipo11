@@ -24,10 +24,10 @@ use App\Http\Controllers\UserPagesController;
 //Tokens Sanctum
 Route::middleware('auth:sanctum')->get('/auth/user', function (Request $request) { return $request->user(); });
 Route::middleware('auth:sanctum')->get('/user/posts', function (Request $request) { return $request->user()->posts; });
-Route::get('app/serviceImg/{filename}',[UserPagesController::class, 'getServiceImageApp'])->name( 'serviceImg' );
 Route::middleware('auth:sanctum')->get('app/users', function () { return response()->json(UserResource::collection(User::all())); });
 Route::middleware('auth:sanctum')->get('app/rooms', function () { return response()->json(RoomResource::collection(Room::all())); });
 Route::middleware('auth:sanctum')->get('app/services', function () { return response()->json(ServiceResource::collection(Service::all())); });
+Route::post('app/registrar', [UserController::class, 'registrar']);
 Route::post('/auth/token', [TokenController::class, 'store']);
 Route::delete('/auth/token', [TokenController::class, 'destroy']);
 

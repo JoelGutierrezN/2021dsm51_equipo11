@@ -1,5 +1,6 @@
 
 import 'package:app/providers/auth.dart';
+import 'package:app/screen/edit-profile-screen.dart';
 import 'package:app/screen/rooms-screen.dart';
 import 'package:app/screen/users-screen.dart';
 import 'package:app/screen/service-screen.dart';
@@ -21,28 +22,70 @@ class NavDrawer extends StatelessWidget{
             return ListView(
               children: [
                 ListTile(
-                  title: Text('${auth.user.name} ${auth.user.firstName}'),
+                  leading: ClipRRect(
+                  borderRadius: BorderRadius.all(Radius.circular(30.0)),
+                  child: Image.network(
+                      'http://safetydogs.online/laravel/storage/app/users/${auth.user.img}',
+                      width: 50,
+                      height: 50,
+                    ),
+                  ),
+                  title: Text('${auth.user.name} ${auth.user.firstName}',
+                    style: TextStyle(
+                      fontFamily: 'Satisfy',
+                      fontSize: 20,
+                      color: Colors.orange[700]
+                    ),
+                    textAlign: TextAlign.center,
+                  ),
+                  onTap: () {
+                    Navigator.push(context, MaterialPageRoute(builder: (context) => EditProfileScreen()));
+                  }
                 ),
                 ListTile(
-                  title: Text('Habitaciones'),
+                  title: Text('Habitaciones',
+                    style: TextStyle(
+                      fontFamily: 'Satisfy',
+                      fontSize: 15
+                    ),
+                    textAlign: TextAlign.center,
+                  ),
                   onTap: () {
                     Navigator.push(context, MaterialPageRoute(builder: (context) => RoomsScreen()));
                   }
                 ),
                 ListTile(
-                  title: Text('Servicios'),
+                  title: Text('Servicios',
+                    style: TextStyle(
+                      fontFamily: 'Satisfy',
+                      fontSize: 15
+                    ),
+                    textAlign: TextAlign.center,
+                  ),
                   onTap: () {
                     Navigator.push(context, MaterialPageRoute(builder: (context) => ServiceScreen()));
                   }
                 ),
                 ListTile(
-                  title: Text('Usuarios'),
+                  title: Text('Usuarios',
+                    style: TextStyle(
+                      fontFamily: 'Satisfy',
+                      fontSize: 15
+                    ),
+                    textAlign: TextAlign.center,
+                  ),
                   onTap: () {
                     Navigator.push(context, MaterialPageRoute(builder: (context) => UsersScreen()));
                   }
                 ),
                 ListTile(
-                  title: Text('Cerrar Sesion'),
+                  title: Text('Cerrar Sesion',
+                    style: TextStyle(
+                      fontFamily: 'Satisfy',
+                      fontSize: 15
+                    ),
+                    textAlign: TextAlign.center,
+                  ),
                   onTap: () {
                     Provider.of<Auth>(context, listen: false).logout();
                   }
@@ -53,22 +96,55 @@ class NavDrawer extends StatelessWidget{
             return ListView(
               children: [
                 ListTile(
-                  title: Text('${auth.user.name} ${auth.user.firstName}'),
+                  leading: ClipRRect(
+                  borderRadius: BorderRadius.all(Radius.circular(30.0)),
+                  child: Image.network(
+                      'http://safetydogs.online/laravel/storage/app/users/${auth.user.img}',
+                      width: 50,
+                      height: 50,
+                    ),
+                  ),
+                  title: Text('${auth.user.name} ${auth.user.firstName}',
+                    style: TextStyle(
+                      fontFamily: 'Satisfy',
+                      fontSize: 20,
+                      color: Colors.orange[700]
+                    ),
+                    textAlign: TextAlign.center,
+                  ),
                 ),
                 ListTile(
-                  title: Text('Habitaciones'),
+                  title: Text('Habitaciones',
+                    style: TextStyle(
+                      fontFamily: 'Satisfy',
+                      fontSize: 15
+                    ),
+                    textAlign: TextAlign.center,
+                  ),
                   onTap: () {
                     Navigator.push(context, MaterialPageRoute(builder: (context) => RoomsScreen()));
                   }
                 ),
                 ListTile(
-                  title: Text('Servicios'),
+                  title: Text('Servicios',
+                    style: TextStyle(
+                      fontFamily: 'Satisfy',
+                      fontSize: 15
+                    ),
+                    textAlign: TextAlign.center,
+                  ),
                   onTap: () {
                     Navigator.push(context, MaterialPageRoute(builder: (context) => ServiceScreen()));
                   }
                 ),
                 ListTile(
-                  title: Text('Cerrar Sesion'),
+                  title: Text('Cerrar Sesion',
+                    style: TextStyle(
+                      fontFamily: 'Satisfy',
+                      fontSize: 15
+                    ),
+                    textAlign: TextAlign.center,
+                  ),
                   onTap: () {
                     Provider.of<Auth>(context, listen: false).logout();
                   }
@@ -80,13 +156,25 @@ class NavDrawer extends StatelessWidget{
             return ListView(
               children: [
                 ListTile(
-                  title: Text('Iniciar Sesion'),
+                  title: Text('Iniciar Sesion',
+                    style: TextStyle(
+                      fontFamily: 'Satisfy',
+                      fontSize: 15
+                    ),
+                    textAlign: TextAlign.center,
+                  ),
                   onTap: () {
                     Navigator.push(context, MaterialPageRoute(builder: (context) => LoginScreen()));
                   }
                 ),
                 ListTile(
-                  title: Text('Registrarse'),
+                  title: Text('Registrarse',
+                    style: TextStyle(
+                      fontFamily: 'Satisfy',
+                      fontSize: 15
+                    ),
+                    textAlign: TextAlign.center,
+                  ),
                   onTap: () {
                     Navigator.push(context, MaterialPageRoute(builder: (context) => RegisterScreen()));
                   }

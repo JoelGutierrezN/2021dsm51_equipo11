@@ -7,7 +7,9 @@ use Illuminate\Http\Request;
 use App\Http\Resources\UserResource;
 use App\Http\Resources\UserCollection;
 use App\Models\User;
-
+use App\Mail\UserCreation;
+use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Str;
 
 class UserController extends Controller
 {
@@ -39,20 +41,57 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
+        $password = Str::random(8);
+        
+        $user = new User();
+
+        $user->name = $request->input('name');
+        $user->first_name = $request->input('first_name');
+        $user->email = $request->input('email');
+        $user->phone = $request->input('phone');
+        $user->rank = $request->input('rank');
+        $user->active = $request->input('active');
+        $user->cellphone = $request->input('cellphone');
+        $user->password = bcrypt($password);
+
+        $data = new User();
+        $data->password = $password;
+        $data->email = $user->email;
+        $data->name = $user->name;
+        $data->first_name = $user->first_name;
+
+        $correo = new UserCreation($data);
+        Mail::to('$user->email')->send($correo);
+        
+        return response()->json($user->save());
+    }
+
+    public function registrar(Request $request)
+    {
+        $user = new User;
+
         $request->validate([
-            'name' => 'required|string|max:25',
-            'first_name' => 'required|string|max:25',
+            'name' => 'required|string',
+            'first_name' => 'required|string',
             'email' => 'required|email|unique:users,email',
-            'password' => 'required|min:8',
+            'password' => 'required',
             'cellphone' => 'required',
-            'phone' => '',
-            'rank' => 'required|string',
+            'phone' => 'nullable',
+            'rank' => 'nullable',
         ]);
-        $request->merge([
-            'password' => bcrypt($request->password)
-        ]);
-        $user = User::create($request->all());
-        return new UserResource($user);
+
+        $user->name = $request->input('name');
+        $user->first_name = $request->input('first_name');
+        $user->email = $request->input('email');
+        $user->cellphone = $request->input('cellphone');
+        $user->first_name = $request->input('first_name');
+        $user->password = bcrypt($request->input('password'));
+        
+        if( $user->save() ){
+            return response()->json($user->name.' '.$user->first_name.' Bienvenido a SafetyDogs. Ahora puedes iniciar sesion', 200);
+        }else{
+            return response()->json($user->name.'Error inesperado al registrar al hacer tu registro contacta a support@safetydogs.online', 200);
+        }
     }
 
     /**
@@ -86,7 +125,25 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $user = User::findorFail($id);
+        
+        $user->name = $request->input('name');
+        $user->first_name = $request->input('first_name');
+        $user->cellphone = $request->input('cellphone');
+        $user->phone = $request->input('phone');
+        $user->rank = $request->input('rank');
+        $user->email = $request->input('email');
+
+        if($request->input('active') == "Activo"){
+            $user->active = 1;
+        }else{
+            if($request->input('active') == "Inactivo"){
+                $user->active = 0;
+            }
+        }
+
+        return response()->json($user->save());
+
     }
 
     /**

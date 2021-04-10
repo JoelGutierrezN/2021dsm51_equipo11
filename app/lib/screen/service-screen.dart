@@ -30,7 +30,11 @@ class ServiceState extends State<ServiceScreen>{
     return Scaffold(
       backgroundColor: Color(0xFFFFF3E0),
       appBar: AppBar(
-        title: Text('Servicios'),
+        title: Text('Servicios',
+          style: TextStyle(
+            fontFamily: 'Satisfy'
+          ),
+        ),
         backgroundColor: Color(0xFFFF5722),
       ),
       body: Center(
@@ -49,19 +53,32 @@ class ServiceState extends State<ServiceScreen>{
                         borderRadius: BorderRadius.circular(10.0)
                       ),
                       elevation: 20.0,
+                      color: Colors.black,
                       child: Column(
                         children: <Widget>[
-                          Padding(padding: EdgeInsets.all(20),
-                            child: Text('Servicio: ${item.name}'),
+                          Padding(padding: EdgeInsets.all(10),
+                            child: Text('${item.name}',
+                              style: TextStyle(
+                                color: Colors.deepOrange,
+                                fontSize: 20,
+                                fontFamily: 'Satisfy'
+                              ),
+                            ),
                           ),
-                          Padding(padding: EdgeInsets.all(20),
-                            child: Image.network('http://dsm.safetydogs.online/api/app/serviceImg/${item.img}'),
+                          Padding(padding: EdgeInsets.all(10),
+                            child: FadeInImage.assetNetwork(
+                                    placeholder: 'assets/images/load.gif',
+                                    fadeInDuration: Duration(milliseconds: 1000),
+                                    image: 'http://safetydogs.online/laravel/storage/app/services/${item.img}',
+                                  ),
                           ),
-                          Padding(padding: EdgeInsets.all(20),
-                            child: Text('${item.resume}', textAlign: TextAlign.center,),
-                          ),
-                          Padding(padding: EdgeInsets.all(20),
-                            child: Text('${item.img}', textAlign: TextAlign.center,),
+                          Padding(padding: EdgeInsets.all(10),
+                            child: Text('${item.resume}', 
+                              textAlign: TextAlign.center,
+                              style: TextStyle(
+                                color: Colors.white
+                              ),
+                            ),
                           ),
                           _validarPremium(item),
                         ],
@@ -89,14 +106,14 @@ class ServiceState extends State<ServiceScreen>{
               TextSpan(
                 text: 'Gratis con ',
                 style: TextStyle(
-                  color: Colors.black
+                  color: Colors.white
                 ),
               ),
               TextSpan(
                 text: 'Premium',
                 style: TextStyle(
                   color: Colors.deepOrange,
-                  fontWeight: FontWeight.bold
+                  fontFamily: 'Satisfy',
                 ),
               ),
             ],
@@ -111,7 +128,7 @@ class ServiceState extends State<ServiceScreen>{
               TextSpan(
                 text: 'Con un costo adicional de ',
                 style: TextStyle(
-                  color: Colors.black
+                  color: Colors.white
                 ),
               ),
               TextSpan(
@@ -124,7 +141,7 @@ class ServiceState extends State<ServiceScreen>{
               TextSpan(
                 text: 'a tu servicio',
                 style: TextStyle(
-                  color: Colors.black
+                  color: Colors.white
                 ),
               ),
             ],

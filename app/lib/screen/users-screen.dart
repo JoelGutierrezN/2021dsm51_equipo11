@@ -1,6 +1,8 @@
 import 'dart:convert';
+import 'dart:developer';
 
 import 'package:app/models/user.dart';
+import 'package:app/screen/user-screen.dart';
 import 'package:dio/dio.dart' as Dio;
 import 'package:flutter/material.dart';
 
@@ -27,63 +29,112 @@ class UsersState extends State<UsersScreen>{
     return users.map((user) => User.fromJson(user)).toList();
 
   }
-  /*Future<Map<String, dynamic>> getUsershttp() async{
-    var response = await http.get('http://10.0.2.2:8000/api/users');
-    log('Response status: ${response.statusCode}');
-    //log('Response body: ${response.body}');
-    return json.decode(response.body);
-  }*/
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xFFFFF3E0),
+     backgroundColor: Color(0xFFFFF3E0),
       appBar: AppBar(
-        title: Text('Usuarios'),
         backgroundColor: Color(0xFFFF5722),
+        title: Text('Usuarios'), 
+        actions: <Widget>[
+          // CircleAvatar()
+          _agregaProducto(),
+          _recargarProductos(),
+        ],
       ),
       body: Center(
-        /*child: FutureBuilder(
-          future: getUsershttp(),
-          builder: (context, snapshot){
-            if (snapshot.hasData) {
-              return ListView.builder(
-                itemCount: snapshot.data.length,
-                itemBuilder: (context, index){
-                  var user = snapshot.data[index];
-                  return ListTile(
-                    title: Text('Usuario: ${user.name}'),
-                  );
-                }
-              );
-            }else if (snapshot.hasError){
-              return Text('Error al cargar los usuarios');
-            }
-            return CircularProgressIndicator();
-          },
-        ),*/
         child: FutureBuilder<List<User>>(
-          future: getUsers(),
-          builder: (context, snapshot){
-            if (snapshot.hasData) {
-              return ListView.builder(
-                itemCount: snapshot.data.length,
-                itemBuilder: (context, index){
-                  var item = snapshot.data[index];
-                  return ListTile(
-                    leading: Icon(Icons.supervised_user_circle_rounded, size:50),
-                    title: Text('Nombre de Usuario: ${item.name}'),
-                    subtitle: Text('Rango: ${item.rank}'),
-                    trailing: Icon(Icons.more_vert),
-                  );
-                }
-              );
-            }else if(snapshot.hasError){
-              return Text('Error al cargar los usuarios');
-            }
-            return CircularProgressIndicator();
-          }
-        ),
+            future: getUsers(),
+            builder: (context, snapshot) {
+              if (snapshot.connectionState != ConnectionState.done) {
+                return CircularProgressIndicator();
+              } else if (snapshot.hasData) {
+                return ListView.builder(
+                    itemCount: snapshot.data.length,
+                    itemBuilder: (context, index) {
+                      var item = snapshot.data[index];
+                      // return ListTile(title: Text(item.name));
+                      return ListTile(
+                        title: Text('${item.name} ${item.firstName} - ${item.rank}'),
+                        subtitle: Text(item.email),
+                        leading: Image.network('http://safetydogs.online/laravel/storage/app/users/${item.img}'),
+                        trailing: Icon(Icons.edit),
+                        onTap: () {
+                          // log('Agregar al carrito: ' + item.id.toString());
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) =>
+                                      UserScreen(user: item)));
+                        },
+                      );
+                    });
+              } else if (snapshot.hasError) {
+                log(snapshot.error.toString());
+                return Text('Falló la carga de productos');
+              }
+              return CircularProgressIndicator();
+            }),
       ),
     );
+  }
+
+  Widget _agregaProducto() {
+    return TextButton(
+        style: ButtonStyle(
+          foregroundColor: MaterialStateProperty.all<Color>(Colors.white),
+          backgroundColor: MaterialStateProperty.all<Color>(Colors.black),
+          overlayColor: MaterialStateProperty.resolveWith<Color>(
+            (Set<MaterialState> states) {
+              if (states.contains(MaterialState.hovered))
+                return Colors.blue.withOpacity(0.04);
+              if (states.contains(MaterialState.focused) ||
+                  states.contains(MaterialState.pressed))
+                return Colors.blue.withOpacity(0.12);
+              return null; // Defer to the widget's default.
+            },
+          ),
+        ),
+        onPressed: () {
+          // print('agregar');
+          User user = User(
+              id: 0,
+              name: '',
+              firstName: '',
+              email: '',
+              phone: '',
+              cellphone: '',
+              img: '',
+              active: 1,
+              rank: 'Usuario'
+          );
+          Navigator.push(
+              context,
+              MaterialPageRoute(
+                  builder: (context) => UserScreen(user: user)));
+        },
+        child: Icon(Icons.add));
+  }
+
+  Widget _recargarProductos() {
+    return TextButton(
+        style: ButtonStyle(
+          foregroundColor: MaterialStateProperty.all<Color>(Colors.white),
+          backgroundColor: MaterialStateProperty.all<Color>(Colors.black),
+          overlayColor: MaterialStateProperty.resolveWith<Color>(
+            (Set<MaterialState> states) {
+              if (states.contains(MaterialState.hovered))
+                return Colors.blue.withOpacity(0.04);
+              if (states.contains(MaterialState.focused) ||
+                  states.contains(MaterialState.pressed))
+                return Colors.blue.withOpacity(0.12);
+              return null; // Defer to the widget's default.
+            },
+          ),
+        ),
+        onPressed: () {
+          setState(() {});
+        },
+        child: Icon(Icons.refresh));
   }
 }

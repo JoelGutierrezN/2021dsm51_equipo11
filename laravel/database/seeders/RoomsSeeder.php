@@ -25,7 +25,7 @@ class RoomsSeeder extends Seeder
                 'cost' => 150, //costo de la habitacion, solo numero
                 'resume' => 'Habitacion Sencilla con lo Esencial para el Descanso de tu Mascota', //resumen de la habitacion
                 'large_description' => null, //null por ahora
-                'img' => 'img/rooms/room.png', //la misma para todas
+                'img' => 'room.png', //la misma para todas
                 'name' => 'Habitacion Sencilla #'.$i, // $i variable i asigna un numero del 1 al 10 de habitacion resultado final "Habitacion Sencilla #1"
                 'active' => 1, //activa o inactiva, siempre 1
                 'created_at' => $now,
@@ -40,7 +40,7 @@ class RoomsSeeder extends Seeder
                 'cost' => 250, //costo de la habitacion, solo numero
                 'resume' => 'Habitacion Basica con lo Basico para el Descanso y Distraccion de tu Mascota', //resumen de la habitacion
                 'large_description' => null, //null por ahora
-                'img' => 'img/rooms/room.png', //la misma para todas
+                'img' => 'room.png', //la misma para todas
                 'name' => 'Habitacion Basica #'.$i, // $i variable i asigna un numero del 1 al 10 de habitacion resultado final "Habitacion Sencilla #1"
                 'active' => 0, //activa o inactiva, siempre 1
                 'created_at' => $now,
@@ -54,7 +54,7 @@ class RoomsSeeder extends Seeder
                 'cost' => 250, //costo de la habitacion, solo numero
                 'resume' => ' Habitacion Grande Esencial para Razas Grandes o Inquietas',//resumen de la habitacion
                 'large_description' => null, //null por ahora
-                'img' => 'img/rooms/room.png', //la misma para todas
+                'img' => 'room.png', //la misma para todas
                 'name' => 'Habitacion Grande #'.$i, // $i variable i asigna un numero del 1 al 10 de habitacion resultado final "Habitacion Sencilla #1"
                 'active' => 1, //activa o inactiva, siempre 1
                 'created_at' => $now,
@@ -68,7 +68,7 @@ class RoomsSeeder extends Seeder
                 'cost' => 450, //costo de la habitacion, solo numero
                 'resume' => 'Habitacion Doble, Apta para cualquier Raza, Disponible para 2 a 4 Mascotas ',//resumen de la habitacion
                 'large_description' => null, //null por ahora
-                'img' => 'img/rooms/room.png', //la misma para todas
+                'img' => 'room.png', //la misma para todas
                 'name' => 'Habitacion Doble #'.$i, // $i variable i asigna un numero del 1 al 10 de habitacion resultado final "Habitacion Sencilla #1"
                 'active' => 1, //activa o inactiva, siempre 1
                 'created_at' => $now,
@@ -82,7 +82,7 @@ class RoomsSeeder extends Seeder
                 'cost' => 600, //costo de la habitacion, solo numero
                 'resume' => 'Habitacion lujosa, con todas las necesidades, ademas de que puede alojar a un maximo de 10 mascotas',//resumen de la habitacion
                 'large_description' => null, //null por ahora
-                'img' => 'img/rooms/room.png', //la misma para todas
+                'img' => 'room.png', //la misma para todas
                 'name' => 'Suite de SafetyDogs #'.$i, // $i variable i asigna un numero del 1 al 10 de habitacion resultado final "Habitacion Sencilla #1"
                 'active' => 1, //activa o inactiva, siempre 1
                 'created_at' => $now,

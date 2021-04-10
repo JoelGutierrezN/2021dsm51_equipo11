@@ -6,6 +6,20 @@
 <body class="fondo-body">
     <div class="contenedor">
         <div class="contenedor_formulario">
+            @if ($errors->any())
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
+            @if( session('message') )
+                <div class="alert alert-success FS-2rem">
+                    {{ session('message') }}
+                </div>
+            @endif
             <!-- formulario login -->
             <form action="{{ route('registrarUsuario') }}" method="post" class="form-registro">
             @csrf

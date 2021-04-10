@@ -38,7 +38,11 @@ class RoomsState extends State<RoomsScreen>{
     return Scaffold(
       backgroundColor: Color(0xFFFFF3E0),
       appBar: AppBar(
-        title: Text('Habitaciones'),
+        title: Text('Habitaciones',
+          style: TextStyle(
+            fontFamily: 'Satisfy'
+          ),
+        ),
         backgroundColor: Color(0xFFFF5722),
       ),
       body: Center(
@@ -51,7 +55,11 @@ class RoomsState extends State<RoomsScreen>{
                 itemBuilder: (context, index){
                   var item = snapshot.data[index];
                   return ListTile(
-                    leading: Image.network('https://tecnohotelnews.com/wp-content/uploads/2020/07/image004-2.jpg'),
+                    leading: FadeInImage.assetNetwork(
+                              placeholder: 'assets/images/load.gif',
+                              fadeInDuration: Duration(milliseconds: 1000),
+                              image: 'http://safetydogs.online/laravel/storage/app/rooms/${item.img}',
+                            ),
                     title: Text('${item.name}'),
                     subtitle: Text('Costo: \$${item.cost}/dia'),
                     trailing: Icon(Icons.touch_app_rounded),

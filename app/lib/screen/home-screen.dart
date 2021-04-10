@@ -41,7 +41,7 @@ class HomeScreen extends StatelessWidget {
                 child: Column(
                   children: [
                     Divider( height: 5,),
-                    Text('Habitaciones',
+                    Text('habitaciones',
                       overflow: TextOverflow.clip,
                       style: TextStyle(
                         fontWeight: FontWeight.w400,

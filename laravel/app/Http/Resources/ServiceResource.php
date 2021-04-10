@@ -21,7 +21,7 @@ class ServiceResource extends JsonResource
             'premium' => $this->premium,
             'resume' => $this->resume,
             'large_description' => $this->large_description,
-            'img' => $this->image
+            'img' => $this->img
         ];
     }
 }

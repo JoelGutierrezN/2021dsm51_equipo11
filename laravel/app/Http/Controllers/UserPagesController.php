@@ -100,11 +100,6 @@ class UserPagesController extends Controller
         return new Response($file, 200);
     }
 
-    public function getServiceImageApp($filename) {
-        $file = Storage::disk('services')->get($filename);
-        return Image::make($file)->response();
-    }
-
     public function premium (Request $request) {
         if($request->session()->get('session_id')){
             $id = $request->session()->get("session_id");

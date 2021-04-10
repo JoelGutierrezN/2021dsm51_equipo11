@@ -22,16 +22,11 @@ class LoginController extends Controller
 
         $usuario = DB::table('users')->where('email', $email)->first();
 
-        if(Hash::check($password, $usuario->password)){
-            $request->session()->put('session_id', $usuario->id);
-            $request->session()->put('session_name', ' '.$usuario->name.' '.$usuario->first_name);
-            $request->session()->put('session_rank', $usuario->rank);
-            $request->session()->put('session_img', $usuario->img);
-        
-            $session_id = $request->session()->get('session_id');
-            $session_name = $request->session()->get('session_name');
-            $session_rank = $request->session()->get('session_rank');
-            $session_img = $request->session()->get('session_img');
+        if(count($consulta) == 0){
+            return redirect()->route('login')->with([
+                'error' => 'El usuario no existe o no esta registrado'
+            ]);;
+        }else{
 
             if( $usuario->active == 0){
                 return redirect()->route('login')->with([
@@ -39,17 +34,31 @@ class LoginController extends Controller
                 ]);
             }
 
-            if( $session_rank == "Admin" ){
-                return redirect()->route('inicioAdmin');
-            }else{
-                if( $session_rank == "Empleado" ){
-                    return redirect()->route('indexEmpleado');
+            if(Hash::check($password, $usuario->password)){
+                $request->session()->put('session_id', $usuario->id);
+                $request->session()->put('session_name', ' '.$usuario->name.' '.$usuario->first_name);
+                $request->session()->put('session_rank', $usuario->rank);
+                $request->session()->put('session_img', $usuario->img);
+            
+                $session_id = $request->session()->get('session_id');
+                $session_name = $request->session()->get('session_name');
+                $session_rank = $request->session()->get('session_rank');
+                $session_img = $request->session()->get('session_img');
+
+                if( $session_rank == "Admin" ){
+                    return redirect()->route('inicioAdmin');
                 }else{
-                    return redirect()->route('sesionUsuario');
+                    if( $session_rank == "Empleado" ){
+                        return redirect()->route('indexEmpleado');
+                    }else{
+                        return redirect()->route('sesionUsuario');
+                    }
                 }
+            }else{
+                return redirect()->route('login')->with([
+                    'error' => 'La contrseña es incorrecta'
+                ]);
             }
-        }else{
-            return redirect()->route('login');
         }
     }
 
