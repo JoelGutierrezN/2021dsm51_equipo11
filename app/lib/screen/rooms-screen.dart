@@ -2,12 +2,14 @@ import 'dart:convert';
 import 'dart:developer';
 
 import 'package:app/models/room.dart';
+//import 'package:app/screen/rent-room-screen.dart';
 import 'package:dio/dio.dart' as Dio;
 import 'package:flutter/material.dart';
 
 import '../dio.dart';
 
 class RoomsScreen extends StatefulWidget{
+  
   @override
   State<StatefulWidget> createState(){
     return RoomsState();
@@ -15,6 +17,8 @@ class RoomsScreen extends StatefulWidget{
 }
 
 class RoomsState extends State<RoomsScreen>{
+  Room _room;
+  Room get room => _room;
   Future <List<Room>> getData() async{
     Dio.Response response = await dio().get(
       'app/rooms',
@@ -62,7 +66,11 @@ class RoomsState extends State<RoomsScreen>{
                             ),
                     title: Text('${item.name}'),
                     subtitle: Text('Costo: \$${item.cost}/dia'),
-                    trailing: Icon(Icons.touch_app_rounded),
+                    //trailing: Icon(Icons.touch_app_rounded),
+                    //onTap: (){
+                      //getDataRoom(item.id);
+                      //Navigator.push(context, MaterialPageRoute(builder: (context) => RentRoomScreen(room: room)));
+                    //},
                   );
                 }
               );
@@ -74,5 +82,16 @@ class RoomsState extends State<RoomsScreen>{
         ),
       ),
     );
+  }
+
+  Future getDataRoom(int id) async{
+    Dio.Response response = await dio().get(
+      'usuarios/'+id.toString(),
+      options: Dio.Options(
+        headers: {'auth': true}
+        )
+      );
+
+    _room = Room.fromJson(json.decode(response.toString()));
   }
 }

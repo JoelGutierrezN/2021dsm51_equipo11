@@ -27,6 +27,7 @@ Route::middleware('auth:sanctum')->get('/user/posts', function (Request $request
 Route::middleware('auth:sanctum')->get('app/users', function () { return response()->json(UserResource::collection(User::all())); });
 Route::middleware('auth:sanctum')->get('app/rooms', function () { return response()->json(RoomResource::collection(Room::all())); });
 Route::middleware('auth:sanctum')->get('app/services', function () { return response()->json(ServiceResource::collection(Service::all())); });
+Route::middleware('auth:sanctum')->post('app/premium',[UserController::class, 'Premium']);
 Route::post('app/registrar', [UserController::class, 'registrar']);
 Route::post('/auth/token', [TokenController::class, 'store']);
 Route::delete('/auth/token', [TokenController::class, 'destroy']);

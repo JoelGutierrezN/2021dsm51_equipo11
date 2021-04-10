@@ -7,20 +7,19 @@ import 'package:dio/dio.dart' as Dio;
 import 'package:email_validator/email_validator.dart';
 
 import '../dio.dart';
-import '../main.dart';
 
-class EditProfileScreen extends StatefulWidget{
+class GetPremiumScreen extends StatefulWidget{
 
   final User user;
-  EditProfileScreen({Key key, this.user}): super(key: key);
+  GetPremiumScreen({Key key, this.user}): super(key: key);
 
   @override
   State<StatefulWidget> createState(){
-    return EditProfileState();
+    return GetPremiumState();
   }
 }
 
-class EditProfileState extends State<EditProfileScreen>{
+class GetPremiumState extends State<GetPremiumScreen>{
 
   final _formkey = GlobalKey<FormState>();
   String _name;

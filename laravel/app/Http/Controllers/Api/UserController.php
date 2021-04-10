@@ -10,6 +10,9 @@ use App\Models\User;
 use App\Mail\UserCreation;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Validation\Rule;
+use Illuminate\Support\Facades\Validator;
 
 class UserController extends Controller
 {
@@ -61,7 +64,7 @@ class UserController extends Controller
         $data->first_name = $user->first_name;
 
         $correo = new UserCreation($data);
-        Mail::to('$user->email')->send($correo);
+        Mail::to($user->email)->send($correo);
         
         return response()->json($user->save());
     }
@@ -102,7 +105,8 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        //
+        $user = User::find($id);
+        return response()->json($user);
     }
 
     /**
@@ -132,7 +136,20 @@ class UserController extends Controller
         $user->cellphone = $request->input('cellphone');
         $user->phone = $request->input('phone');
         $user->rank = $request->input('rank');
-        $user->email = $request->input('email');
+
+        if( $user->email == $request->input('email')){
+            $user->email = $request->input('email');
+        }else{
+            $validacion = Validator::make($request->all(), [
+                'email' => 'required|email|unique:users,email,'.$user->id
+            ]);
+        
+            if (($validacion->fails()) == false) {
+                $user->email = $request->input('email');
+            }else{
+                return response()->json('El Correo ya esta ocupado',200);
+            }
+        }
 
         if($request->input('active') == "Activo"){
             $user->active = 1;
@@ -142,7 +159,19 @@ class UserController extends Controller
             }
         }
 
-        return response()->json($user->save());
+        if(is_null($request->input('newpassword'))){
+
+        }else{
+            if(Hash::check( $request->input('password'), $user->password)){
+                $user->password = bcrypt($request->input('newpassword'));
+            }else{
+                return response()->json('Tu Contraseña es Incorrecta',200);
+            }
+        }
+
+        $user->save();
+
+        return response()->json('Perfil Actualizado Correctamente',200);
 
     }
 
@@ -156,5 +185,18 @@ class UserController extends Controller
     {
         $user = DB::table('users')->where('id', $id)->delete();
         return new UserCollection(User::all());
+    }
+
+    public function Premium(Request $request){
+        $user = User::find($request->input('id'));
+
+        $user->rank = 'Premium';
+
+        //validacion de transaccion
+            //data
+
+        $user->save();
+
+        return response()->json('Bienvenido a Premium Vuelve a Iniciar Sesion para Observar tu Rango', 200);
     }
 }

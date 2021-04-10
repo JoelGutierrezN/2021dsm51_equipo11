@@ -1,4 +1,7 @@
 
+import 'dart:convert';
+
+import 'package:app/models/user.dart';
 import 'package:app/providers/auth.dart';
 import 'package:app/screen/edit-profile-screen.dart';
 import 'package:app/screen/rooms-screen.dart';
@@ -10,8 +13,13 @@ import 'package:flutter/material.dart';
 
 import 'package:app/screen/login-screen.dart';
 import 'package:provider/provider.dart';
+import 'package:dio/dio.dart' as Dio;
+
+import '../dio.dart';
 
 class NavDrawer extends StatelessWidget{
+  User _user;
+  User get user => _user;
   @override
   Widget build(BuildContext context) {
     return Drawer(
@@ -30,6 +38,7 @@ class NavDrawer extends StatelessWidget{
                       height: 50,
                     ),
                   ),
+                  subtitle: Text('${auth.user.rank}'),
                   title: Text('${auth.user.name} ${auth.user.firstName}',
                     style: TextStyle(
                       fontFamily: 'Satisfy',
@@ -39,7 +48,8 @@ class NavDrawer extends StatelessWidget{
                     textAlign: TextAlign.center,
                   ),
                   onTap: () {
-                    Navigator.push(context, MaterialPageRoute(builder: (context) => EditProfileScreen()));
+                    getData(auth.user.id);
+                    Navigator.push(context, MaterialPageRoute(builder: (context) => EditProfileScreen(user: user)));
                   }
                 ),
                 ListTile(
@@ -104,6 +114,7 @@ class NavDrawer extends StatelessWidget{
                       height: 50,
                     ),
                   ),
+                  subtitle: Text('${auth.user.rank}'),
                   title: Text('${auth.user.name} ${auth.user.firstName}',
                     style: TextStyle(
                       fontFamily: 'Satisfy',
@@ -112,6 +123,10 @@ class NavDrawer extends StatelessWidget{
                     ),
                     textAlign: TextAlign.center,
                   ),
+                  onTap: () {
+                    getData(auth.user.id);
+                    Navigator.push(context, MaterialPageRoute(builder: (context) => EditProfileScreen(user: user)));
+                  }
                 ),
                 ListTile(
                   title: Text('Habitaciones',
@@ -185,5 +200,16 @@ class NavDrawer extends StatelessWidget{
         },
       ),
     );
+  }
+
+  Future getData (int id) async{
+    Dio.Response response = await dio().get(
+      'usuarios/'+id.toString(),
+      options: Dio.Options(
+        headers: {'auth': true}
+        )
+      );
+
+    _user = User.fromJson(json.decode(response.toString()));
   }
 }
