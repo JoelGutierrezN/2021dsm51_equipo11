@@ -22,10 +22,10 @@ class LoginController extends Controller
 
         $usuario = DB::table('users')->where('email', $email)->first();
 
-        if(count($consulta) == 0){
+        if(count($usuario) == 0){
             return redirect()->route('login')->with([
                 'error' => 'El usuario no existe o no esta registrado'
-            ]);;
+            ]);
         }else{
 
             if( $usuario->active == 0){
