@@ -3,11 +3,12 @@ class Service{
   String name;
   int cost;
   int premium;
+  int active;
   String resume;
   String largeDescription;
-  String image;
+  String img;
 
-  Service({ this.id, this.name, this.cost, this.premium, this.resume, this.largeDescription, this.image });
+  Service({ this.id, this.name, this.cost, this.premium, this.active, this.resume, this.largeDescription, this.img });
 
   factory Service.fromJson(Map<String, dynamic> json){
     return Service(
@@ -15,9 +16,10 @@ class Service{
       name: json['name'],
       cost: json['cost'],
       premium: json['premium'],
+      active: json['active'],
       resume: json['resume'],
       largeDescription: json['large_description'],
-      image: json['image']
+      img: json['img']
     );
   }
 }

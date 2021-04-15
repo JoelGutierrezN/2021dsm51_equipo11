@@ -4,7 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\TokenController;
 use App\Models\User;
-use App\Models\Room;
+use App\Models\room;
 use App\Models\service;
 use App\Http\Resources;
 use Illuminate\Auth\AuthenticationException;
@@ -19,6 +19,7 @@ use App\Http\Controllers\Api\RoomController;
 use App\Http\Controllers\Api\StateController;
 use App\Http\Controllers\Api\TransactionController;
 use App\Http\Controllers\Api\UserController;
+use App\Http\Controllers\UserPagesController;
 
 //Tokens Sanctum
 Route::middleware('auth:sanctum')->get('/auth/user', function (Request $request) { return $request->user(); });
@@ -26,6 +27,8 @@ Route::middleware('auth:sanctum')->get('/user/posts', function (Request $request
 Route::middleware('auth:sanctum')->get('app/users', function () { return response()->json(UserResource::collection(User::all())); });
 Route::middleware('auth:sanctum')->get('app/rooms', function () { return response()->json(RoomResource::collection(Room::all())); });
 Route::middleware('auth:sanctum')->get('app/services', function () { return response()->json(ServiceResource::collection(Service::all())); });
+Route::middleware('auth:sanctum')->post('app/premium',[UserController::class, 'Premium']);
+Route::post('app/registrar', [UserController::class, 'registrar']);
 Route::post('/auth/token', [TokenController::class, 'store']);
 Route::delete('/auth/token', [TokenController::class, 'destroy']);
 

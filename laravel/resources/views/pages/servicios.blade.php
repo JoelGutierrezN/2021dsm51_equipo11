@@ -8,14 +8,23 @@
         <div class="servicios">
             @foreach($servicios as $servicio)
                 
-                @if( ($servicio->premium) == 0 )
+                @if( ($servicio->premium) == 0  && ($servicio->active) == 1)
                     <div class="servicio">
-                        <img src="..{{$servicio->img}}" alt="service-img">
+                        <img src="{{ route('serviceImg', ['filename' => $servicio->img]) }}" alt="service-img">
                         <hr>
                         <div class="text-white titulo-3 fondo-vino">{{ $servicio->name }}</div>
-                        <textarea name="resume-servicio" id="resume" class="resume" cols="40" rows="8">{{ $servicio->resume }}</textarea>
+                        <textarea name="resume" id="resume" class="resume-servicio" cols="40" rows="8">{{ $servicio->resume }}</textarea>
                         <hr>
                         <div class="precio-negro fondo-naranja">${{ $servicio->cost }}</div>
+                    </div>
+                @elseif(($servicio->premium) == 1  && ($servicio->active) == 1)
+                    <div class="servicio-premium">
+                        <img src="{{ route('serviceImg', ['filename' => $servicio->img]) }}" alt="service-img">
+                        <hr>
+                        <div class="text-white titulo-3 fondo-negro">{{ $servicio->name }}</div>
+                        <textarea name="resume" id="resume" class="resume-servicio" cols="40" rows="8">{{ $servicio->resume }}</textarea>
+                        <hr>
+                        <div class="text-white fondo-negro FS-1-4rem">Gratis con <span class="texto-naranja-secundario titulo">Premium</span></div>
                     </div>
                 @endif
 

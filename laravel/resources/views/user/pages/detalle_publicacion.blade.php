@@ -66,7 +66,7 @@
                                         <div class="contenedor-comentario">
                                             <!-- Datos del Comentador -->
                                             <div class="data-user">
-                                                <img src="{{ route('userImg', [ 'filename' => $image->user->img ] )}}" width="60px" heigh="60px" alt="imagen_publicador">
+                                                <img src="{{ route('userImg', [ 'filename' => $comment->user->img ] )}}" width="60px" heigh="60px" alt="imagen_publicador">
                                                 <p class="FS-2rem">{{ $comment->user->name.' '.$comment->user->first_name }}</p>
                                                 <span class="fecha-publicacion comment-margin">{{ \FormatearFecha::LongTimeFilter($comment->created_at)}}</span>
                                             </div>

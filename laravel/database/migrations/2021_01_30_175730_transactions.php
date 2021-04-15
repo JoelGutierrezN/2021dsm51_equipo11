@@ -21,7 +21,7 @@ class Transactions extends Migration
             $table->String('card_date')->nullable();
             $table->String('cvv')->nullable();
             $table->String('paypal_account')->unique()->nullable();
-            $table->String('date');
+            $table->date('date');
             $table->String('invoice')->unique();
             $table->String('owner_name');
             $table->unsignedBigInteger('reservation_id');

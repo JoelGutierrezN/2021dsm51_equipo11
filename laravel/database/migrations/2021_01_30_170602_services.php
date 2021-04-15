@@ -22,6 +22,7 @@ class Services extends Migration
             $table->string('resume', 255);
             $table->string('large_description', 600);
             $table->string('img')->nullable();
+            $table->integer('active');
             $table->timestamps();
         });
     }

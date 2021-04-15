@@ -4,7 +4,25 @@
 
 @section('contenido')
 <body class="fondo-body">
-    <main class="contenedor text-center fondo-negro contenedor-perfil">
+    <main class="text-center fondo-blanco contenedor-perfil">
+        <div class="navegacion-izquierda">
+            <div class="text-center">
+                <img src="{{ route('userImg',['filename' => $user->img]) }}" alt="imagen usuario" class="foto-perfil">
+                <p class="FS-2rem titulo text-black">{{$user->name.' '. $user->first_name}}</p>
+                <p class="FS-2rem titulo-3">{{$user->rank}}</p>
+            </div>
+            <hr>
+            <div class="navegacion-izquierda-links text-center">
+            <a href="{{ route('MiCuentaVU') }}" class="btn-navegacion link-nav-izq">== Mi Cuenta ==</a>
+            <a href="{{ route('mascotasVU') }}" class="btn-navegacion link-nav-izq">== Mascotas ==</a>
+            <a href="{{ route('direccionesVU') }}" class="btn-navegacion link-nav-izq">== Direcciones ==</a>
+            <a href="{{ route('reservacionesVU') }}" class="btn-navegacion link-nav-izq">== Reservaciones ==</a>
+
+            <button href="#" class="link-amarillo btn-cerrar-sesion">Cerrar Sesion</button>
+            </div>
+
+        </div>
+        <div class="contenido-derecho fondo-negro">
         @if ($errors->any())
             <div class="alert alert-danger">
                 <ul>
@@ -27,7 +45,7 @@
             <div>
                 <div>
                     <h1 class="text-yellow">Foto de Perfil</h1>
-                    <img src="{{ route('userImg', [ 'filename' => $user->img ] )}}" alt="foto perfil" id="foto-perfil">
+                    <img src="{{ route('userImg', [ 'filename' => $user->img ] )}}" alt="foto perfil" class="foto-perfil">
                     <p class="text-orange titulo-4">{{ $usuario['session_rank'] }}</p>
                     <input type="file" name="img" id="img" class="inputfile" data-multiple-caption="{count} files selected" multiple>
                     <label for="img"> <strong>Subir Foto</strong> </label>
@@ -62,15 +80,15 @@
                 <h1 class="text-yellow">Cambiar Contraseña</h1>
                 <div>
                     <label for="password"> Contraseña Actual: </label>
-                    <input type="text" name="password" id="password" class="password">
+                    <input type="password" name="password" id="password" class="password">
                 </div>
                 <div>
                     <label for="new_password"> Nueva Contraseña: </label>
-                    <input type="text" name="new_password" id="new_password" class="new_password">
+                    <input type="password" name="new_password" id="new_password" class="new_password">
                 </div>
                 <div>
                     <label for="confirm_password"> Confirmar Nueva Contraseña: </label>
-                    <input type="text" name="confirm_password" id="confirm_password" class="confirm_password">
+                    <input type="password" name="confirm_password" id="confirm_password" class="confirm_password">
                 </div>
             </div>
 
@@ -80,8 +98,9 @@
                 <input type="submit" value="Guardar Cambios" class="boton boton-naranja">
             </div>
         </form>
+        </div>
     </main>
 
-    <script type="text/javascript" src="../js/js.js"></script>
+    <script type="text/javascript" src="{{ asset('js/js.js') }}"></script>
 </body>
 @stop

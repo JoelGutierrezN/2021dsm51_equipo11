@@ -6,6 +6,20 @@
 <body class="fondo-body">
     <div class="contenedor">
         <div class="contenedor_formulario">
+            @if ($errors->any())
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
+            @if( session('message') )
+                <div class="alert alert-success FS-2rem">
+                    {{ session('message') }}
+                </div>
+            @endif
             <!-- formulario login -->
             <form action="{{ route('registrarUsuario') }}" method="post" class="form-registro">
             @csrf
@@ -36,7 +50,7 @@
                     <div>
                         <!-- Phone -->
                         <label for="" class="text-orange titulo">Tel. Celular </label>
-                        <input type="password" name="cellphone" id="cellphone" class="cellphone" placeholder="+52 000 000 0000">
+                        <input type="text" name="cellphone" id="cellphone" class="cellphone" placeholder="0000000000">
                         <!-- Cellphone -->
                         <label for="" class="text-orange titulo">Confirmar Contraseña </label>
                         <input type="password" name="cpassword" id="cpassword" class="cpassword" placeholder="Confirmar Contraseña">

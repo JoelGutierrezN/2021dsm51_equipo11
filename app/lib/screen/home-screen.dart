@@ -1,3 +1,6 @@
+import 'dart:convert';
+
+import 'package:app/models/user.dart';
 import 'package:flutter/material.dart';
 
 import 'package:app/providers/auth.dart';
@@ -7,9 +10,14 @@ import 'package:app/forms/premium-form.dart';
 import 'package:app/screen/rooms-screen.dart';
 import 'package:app/screen/service-screen.dart';
 import 'package:provider/provider.dart';
+
+import 'package:dio/dio.dart' as Dio;
+import '../dio.dart';
 //import 'package:app/providers/homepageprovider.dart';
 
 class HomeScreen extends StatelessWidget {
+  User _user;
+  User get user => _user;
 
   @override
   Widget build(BuildContext context) {
@@ -41,7 +49,7 @@ class HomeScreen extends StatelessWidget {
                 child: Column(
                   children: [
                     Divider( height: 5,),
-                    Text('Habitaciones',
+                    Text('habitaciones',
                       overflow: TextOverflow.clip,
                       style: TextStyle(
                         fontWeight: FontWeight.w400,
@@ -183,7 +191,8 @@ class HomeScreen extends StatelessWidget {
                       minWidth: 250,
                       onPressed: (){
                         if(auth.authenticated){
-                          Navigator.push(context, MaterialPageRoute(builder: (context) => PremiumScreen()));
+                          getData(auth.user.id);
+                          Navigator.push(context, MaterialPageRoute(builder: (context) => PremiumScreen(user: user)));
                         }else{
                           Navigator.push(context, MaterialPageRoute(builder: (context) => LoginScreen()));
                         }
@@ -202,5 +211,16 @@ class HomeScreen extends StatelessWidget {
             ],
           ),
         );
+  }
+
+  Future getData (int id) async{
+    Dio.Response response = await dio().get(
+      'usuarios/'+id.toString(),
+      options: Dio.Options(
+        headers: {'auth': true}
+        )
+      );
+
+    _user = User.fromJson(json.decode(response.toString()));
   }
 }

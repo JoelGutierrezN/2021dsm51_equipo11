@@ -20,4 +20,12 @@ class address extends Model
     ];
     
     protected $table = 'address';
+
+    public function state(){
+        return $this->belongsTo(state::class, 'state_id');
+    }
+
+    public function country(){
+        return $this->belongsTo(countrie::class, 'country_id');
+    }
 }

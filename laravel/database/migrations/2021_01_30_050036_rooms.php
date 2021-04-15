@@ -16,10 +16,10 @@ class Rooms extends Migration
         Schema::create('rooms', function (Blueprint $table) {
             $table->engine = 'InnoDB';
             $table->bigIncrements('id');
-            $table->string('rank');
+            $table->integer('rank');
             $table->float('cost');
             $table->string('resume', 255);
-            $table->string('large_description', 600);
+            $table->string('large_description', 600)->nullable();
             $table->string('img')->nullable();
             $table->string('name');
             $table->integer('active');

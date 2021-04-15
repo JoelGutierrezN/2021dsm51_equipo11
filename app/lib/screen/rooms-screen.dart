@@ -1,12 +1,15 @@
 import 'dart:convert';
+import 'dart:developer';
 
 import 'package:app/models/room.dart';
+//import 'package:app/screen/rent-room-screen.dart';
 import 'package:dio/dio.dart' as Dio;
 import 'package:flutter/material.dart';
 
 import '../dio.dart';
 
 class RoomsScreen extends StatefulWidget{
+  
   @override
   State<StatefulWidget> createState(){
     return RoomsState();
@@ -14,6 +17,8 @@ class RoomsScreen extends StatefulWidget{
 }
 
 class RoomsState extends State<RoomsScreen>{
+  Room _room;
+  Room get room => _room;
   Future <List<Room>> getData() async{
     Dio.Response response = await dio().get(
       'app/rooms',
@@ -37,7 +42,11 @@ class RoomsState extends State<RoomsScreen>{
     return Scaffold(
       backgroundColor: Color(0xFFFFF3E0),
       appBar: AppBar(
-        title: Text('Habitaciones'),
+        title: Text('Habitaciones',
+          style: TextStyle(
+            fontFamily: 'Satisfy'
+          ),
+        ),
         backgroundColor: Color(0xFFFF5722),
       ),
       body: Center(
@@ -50,10 +59,18 @@ class RoomsState extends State<RoomsScreen>{
                 itemBuilder: (context, index){
                   var item = snapshot.data[index];
                   return ListTile(
-                    leading: Image.network('https://tecnohotelnews.com/wp-content/uploads/2020/07/image004-2.jpg'),
-                    title: Text('Habitacion: ${item.rank}'),
-                    subtitle: Text('Costo: \$${item.cost}'),
-                    trailing: Icon(Icons.touch_app_rounded),
+                    leading: FadeInImage.assetNetwork(
+                              placeholder: 'assets/images/load.gif',
+                              fadeInDuration: Duration(milliseconds: 1000),
+                              image: 'http://safetydogs.online/laravel/storage/app/rooms/${item.img}',
+                            ),
+                    title: Text('${item.name}'),
+                    subtitle: Text('Costo: \$${item.cost}/dia'),
+                    //trailing: Icon(Icons.touch_app_rounded),
+                    //onTap: (){
+                      //getDataRoom(item.id);
+                      //Navigator.push(context, MaterialPageRoute(builder: (context) => RentRoomScreen(room: room)));
+                    //},
                   );
                 }
               );
@@ -65,5 +82,16 @@ class RoomsState extends State<RoomsScreen>{
         ),
       ),
     );
+  }
+
+  Future getDataRoom(int id) async{
+    Dio.Response response = await dio().get(
+      'usuarios/'+id.toString(),
+      options: Dio.Options(
+        headers: {'auth': true}
+        )
+      );
+
+    _room = Room.fromJson(json.decode(response.toString()));
   }
 }

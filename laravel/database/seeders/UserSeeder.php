@@ -27,7 +27,7 @@ class UserSeeder extends Seeder
                 'cellphone' => 0000000000,
                 'phone' => 0000000000,
                 'rank' => 'Usuario',
-                'img' => '1616535573User.png',
+                'img' => '1616535573user.png',
                 'active' => rand(0,1)
             ]);
         }
@@ -41,7 +41,7 @@ class UserSeeder extends Seeder
                 'cellphone' => 0000000000,
                 'phone' => 0000000000,
                 'rank' => 'Miembro',
-                'img' => '1616535573User.png',
+                'img' => '1616535573user.png',
                 'active' => 1,
                 'created_at' => $now,
                 'updated_at' => $now
@@ -54,7 +54,7 @@ class UserSeeder extends Seeder
             'cellphone' => 0000000000,
             'phone' => 0000000000,
             'rank' => 'Premium',
-            'img' => '1616535573User.png',
+            'img' => '1616535573user.png',
             'active' => 1,
             'created_at' => $now,
             'updated_at' => $now
@@ -67,7 +67,7 @@ class UserSeeder extends Seeder
             'cellphone' => 0000000000,
             'phone' => 0000000000,
             'rank' => 'Empleado',
-            'img' => '1616535573User.png',
+            'img' => '1616535573user.png',
             'active' => 1,
             'created_at' => $now,
             'updated_at' => $now
@@ -80,7 +80,7 @@ class UserSeeder extends Seeder
             'cellphone' => 0000000000,
             'phone' => 0000000000,
             'rank' => 'Admin',
-            'img' => '1616535573User.png',
+            'img' => '1616535573user.png',
             'active' => 1,
             'created_at' => $now,
             'updated_at' => $now

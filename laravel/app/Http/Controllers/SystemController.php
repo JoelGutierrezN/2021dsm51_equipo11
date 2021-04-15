@@ -15,9 +15,7 @@ class SystemController extends Controller
     
         if( is_null($user)){ about(404); }
 
-        return view("admin.index", [
-            'user' => $user
-        ]);
+        return redirect()->route('indexAdmin');
     }
     
     public function empleado(){
@@ -28,7 +26,7 @@ class SystemController extends Controller
 
         if( is_null($user)){ about(404); }
 
-        return "empleado.index";
+        return redirect()->route('indexUsuario');
     }
     public function usuario(){
         $id_usuario = session('session_id');

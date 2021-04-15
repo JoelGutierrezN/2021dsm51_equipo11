@@ -15,7 +15,7 @@
           <a class="nav-link texto-blanco" href="{{ route('habitaciones') }}">Habitaciones</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link texto-blanco" href="{{ route('servicios') }}">Servicios</a>
+          <a class="nav-link texto-blanco" href="{{ route('serviciosinv') }}">Servicios</a>
         </li>
       </ul>
     </div>

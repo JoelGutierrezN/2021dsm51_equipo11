@@ -16,18 +16,23 @@ class TransactionsSeeder extends Seeder
      *
      * @return void
      */
+
+    
     public function run()
     {
+        $now = Carbon::now('America/Mexico_City')->format('Y-m-d H:i:s');
         for($i = 1; $i <= 50; $i++){
             DB::table('transactions')->insert([
                 'card' => '0000-0000-0000-0000',
                 'card_date' => '01/21',
                 'cvv' => Str::random(3), 
                 'paypal_account' => Str::random(10).'@.correo.com',
-                'date' => date('Y-M-D'),
+                'date' => $now,
                 'invoice' => Str::random(20),
                 'owner_name' => Str::random(8),
-                'reservation_id' => rand(1,50),
+                'reservation_id' => rand(1,10),
+                'created_at' => $now,
+                'updated_at' => $now
             ]);
         }
     }

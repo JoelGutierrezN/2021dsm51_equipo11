@@ -19,6 +19,7 @@
 
     <!-- CSS -->
     <link rel="stylesheet" href="{{ asset('css/estilos.css')}}">
+    <link rel="stylesheet" href="{{ asset('css/estilos.scss')}}">
     
     <title>SafetyDogs | @yield('titulo')</title>
 </head>

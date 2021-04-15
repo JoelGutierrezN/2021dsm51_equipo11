@@ -17,7 +17,7 @@ class InvitadoPagesController extends Controller
     public function habitaciones(){
         
         $habitaciones = DB::table('rooms')->get();
-        return view('pages.reservaciones', [
+        return view('pages.habitaciones', [
             'habitaciones' => $habitaciones
         ]);
     }

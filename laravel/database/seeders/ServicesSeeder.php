@@ -18,6 +18,7 @@ class ServicesSeeder extends Seeder
      */
     public function run()
     {
+        $now = Carbon::now('America/Mexico_City')->format('Y-m-d H:i:s');
         //inicio servicio
         service::insert([
             'name' => 'Paseo por el parque', //titulo
@@ -25,7 +26,10 @@ class ServicesSeeder extends Seeder
             'premium' => 0, //1 = premium, 0 = no premium 
             'resume' => 'Vista con seguridad, cuenta con los servicios de veterianria por si se requiere', //texto corto para tarjeta pequeña
             'large_description' => 'texto largo', //descripcion larga para popup(aun no hecho)
-            'img' => null //no cambiar imagen
+            'img' => 'service.png', //no cambiar imagen
+            'active' => 1,
+            'created_at' => $now,
+            'updated_at' => $now
         ]);
         //fin servicio
         service::insert([
@@ -34,7 +38,10 @@ class ServicesSeeder extends Seeder
             'premium' => 1, //1 = premium, 0 = no premium 
             'resume' => 'Consiste en un mejor cuidado en alimentacion y estimulacion por medio de aparatos especializados', //texto corto para tarjeta pequeña
             'large_description' => 'texto largo', //descripcion larga para popup(aun no hecho)
-            'img' => null //no cambiar imagen
+            'img' => 'service.png', //no cambiar imagen
+            'active' => 1,
+            'created_at' => $now,
+            'updated_at' => $now //no cambiar imagen
         ]);
         service::insert([
             'name' => 'SPA', //titulo
@@ -42,7 +49,10 @@ class ServicesSeeder extends Seeder
             'premium' => 1, //1 = premium, 0 = no premium 
             'resume' => 'Enfocado a  tratamientos, terapias o sistemas de relajación, utilizando como base principal el agua', //texto corto para tarjeta pequeña
             'large_description' => 'texto largo', //descripcion larga para popup(aun no hecho)
-            'img' => null //no cambiar imagen
+            'img' => 'service.png', //no cambiar imagen
+            'active' => 1,
+            'created_at' => $now,
+            'updated_at' => $now //no cambiar imagen
         ]);
         service::insert([
             'name' => 'Area de Juegos', //titulo
@@ -51,7 +61,10 @@ class ServicesSeeder extends Seeder
             'resume' => 'Seis juegos para estimular su buena conducta en casa
             El escondite y buscar comida debajo de objetos son juegos que desarrollan las habilidades olfativas del perro y su concentración', //texto corto para tarjeta pequeña
             'large_description' => 'texto largo', //descripcion larga para popup(aun no hecho)
-            'img' => null //no cambiar imagen
+            'img' => 'service.png', //no cambiar imagen
+            'active' => 1,
+            'created_at' => $now,
+            'updated_at' => $now //no cambiar imagen
         ]);
     }
 }

@@ -15,4 +15,9 @@ class reservations_has_pets extends Model
     ];
 
     protected $table = 'reservations_has_pets';
+
+    public function pets()
+    {
+        return $this->hasManyThrough(reservation::class, pet::class);
+    }
 }
