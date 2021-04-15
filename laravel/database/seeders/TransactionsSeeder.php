@@ -30,7 +30,7 @@ class TransactionsSeeder extends Seeder
                 'date' => $now,
                 'invoice' => Str::random(20),
                 'owner_name' => Str::random(8),
-                'reservation_id' => rand(1,50),
+                'reservation_id' => rand(1,10),
                 'created_at' => $now,
                 'updated_at' => $now
             ]);

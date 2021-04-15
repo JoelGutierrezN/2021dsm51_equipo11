@@ -14,13 +14,17 @@ use App\Models\address;
 use App\Models\room;
 use App\Models\reservation;
 use App\Models\state;
+use App\Models\transaction;
 use App\Models\countrie;
+use App\Models\reservations_has_pets;
+use App\Models\reservations_has_services;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rule;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\File;
 use Intervention\Image\Facades\Image;
+use Illuminate\Support\Str;
 
 class UserPagesController extends Controller
 {
@@ -54,17 +58,57 @@ class UserPagesController extends Controller
         }
     }
 
-    public function reservar (Request $request) {
+    public function reservar (Request $request, $dia) {
         if($request->session()->get('session_id')){
             $id = $request->session()->get("session_id");
             $user = User::find($id);
-            
-            $habitaciones = DB::table('rooms')->get();
+
+            date_default_timezone_set('America/Mexico_City');
+
+            if($dia == 1){
+                $reservaciones = reservation::where('date', date('Y-m-d'))->get();
+            }else{
+                if($dia == 2){
+                    $reservaciones = reservation::where('date', strtotime(date('Y-m-d')."+ 1 days"))->get();
+                }else{
+                    $reservaciones = reservation::where('date', strtotime(date('Y-m-d')."+ 2 days"))->get();      }
+            }
+
+            $habitaciones = room::get();
+
+            $estadoHabitaciones =[];
+            foreach($habitaciones as $habitacion){
+                $estadoHabitaciones[$habitacion->id] = [
+                    'id' => $habitacion->id, 
+                    'active' => 1,
+                    'rank' => $habitacion->rank
+                ];
+            }
+
+            foreach($habitaciones as $habitacion){
+                if($habitacion->active == 1){
+                    foreach($reservaciones as $reservacion){
+                        if($reservacion->room_id == $habitacion->id){
+                            $estadoHabitaciones[$habitacion->id] = [
+                                'id' => $habitacion->id, 
+                                'active' => 0,
+                                'rank' => $habitacion->rank
+                            ];
+                        }
+                    }   
+                }else{
+                    $estadoHabitaciones[$habitacion->id] = [
+                        'id' => $habitacion->id, 
+                        'active' => 0,
+                        'rank' => $habitacion->rank
+                    ];
+                }
+            }
 
             $usuario = $request->session()->all();
             return view('user.pages.reservar', [
                 'usuario' => $usuario,
-                'habitaciones' => $habitaciones,
+                'estadoHabitaciones' => $estadoHabitaciones,
                 'user' => $user
             ]);
         }else{
@@ -242,6 +286,7 @@ class UserPagesController extends Controller
             $usuario = $request->session()->all();
             $habitacion = room::find($id);
             $servicios = service::all();
+            $direcciones = address::where('user_id', $user_id)->get();
             $pets = pet::where('user_id', $user_id)->get();
 
             return view('user.pages.rentar-habitacion', [
@@ -249,6 +294,7 @@ class UserPagesController extends Controller
                 'habitacion' => $habitacion,
                 'usuario' => $usuario,
                 'servicios' => $servicios,
+                'direcciones' => $direcciones,
                 'pets' => $pets
             ]);
         }else{
@@ -354,6 +400,76 @@ class UserPagesController extends Controller
                 'message' => 'Error inesperado al guardar la direccion'
             ]);
         }
+    }
+
+    public function reservarPago(Request $request){
+        $validate = $this->validate($request, [
+            'pets' => 'required',
+            'services' => 'required',
+            'dates' => 'required',
+            'card' => 'required',
+            'cvv' => 'required',
+            'card_date' => 'required',
+            'owner_name' => 'required'
+        ]);
+        
+        $reservation = new reservation();
+        
+        $dates = $request->input('dates');
+        $date_left = end($dates);
+        
+        $homeservice = $request->input('homeservice');
+
+        if(is_null($homeservice)){}else{
+            $reservation->homeservice = $request->input('homeservice');
+        }
+
+        $reservation->date = date('Y-m-d');
+        $reservation->date_start = $dates['0'];
+        $reservation->date_left = $date_left;
+        $reservation->subtotal = $request->input('subtotal');
+        $reservation->total = $request->input('total');
+        $reservation->address_id = $request->input('address_id');
+        $reservation->room_id = $request->input('room_id');
+        $reservation->user_id = $request->session()->get('session_id');
+
+        $reservation->save();
+
+        $reservation_new = reservation::where('user_id', $request->session()->get('session_id'))->orderBy('id','desc')->first();
+        $pets = $request->input('pets');
+        $reservation_has_pet = new reservations_has_pets();
+        foreach($pets as $pet){
+            $reservation_has_pet->reservation_id = $reservation_new->id;
+            $reservation_has_pet->pet_id = $pet;
+            $reservation_has_pet->save();
+        }
+        $reservation_has_services = new reservations_has_services();
+        $services = $request->input('services');
+        foreach($services as $service){
+            $reservation_has_services->reservation_id = $reservation_new->id;
+            $reservation_has_services->service_id = $service;
+            $reservation_has_services->save();
+        }
+
+        $transaction = new transaction();
+
+        $transaction->card = $request->input('card');
+        $transaction->card_date = $request->input('card_date');
+        $transaction->cvv = $request->input('cvv');
+        $transaction->owner_name = $request->input('owner_name');
+        $transaction->date = date('Y-m-d');
+        $transaction->invoice = Str::random(15);
+        $transaction->reservation_id = $reservation_new->id;
+
+        $transaction->save();
+
+        $room = room::find($reservation->room_id);
+
+        $room->active = 0;
+        return redirect()->route('MiCuentaVU')->with([
+            'message' => 'Reservacion Creada Correctamente'
+        ]);
+
     }
     
 }

@@ -20,7 +20,7 @@ class reservations_has_services extends Seeder
         $now = Carbon::now('America/Mexico_City')->format('Y-m-d H:i:s');
         for($i = 1; $i <= 150; $i++){
             DB::table('reservations_has_services')->insert([
-                'reservation_id' => rand(1,50),
+                'reservation_id' => rand(1,10),
                 'service_id' => rand(1,4),
                 'created_at' => $now,
                 'updated_at' => $now

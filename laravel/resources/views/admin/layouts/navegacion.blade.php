@@ -23,7 +23,7 @@
         <a class="link-white FS-1.6" href="{{ route('servicios') }}">Servicios</a>
       </li>
       <li class="nav-item">
-        <a class="link-white FS-1.6" href="#">Habitaciones</a>
+        <a class="link-white FS-1.6" href="{{ route('admin.habitaciones') }}">Habitaciones</a>
       </li>
       <span>
         <a href="{{ route('logout') }}" class="link-white FS-1.8">

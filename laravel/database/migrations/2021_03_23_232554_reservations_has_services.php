@@ -15,6 +15,7 @@ class ReservationsHasServices extends Migration
     {
         Schema::create('reservations_has_services', function (Blueprint $table) {
             $table->engine = 'InnoDB';
+            $table->bigIncrements('id');
             $table->unsignedBigInteger('reservation_id');
             $table->unsignedBigInteger('service_id');
             $table->timestamps();

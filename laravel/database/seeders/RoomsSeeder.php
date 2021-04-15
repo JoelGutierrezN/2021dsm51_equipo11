@@ -42,7 +42,7 @@ class RoomsSeeder extends Seeder
                 'large_description' => null, //null por ahora
                 'img' => 'room.png', //la misma para todas
                 'name' => 'Habitacion Basica #'.$i, // $i variable i asigna un numero del 1 al 10 de habitacion resultado final "Habitacion Sencilla #1"
-                'active' => 0, //activa o inactiva, siempre 1
+                'active' => 1, //activa o inactiva, siempre 1
                 'created_at' => $now,
                 'updated_at' => $now //activa o inactiva, siempre 1
             ]);

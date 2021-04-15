@@ -52,6 +52,12 @@ Route::get('/admin/servicios/editar/{id}', [AdminPagesController::class, 'editar
 Route::post('/admin/servicios/actualizar', [AdministracionController::class, 'actualizarServicio'])->name('actualizar.servicio'); //Actualizar servicio 
 Route::get('/admin/servicios/eliminar/{id}', [AdministracionController::class, 'eliminarServicio'])->name('eliminar.servicio'); //Desactivar servicio 
 Route::get('/admin/servicios/activar/{id}', [AdministracionController::class, 'activarServicio'])->name('activar.servicio'); //Activar servicio 
+Route::get('/admin/habitaciones', [AdminPagesController::class, 'habitaciones'])->name( 'admin.habitaciones' ); // habitaciones Page
+Route::post('/admin/habitaciones/crear', [AdministracionController::class, 'crearHabitacion'])->name('crear.habitacion'); //crear habitacion 
+Route::get('/admin/habitaciones/editar/{id}', [AdminPagesController::class, 'editarHabitacion'])->name('editar.habitacion'); //Editar habitacion 
+Route::post('/admin/habitaciones/actualizar', [AdministracionController::class, 'actualizarHabitacion'])->name('actualizar.habitacion'); //Actualizar habitacion 
+Route::get('/admin/habitaciones/eliminar/{id}', [AdministracionController::class, 'eliminarHabitacion'])->name('desactivar.habitacion'); //Desactivar habitacion 
+Route::get('/admin/habitaciones/activar/{id}', [AdministracionController::class, 'activarHabitacion'])->name('activar.habitacion'); //Activar habitacion 
 // Inicio Admin
 
 //rutas empleado
@@ -62,7 +68,7 @@ Route::get('/empleado', [SystemController::class, 'empleado'])->name( 'indexEmpl
 Route::get('/usuario', [SystemController::class, 'usuario'])->name( 'sesionUsuario' ); // Inicio Usuario
 Route::get('/usuario/indexUsuario', [UserPagesController::class, 'index'])->name( 'indexUsuario' ); // Inicio Usuario
 Route::get('/usuario/habitaciones',[UserPagesController::class, 'habitaciones'])->name( 'habitacionesVU' ); //Reservaciones Page
-Route::get('/usuario/reservar',[UserPagesController::class, 'reservar'])->name( 'reservarVU' ); //Reservaciones Page
+Route::get('/usuario/reservar/{date}',[UserPagesController::class, 'reservar'])->name( 'reservarVU' ); //Reservaciones Page
 Route::get('/usuario/servicios',[UserPagesController::class, 'servicios'])->name( 'serviciosVU' ); // Servicios Page
 Route::get('/usuario/premium',[UserPagesController::class, 'premium'])->name( 'premiumVU' ); // Premium Page
 Route::post('/usuario/edit',[UserPagesController::class, 'update'])->name( 'userEdit' ); // Editar Usuario
@@ -86,5 +92,6 @@ Route::post('/usuario/guardarMascota',[UserPagesController::class, 'guardarMasco
 Route::post('/usuario/guardarDireccion',[UserPagesController::class, 'guardarDireccion'])->name( 'guardar.direccion' ); // Guardar Direccion Page
 Route::get('/usuario/direcciones',[UserPagesController::class, 'direcciones'])->name( 'direccionesVU' ); // Direcciones Page
 Route::get('/usuario/reservaciones',[UserPagesController::class, 'reservaciones'])->name( 'reservacionesVU' ); // Reservacines Page
+Route::post('/usuario/reservaciones/pag',[UserPagesController::class, 'reservarPago'])->name( 'reservar.confirmacion' ); // Reservacines Page
 
 

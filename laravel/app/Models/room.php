@@ -25,4 +25,5 @@ class room extends Model
     ];
 
     protected $table = 'rooms';
+
 }

@@ -24,7 +24,7 @@
           <a class="nav-link texto-blanco" href="{{ route('premiumVU') }}">SafetyDogs Premium</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link link-amarillo FW-900 titulo FS-1-4rem" href="{{ route('reservarVU') }}">¡Reservar Ahora!</a>
+          <a class="nav-link link-amarillo FW-900 titulo FS-1-4rem" href="{{ route('reservarVU', ['date' => 1]) }}">¡Reservar Ahora!</a>
         </li>
         @if ($usuario['session_rank'] == "Premium")
         <li class="nav-item">

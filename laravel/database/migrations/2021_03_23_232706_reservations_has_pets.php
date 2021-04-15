@@ -15,6 +15,7 @@ class ReservationsHasPets extends Migration
     {
         Schema::create('reservations_has_pets', function (Blueprint $table) {
             $table->engine = 'InnoDB';
+            $table->bigIncrements('id');
             $table->unsignedBigInteger('reservation_id');
             $table->unsignedBigInteger('pet_id');
             $table->timestamps();

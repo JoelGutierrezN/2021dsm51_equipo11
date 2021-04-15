@@ -473,4 +473,77 @@ class AdministracionController extends Controller
             ]);
         }
     }
+
+    public function actualizarHabitacion(Request $request){
+        $validate = $this->validate($request,[
+            'img' => 'nullable|image',
+            'name' => 'required|string',
+            'cost' => 'required',
+            'rank' => 'required',
+            'resume' => 'required|string',
+            'large_description' => 'nullable|string'
+        ]);
+
+        $room = room::find($request->input('id'));
+
+        if($request->input('rank') == 0){
+            return redirect()->route('editar.habitacion',['id' => $room->id])->with([
+                'error' => 'Debes Elegir un Rango para la Habitacion'
+            ]);
+        }
+        
+        $room->name = $request->input('name');
+        $room->cost = $request->input('cost');
+        $room->resume = $request->input('resume');
+        $room->large_description = $request->input('large_description');
+
+        if( is_null($request->input('img')) ){}else{
+            $img = $request->file('img');
+            $img_full = time().$img->getClientOriginalName();
+            Storage::disk('rooms')->put($img_full, File::get($img));
+            $room->img = $img_full;
+        }
+
+        if( $room->save() ){
+            return redirect()->route('admin.habitaciones')->with([
+                'message' => 'Habitacion Actualizada Correctamente!!'
+            ]);
+        }else{
+            return redirect()->route('admin.habitaciones')->with([
+                'error' => 'Error inesperado al actualizar la habitacion'
+            ]);
+        }
+    }
+
+    public function eliminarHabitacion(Request $request, $id){
+        $room = room::find($id);
+
+        $room->active = 0;
+
+        if($room->save()){
+            return redirect()->route('admin.habitaciones')->with([
+                'message' => 'Habitacion Deshabilitada Correctamente'
+            ]);
+        }else{
+            return redirect()->route('admin.habitaciones')->with([
+                'error' => 'Error inesperado al deshabilitar la habitacion'
+            ]);
+        }
+    }
+
+    public function activarHabitacion(Request $request, $id){
+        $room = room::find($id);
+
+        $room->active = 1;
+
+        if($room->save()){
+            return redirect()->route('admin.habitaciones')->with([
+                'message' => 'Habitacion Deshabilitada Correctamente'
+            ]);
+        }else{
+            return redirect()->route('admin.habitaciones')->with([
+                'error' => 'Error inesperado al deshabilitar la habitacion'
+            ]);
+        }
+    }
 }

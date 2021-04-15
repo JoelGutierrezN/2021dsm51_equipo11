@@ -15,4 +15,9 @@ class reservations_has_services extends Model
     ];
 
     protected $table = 'reservations_has_services';
+
+    public function services()
+    {
+        return $this->hasManyThrough(reservation::class, service::class);
+    }
 }

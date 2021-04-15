@@ -48,7 +48,7 @@
         background-color: seagreen;
     }
     .navegacion span{
-        margin-left: 60rem;
+        margin-left: 30rem;
         display: flex;
         align-items: center;
         text-align: center;
@@ -66,7 +66,6 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        width: 180rem;
         height: 70rem;
     }
     .img-makecode-index img{

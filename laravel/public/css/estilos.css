@@ -460,7 +460,7 @@ img{
 .servicios-rentar{
     text-align: center;
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(5, 1fr);
     grid-gap: 1rem;
 }
 .servicio{
@@ -822,7 +822,7 @@ img{
     grid-gap: 0.2rem;
 }
 .habitacion-disponible{
-    width: 9.5rem;
+    width: 8.3rem;
     height: 7.5rem;
     background-color: rgb(18, 170, 43);
     display: flex;
@@ -831,8 +831,6 @@ img{
     justify-content: center;
 }
 .habitacion-disponible:hover{
-    width: 9.5rem;
-    height: 7.5rem;
     background-color: rgb(8, 99, 47);
     display: flex;
     align-items: center;
@@ -841,7 +839,7 @@ img{
     color: #FFF;
 }
 .habitacion-no-disponible{
-    width: 9.5rem;
+    width: 8.3rem;
     height: 7.5rem;
     background-color: rgb(247, 0, 0);
     display: flex;
@@ -1143,6 +1141,8 @@ img{
 .tabla-direcciones td{
     padding: 1rem;
 }
+/* Reservaciones */
+
 /* Responsive Web Desing */
     /* Celulares */
     
