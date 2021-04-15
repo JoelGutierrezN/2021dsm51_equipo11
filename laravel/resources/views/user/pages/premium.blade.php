@@ -10,7 +10,7 @@
                 <div class="texto-naranja-secundario titulo-3">¡Servicios Unicos!</div>
                 @foreach($servicios as $servicio)
                     <div class="servicio-premium">
-                        <img src="..{{$servicio->img}}" alt="service-img">
+                        <img src="{{ route('roomImg', ['filename' => $servicio->img]) }}" alt="service-img">
                         <hr>
                         <div class="text-white titulo-3 fondo-negro">{{ $servicio->name }}</div>
                         <textarea name="resume" id="resume" class="resume-servicio" cols="40" rows="8">{{ $servicio->resume }}</textarea>
